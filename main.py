@@ -11,8 +11,9 @@ See Wikipedia article (https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 
 
+from contextlib import nullcontext
 import math
-
+import numpy as np
 import matplotlib.pyplot as plt
 
 show_animation = True
@@ -95,6 +96,7 @@ class AStarPlanner:
                 key=lambda o: open_set[o].cost + self.calc_heuristic(self, goal_node,
                                                                      open_set[
                                                                          o])) # g(n) and h(n): calculate the distance between the goal node and openset
+            global current # Making current a global variable so we could use it in the trip_cost function. 
             current = open_set[c_id]
 
             # show graph
@@ -270,6 +272,59 @@ class AStarPlanner:
         return motion
 
 
+# Function for calculating the trip cost from avaliable numbers
+def trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost):
+    A321_num_flight = math.ceil(passengers/200)
+    A330_num_flight = math.ceil(passengers/300)
+    A350_num_flight = math.ceil(passengers/350)
+    if time_cost=="low":
+        CT_A321 = 10
+        CT_A330 = 15
+        CT_A350 = 20
+    elif time_cost=="medium":
+        CT_A321 = 15
+        CT_A330 = 21
+        CT_A350 = 27
+    elif time_cost=="high":
+        CT_A321 = 20
+        CT_A330 = 27
+        CT_A350 = 34
+    total_flight = weeks*max_flight
+    if A321_num_flight>total_flight:
+        A321 = "The A321neo aircraft could not fulfill the specified capacity."
+        print (A321)
+    else: 
+        A321 = (fuel_cost*54*current.cost+CT_A321*current.cost+1800)*A321_num_flight
+        print ("The trip cost for using {} flights of A321 is ${:.2f}".format(A321_num_flight, A321))
+    if A330_num_flight>total_flight:
+        A330 = "The A330-900neo aircraft could not fulfill the specified capacity."
+        print (A330)
+    else: 
+        A330 = (fuel_cost*84*current.cost+CT_A330*current.cost+2000)*A330_num_flight
+        print ("The trip cost for using {} flights of A330 is ${:.2f}".format(A330_num_flight, A330))
+    if A350_num_flight>total_flight:
+        A350 = "The A350-900 aircraft could not fulfill the specified capacity."
+        print (A350)
+    else: 
+        A350 = (fuel_cost*90*current.cost+CT_A350*current.cost+2500)*A350_num_flight
+        print ("The trip cost for using {} flights of A350 is ${:.2f}".format(A350_num_flight, A350))
+    comparasion_array = np.array([])
+    if isinstance(A321, float)==True:
+        comparasion_array = np.append(comparasion_array, A321)
+    if isinstance(A330, float)==True:
+        comparasion_array = np.append(comparasion_array, A330)
+    if isinstance(A350, float)==True:
+        comparasion_array = np.append(comparasion_array, A350)
+    lowest_cost = comparasion_array.min()
+    if lowest_cost==A321:
+        print("{} flights of A321 will yield the lowest cost of ${:.2f}".format(A321_num_flight,A321))
+    elif lowest_cost==A330:
+        print("{} flights of A330 will yield the lowest cost of ${:.2f}".format(A330_num_flight,A330))
+    elif lowest_cost==A350:
+        print("{} flights of A350 will yield the lowest cost of ${:.2f}".format(A350_num_flight,A350))
+
+
+
 def main():
     print(__file__ + " start the A star algorithm demo !!") # print simple notes
 
@@ -341,7 +396,18 @@ def main():
         plt.plot(rx, ry, "-r") # show the route 
         plt.pause(0.001) # pause 0.001 seconds
         plt.show() # show the plot
+    
+    # Finding the optimal flight for scenario 1
+    print ("Scenario 1:")
+    trip_cost (3000, 1, 12, "medium", 0.76)
 
+    # Finding the optimal flight for scenario 2
+    print ("Scenario 2:")
+    trip_cost(1250, 4, 5, "high", 0.88)
+
+    # Finding the optimal flight for scenario 3
+    print ("Scenario 3:")
+    trip_cost(2500, 1, 25, "low", 0.95)
 
 if __name__ == '__main__':
     main()

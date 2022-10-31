@@ -7,8 +7,6 @@ author: Atsushi Sakai(@Atsushi_twi)
 
 See Wikipedia article (https://en.wikipedia.org/wiki/A*_search_algorithm)
 
-This is the simple code for path planning class
-
 """
 
 
@@ -283,29 +281,7 @@ def main():
     grid_size = 1  # [m]
     robot_radius = 1.0  # [m]
 
-    # set obstacle positions for group 8
-    # ox, oy = [], []
-    # for i in range(-10, 60): # draw the button border 
-    #     ox.append(i)
-    #     oy.append(-10.0)
-    # for i in range(-10, 60):
-    #     ox.append(60.0)
-    #     oy.append(i)
-    # for i in range(-10, 61):
-    #     ox.append(i)
-    #     oy.append(60.0)
-    # for i in range(-10, 61):
-    #     ox.append(-10.0)
-    #     oy.append(i)
-    # for i in range(-10, 40):
-    #     ox.append(20.0)
-    #     oy.append(i)
-    # for i in range(0, 40):
-    #     ox.append(40.0)
-    #     oy.append(60.0 - i)
-
-
-    # set obstacle positions for group 9
+    # Set Obstacle Positions for Group 12
     ox, oy = [], []
     for i in range(-10, 60): # draw the button border 
         ox.append(i)
@@ -332,19 +308,14 @@ def main():
         ox.append(i)
         oy.append(2/3 * i + 15)
 
-    # for i in range(40, 45): # draw the button border 
-    #     ox.append(i)
-    #     oy.append(30.0)
-
-
-    # set cost intesive area 1
+    # set cost intesive area 1 (time-consuming area)
     tc_x, tc_y = [], []
     for i in range(20, 30):
         for j in range(30, 40):
             tc_x.append(i)
             tc_y.append(j)
     
-    # set cost intesive area 2
+    # set cost intesive area 2 (fuel-consuming area)
     fc_x, fc_y = [], []
     for i in range(10, 30):
         for j in range(50, 60):

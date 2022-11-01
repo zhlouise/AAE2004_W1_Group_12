@@ -9,8 +9,8 @@
   <li><a href="# Task 1 - Scenarios ">Task 1 - Scenarios</a></li>
   <li><a href="# Task 2.1 - Designing New Cost Area ">Task 2.1 - Designing New Cost Area</a></li>
   <li><a href="# Task 2.2 - Designing New Cost Area ">Task 2.2 - Designing New Cost Area</a></li>
-  <li><a href="# Task 3 Designing an Aircraft">Task 3 Designing an Aircraft</a></li>
-  <li><a href="# Task 4 ">Task 4</a></li>
+  <li><a href="# Task 3 - Designing an Aircraft">Task 3 - Designing an Aircraft</a></li>
+  <li><a href="# Task 4 - ">Task 4 - </a></li>
   <li><a href="# Reflective Essay ">Reflective Essay</a></li>
   <li><a href="# References ">References</a></li>
  </details>
@@ -154,7 +154,7 @@ Engine count: 2
 
 
 
-## Task 4
+## Task 4 -
 
 ### a. Methodology
 

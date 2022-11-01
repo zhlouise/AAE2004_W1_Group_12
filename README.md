@@ -6,6 +6,7 @@
   <li><a href="# Scenario ">Scenario</a></li>
   <li><a href="# Task1 - Scenarios ">Task1 - Scenarios</a></li>
   <li><a href="# Task2 - Designing New Cost Area">Task2 - Designing New Cost Area</a></li>
+  <li><a href="# Task3 - Designing an Aircraft">Task3 - Designing an Aircraft</a><li>
 
  </details>
     
@@ -44,3 +45,11 @@ The below image show the current scenario for our group.
 <img width="471" alt="Screen Shot 2022-10-31 at 10 49 42 PM" src="https://user-images.githubusercontent.com/116058486/199039639-1bf8a4bb-46f9-4548-9d44-f178ade9a0cf.png">
 
 # Task2 - Designing New Cost Area
+
+# Task3 - Designing an Aircraft
+
+**The following show the result of the most optimal aircraft in Task3**
+<img width="402" alt="Screen Shot 2022-11-01 at 2 07 35 PM" src="https://user-images.githubusercontent.com/116058486/199170135-491c569d-556e-470c-86ff-af11c41eab32.png">
+Name for aircraft: 
+Passenger capacity: 
+Engine count:

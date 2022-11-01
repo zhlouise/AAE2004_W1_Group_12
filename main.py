@@ -21,7 +21,7 @@ show_animation = True
 
 class AStarPlanner:
 
-    def __init__(self, ox, oy, resolution, rr, fc_x, fc_y, tc_x, tc_y):
+    def __init__(self, ox, oy, resolution, rr, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y):
         """
         Initialize grid map for a star planning
 
@@ -44,10 +44,13 @@ class AStarPlanner:
         self.fc_y = fc_y
         self.tc_x = tc_x
         self.tc_y = tc_y
-        
+        self.jc_x = jc_x
+        self.jc_y = jc_y
+
 
         self.Delta_C1 = 0.2 # cost intensive area 1 modifier
         self.Delta_C2 = 0.4 # cost intensive area 2 modifier
+        self.Delta_C3 = -0.05 # jet stream area 3 modifier
 
         self.costPerGrid = 1 
 
@@ -142,6 +145,12 @@ class AStarPlanner:
                     if self.calc_grid_position(node.y, self.min_y) in self.fc_y:
                         # print("cost intensive area!!")
                         node.cost = node.cost + self.Delta_C2 * self.motion[i][2]
+
+                # add more cost in jet stream area 2
+                if self.calc_grid_position(node.x, self.min_x) in self.jc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.jc_y:
+                        # print("cost intensive area!!")
+                        node.cost = node.cost + self.Delta_C3 * self.motion[i][2]
                     # print()
                 
                 n_id = self.calc_grid_index(node)
@@ -352,8 +361,6 @@ def optimal_cost():
     else:
         engine_count = 2
     print("The optimal passenger capacity for scenario 1 is {}. There are {} engines on the aircraft. This yields in a minimal cost of {:.2f}". format(capacity, engine_count, cost))
-    
-
 
 
 def main():
@@ -408,6 +415,13 @@ def main():
             fc_x.append(i)
             fc_y.append(j)
 
+    # set jet stream area 3 (fuel-conserving area)
+    jc_x, jc_y = [], []
+    for i in range(-10, 60):
+        for j in range(27, 32):
+            jc_x.append(i)
+            jc_y.append(j)        
+
 
     if show_animation:  # pragma: no cover
         plt.plot(ox, oy, ".k") # plot the obstacle
@@ -416,11 +430,12 @@ def main():
         
         plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
         plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
+        plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
 
         plt.grid(True) # plot the grid to the plot panel
         plt.axis("equal") # set the same resolution for x and y axis 
 
-    a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y)
+    a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
     rx, ry = a_star.planning(sx, sy, gx, gy)
 
     if show_animation:  # pragma: no cover
@@ -439,7 +454,7 @@ def main():
     # Finding the optimal flight for scenario 3
     print ("Scenario 3:")
     trip_cost(2500, 1, 25, "low", 0.95)
-
+    
     optimal_cost()
 
 if __name__ == '__main__':

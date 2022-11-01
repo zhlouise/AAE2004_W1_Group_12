@@ -49,7 +49,8 @@ The below image show the current scenario for our group.
 # Task3 - Designing an Aircraft
 
 **The following show the result of the most optimal aircraft in Task3**
-<img width="402" alt="Screen Shot 2022-11-01 at 2 07 35 PM" src="https://user-images.githubusercontent.com/116058486/199170135-491c569d-556e-470c-86ff-af11c41eab32.png">
+<img width="921" alt="Screen Shot 2022-11-01 at 3 04 15 PM" src="https://user-images.githubusercontent.com/116058486/199177844-6e93ad22-82c4-416b-975f-d372184bb5e5.png">
+
 Name for aircraft: 
-Passenger capacity: 
-Engine count:
+Passenger capacity: 250
+Engine count: 2

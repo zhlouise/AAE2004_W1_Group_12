@@ -350,9 +350,11 @@ def aircraft_cost(capacity):
 
 # Function for finding the optimal cost and returning the optimal capacity and engine count
 def optimal_cost():
-    cost = aircraft_cost(100)
-    capacity = 100
+    cost = aircraft_cost(451)
+    capacity = 400
     for i in range (100, 451):
+        if i*12<3000:
+            continue
         if aircraft_cost(i)<cost:
             capacity = i
             cost = aircraft_cost(i)
@@ -360,7 +362,7 @@ def optimal_cost():
         engine_count = 4
     else:
         engine_count = 2
-    print("The optimal passenger capacity for scenario 1 is {}. There are {} engines on the aircraft. This yields in a minimal cost of {:.2f}". format(capacity, engine_count, cost))
+    print("The optimal passenger capacity for scenario 1 is {}. There are {} engines on the aircraft. This yields in a minimal operating cost of ${:.2f} per flight.". format(capacity, engine_count, cost))
 
 
 def main():

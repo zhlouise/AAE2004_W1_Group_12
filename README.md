@@ -4,8 +4,8 @@
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <li><a href="# Scenario ">Scenario</a></li>
-  <li><a href="# Result for Task1 ">Result for Task1</a></li>
-  <li><a href="# Result for Task2 ">Result for Task2</a></li>
+  <li><a href="# Task1 - Scenarios ">Task1 - Scenarios</a></li>
+  <li><a href="# Task2 - Designing New Cost Area">Task2 - Designing New Cost Area</a></li>
 
  </details>
     
@@ -19,7 +19,7 @@ This is the current scenario for our group:
 <img width="1216" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
 
 
-# Result for Task1
+# Task1 - Scenarios
 
 **Scenario 1**
 1. 3000 Passengers need to travel within this week from the start to the destination
@@ -38,8 +38,8 @@ This is the current scenario for our group:
 
 
 
-**The following show the result of different scenario in Task1**
+**The following show the result of different scenarios in Task1**
 
 <img width="471" alt="Screen Shot 2022-10-31 at 10 49 42 PM" src="https://user-images.githubusercontent.com/116058486/199039639-1bf8a4bb-46f9-4548-9d44-f178ade9a0cf.png">
 
-# Result for Task2
+# Task2 - Designing New Cost Area

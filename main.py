@@ -324,6 +324,37 @@ def trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost):
         print("{} flights of A350 will yield the lowest cost of ${:.2f}".format(A350_num_flight,A350))
 
 
+# Function for calculating aircraft cost for scenario 1
+def aircraft_cost(capacity):
+    T_best = current.cost
+    if capacity >= 300:
+        Cc = 2500
+        delta_F = 20*4
+    else:
+        Cc = 2000
+        delta_F = 20*2
+    CF = 882.30/1000  # Fuel cost in $/kg
+    CT = 12 + math.floor(capacity/50)*2
+    C = CF * delta_F * T_best + CT * T_best + Cc
+    return C
+
+
+# Function for finding the optimal cost and returning the optimal capacity and engine count
+def optimal_cost():
+    cost = aircraft_cost(100)
+    capacity = 100
+    for i in range (100, 451):
+        if aircraft_cost(i)<cost:
+            capacity = i
+            cost = aircraft_cost(i)
+    if capacity >= 300:
+        engine_count = 4
+    else:
+        engine_count = 2
+    print("The optimal passenger capacity for scenario 1 is {}. There are {} engines on the aircraft. This yields in a minimal cost of {:.2f}". format(capacity, engine_count, cost))
+    
+
+
 
 def main():
     print(__file__ + " start the A star algorithm demo !!") # print simple notes
@@ -408,6 +439,8 @@ def main():
     # Finding the optimal flight for scenario 3
     print ("Scenario 3:")
     trip_cost(2500, 1, 25, "low", 0.95)
+
+    optimal_cost()
 
 if __name__ == '__main__':
     main()

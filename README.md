@@ -55,24 +55,15 @@
 
 
 
-
-
-# Scenario
-  
-The below image show the current scenario for our group.
-
-<img width="1216" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
-
-
-
-
-
-
-
+<!--Task 1 - Scenarios-->
 
 ## Task 1 - Scenarios
 
 ### a. Methodology
+
+The below image show the current scenario for our group.
+
+<img width="1216" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
 
 **Scenario 1**
 1. 3000 Passengers need to travel within this week from the start to the destination
@@ -106,6 +97,9 @@ The below image show the current scenario for our group.
 
 
 
+<!--Task 2.1 - Designing New Cost Area-->
+
+
 
 ## Task 2.1 - Designing New Cost Area
 
@@ -131,7 +125,7 @@ The below image show the current scenario for our group.
 
 
 
-
+<!--Task3 - Designing an Aircraft-->
 
 
 ## Task3 - Designing an Aircraft
@@ -152,6 +146,11 @@ Engine count: 2
 
 
 
+
+
+
+
+<!--Task 4 -->
 
 
 ## Task 4 -

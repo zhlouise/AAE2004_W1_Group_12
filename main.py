@@ -389,7 +389,7 @@ def main():
     # set jet stream area 3 (fuel-conserving area)
     jc_x, jc_y = [], []
     for i in range(-10, 60):
-        for j in range(24, 29):
+        for j in range(27, 32):
             jc_x.append(i)
             jc_y.append(j)        
 

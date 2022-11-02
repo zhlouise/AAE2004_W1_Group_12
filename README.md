@@ -23,19 +23,18 @@
 
 <!--Background of Path Planning to Aviation Engineering-->
 
-## Theory of Path Planning Algorithm
-
-
-
-
-
-
-
-
-<!--Background of Path Planning to Aviation Engineering-->
-
 ## Background of Path Planning to Aviation Engineering
 
+
+
+
+
+
+
+
+<!--Theory of Path Planning Algorithm-->
+
+## Theory of Path Planning Algorithm
 
 
 

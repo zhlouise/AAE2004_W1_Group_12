@@ -13,10 +13,6 @@
   <li><a href="# Task 4 - ">Task 4 - </a></li>
   <li><a href="# Reflective Essay ">Reflective Essay</a></li>
   <li><a href="# References ">References</a></li>
-  <li><a href="# Scenario ">Scenario</a></li>
-  <li><a href="# Task1 - Scenarios ">Task1 - Scenarios</a></li>
-  <li><a href="# Task2 - Designing New Cost Area">Task2 - Designing New Cost Area</a></li>
-  <li><a href="# Task3 - Designing an Aircraft">Task3 - Designing an Aircraft</a><li>
  </details>
     
                
@@ -27,19 +23,18 @@
 
 <!--Background of Path Planning to Aviation Engineering-->
 
-## Theory of Path Planning Algorithm
-
-
-
-
-
-
-
-
-<!--Background of Path Planning to Aviation Engineering-->
-
 ## Background of Path Planning to Aviation Engineering
 
+
+
+
+
+
+
+
+<!--Theory of Path Planning Algorithm-->
+
+## Theory of Path Planning Algorithm
 
 
 
@@ -102,7 +97,7 @@ The below image show the current scenario for our group.
 
 
 
-<!--Task 2.1 - Designing New Cost Area-->
+<!--Task 2 - Designing New Cost Area-->
 
 
 
@@ -130,6 +125,11 @@ The below image show the current scenario for our group.
 
 
 
+
+
+
+
+
 <!--Task3 - Designing an Aircraft-->
 
 
@@ -139,10 +139,7 @@ The below image show the current scenario for our group.
 
 ### b. Results
 
-# Task2 - Designing New Cost Area
-
-# Task3 - Designing an Aircraft
-
+### c. Discussion
 
 **The following show the result of the most optimal aircraft in Task3**
 <img width="921" alt="Screen Shot 2022-11-01 at 3 04 15 PM" src="https://user-images.githubusercontent.com/116058486/199177844-6e93ad22-82c4-416b-975f-d372184bb5e5.png">
@@ -150,9 +147,6 @@ The below image show the current scenario for our group.
 Name for aircraft: 
 Passenger capacity: 250
 Engine count: 2
-
-
-### c. Discussion
 
 
 

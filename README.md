@@ -34,7 +34,7 @@
 
 ## Theory of Path Planning Algorithm
 
-
+The path-planning technique relies on an effective algorithm for continuous collision detection and employs a novel multiobjective parallel evolutionary algorithm to build optimized paths for lifting the objects.
 
 
 

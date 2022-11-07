@@ -146,10 +146,9 @@ class AStarPlanner:
                         # print("cost intensive area!!")
                         node.cost = node.cost + self.Delta_C2 * self.motion[i][2]
 
-                # add more cost in jet stream area 2
+                # reduce cost in jet stream area 2
                 if self.calc_grid_position(node.x, self.min_x) in self.jc_x:
                     if self.calc_grid_position(node.y, self.min_y) in self.jc_y:
-                        # print("cost intensive area!!")
                         node.cost = node.cost + self.Delta_C3 * self.motion[i][2]
                     # print()
                 

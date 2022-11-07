@@ -36,6 +36,15 @@
 
 The path-planning technique relies on an effective algorithm for continuous collision detection and employs a novel multiobjective parallel evolutionary algorithm to build optimized paths for lifting the objects.
 
+### Path planning techniques include two major types of algorithms
+
+**Grid-based search algorithms** 
+
+Locate a path in a grid-map using the least amount of travel time. They can be applied to projects like mobile robots operating in a two-dimensional space. However, when the number of dimensions increases, such as for a 6 DOF robot manipulator, so does the memory requirement to perform grid-based algorithms.
+
+**Sampling-based search algorithms**
+
+By randomly selecting additional nodes or robot configurations in a state space, you can construct a searchable tree. Sampling-based algorithms can be used in search spaces with low or high dimensions.
 
 
 <!--Introduction of the Engineering Tools-->

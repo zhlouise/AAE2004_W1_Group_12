@@ -1,6 +1,7 @@
 # AAE2004_W1_Group_12
 
 <!-- Table of Content-->
+
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
   <li><a href="#Background of Path Planning to Aviation Engineering ">Background of Path Planning to Aviation Engineering</a></li>
@@ -16,11 +17,8 @@
  </details>
     
                
-
-
-
-
-
+               
+               
 <!--Background of Path Planning to Aviation Engineering-->
 
 ## Background of Path Planning to Aviation Engineering
@@ -99,8 +97,6 @@ The below image show the current scenario for our group.
 
 <!--Task 2 - Designing New Cost Area-->
 
-
-
 ## Task 2.1 - Designing New Cost Area
 
 ### a. Methodology
@@ -132,7 +128,6 @@ The below image show the current scenario for our group.
 
 <!--Task3 - Designing an Aircraft-->
 
-
 ## Task3 - Designing an Aircraft
 
 ### a. Methodology
@@ -156,7 +151,6 @@ Engine count: 2
 
 
 <!--Task 4 -->
-
 
 ## Task 4 -
 

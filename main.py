@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Nov  8 13:41:31 2022
+
+@author: zhouchuandi
+"""
+
 """
 
 A* grid planning
@@ -112,6 +120,90 @@ class AStarPlanner:
                                                  0) if event.key == 'escape' else None])
                 if len(closed_set.keys()) % 10 == 0:
                     plt.pause(0.001)
+
+            # reaching goal
+            if current.x == goal_node.x and current.y == goal_node.y:
+                print("Total Trip time required -> ",current.cost )
+                goal_node.parent_index = current.parent_index
+                goal_node.cost = current.cost
+                break
+
+            # Remove the item from the open set
+            del open_set[c_id]
+
+            # Add it to the closed set
+            closed_set[c_id] = current
+
+            # print(len(closed_set))
+
+            # expand_grid search grid based on motion model
+            for i, _ in enumerate(self.motion): # tranverse the motion matrix
+                node = self.Node(current.x + self.motion[i][0],
+                                 current.y + self.motion[i][1],
+                                 current.cost + self.motion[i][2] * self.costPerGrid, c_id)
+                
+                ## add more cost in cost intensive area 1
+                if self.calc_grid_position(node.x, self.min_x) in self.tc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.tc_y:
+                        # print("cost intensive area!!")
+                        node.cost = node.cost + self.Delta_C1 * self.motion[i][2]
+                
+                # add more cost in cost intensive area 2
+                if self.calc_grid_position(node.x, self.min_x) in self.fc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.fc_y:
+                        # print("cost intensive area!!")
+                        node.cost = node.cost + self.Delta_C2 * self.motion[i][2]
+
+                # reduce cost in jet stream area 2
+                if self.calc_grid_position(node.x, self.min_x) in self.jc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.jc_y:
+                        node.cost = node.cost + self.Delta_C3 * self.motion[i][2]
+                    # print()
+                
+                n_id = self.calc_grid_index(node)
+
+                # If the node is not safe, do nothing
+                if not self.verify_node(node):
+                    continue
+
+                if n_id in closed_set:
+                    continue
+
+                if n_id not in open_set:
+                    open_set[n_id] = node  # discovered a new node
+                else:
+                    if open_set[n_id].cost > node.cost:
+                        # This path is the best until now. record it
+                        open_set[n_id] = node
+
+        rx, ry = self.calc_final_path(goal_node, closed_set)
+        # print(len(closed_set))
+        # print(len(open_set))
+
+        return rx, ry
+    
+    def planning1(self, sx, sy, gx, gy):
+
+        start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
+                               self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
+        goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
+                              self.calc_xy_index(gy, self.min_y), 0.0, -1)
+
+        open_set, closed_set = dict(), dict() # open_set: node not been tranversed yet. closed_set: node have been tranversed already
+        open_set[self.calc_grid_index(start_node)] = start_node # node index is the grid index
+
+        while 1:
+            if len(open_set) == 0:
+                print("Open set is empty..")
+                break
+
+            c_id = min(
+                open_set,
+                key=lambda o: open_set[o].cost + self.calc_heuristic(self, goal_node,
+                                                                     open_set[
+                                                                         o])) # g(n) and h(n): calculate the distance between the goal node and openset
+            global current # Making current a global variable so we could use it in the trip_cost function. 
+            current = open_set[c_id]
 
             # reaching goal
             if current.x == goal_node.x and current.y == goal_node.y:
@@ -341,7 +433,7 @@ def aircraft_cost(capacity):
     else:
         Cc = 2000
         delta_F = 20*2
-    CF = 882.30/1000  # Fuel cost in $/kg
+    CF = 882.30/1000  # Fuel cost in $/kg (Jet Fuel Price - First Line)
     CT = 12 + math.floor(capacity/50)*2
     C = CF * delta_F * T_best + CT * T_best + Cc
     return C
@@ -362,6 +454,28 @@ def optimal_cost():
     else:
         engine_count = 2
     print("The optimal passenger capacity for scenario 1 is {}. There are {} engines on the aircraft. This yields in a minimal operating cost of ${:.2f} per flight.". format(capacity, engine_count, cost))
+
+    
+def jetstream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy):
+    comparasion_dict = {}
+    for k in range(-10, 61):
+        jc_x, jc_y = [], []
+        for i in range(-10, 60):
+            for j in range(k, k+5):
+                jc_x.append(i)
+                jc_y.append(j)
+        a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
+        rx, ry = a_star.planning1(sx, sy, gx, gy)
+        comparasion_dict[k] = [current.cost]
+    ymin = min(comparasion_dict.keys(), key=(lambda k: comparasion_dict[k]))
+    ymax = ymin + 5
+   # set jet stream area 3 (fuel-conserving area)
+    jc_x, jc_y = [], []
+    for i in range(-10, 60):
+        for j in range(ymin, ymax):
+            jc_x.append(i)
+            jc_y.append(j)
+    return jc_x, jc_y, ymin, ymax
 
 
 def main():
@@ -416,14 +530,8 @@ def main():
             fc_x.append(i)
             fc_y.append(j)
 
-    # set jet stream area 3 (fuel-conserving area)
-    jc_x, jc_y = [], []
-    for i in range(-10, 60):
-        for j in range(27, 32):
-            jc_x.append(i)
-            jc_y.append(j)        
-
-
+    jc_x, jc_y, ymin, ymax = jetstream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy)
+    
     if show_animation:  # pragma: no cover
         plt.plot(ox, oy, ".k") # plot the obstacle
         plt.plot(sx, sy, "og") # plot the start position 
@@ -435,7 +543,8 @@ def main():
 
         plt.grid(True) # plot the grid to the plot panel
         plt.axis("equal") # set the same resolution for x and y axis 
-
+    
+    print("The results of the compulsory tasks start here:")
     a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
     rx, ry = a_star.planning(sx, sy, gx, gy)
 
@@ -443,7 +552,7 @@ def main():
         plt.plot(rx, ry, "-r") # show the route 
         plt.pause(0.001) # pause 0.001 seconds
         plt.show() # show the plot
-    
+    print("Task 1 Results:")
     # Finding the optimal flight for scenario 1
     print ("Scenario 1:")
     trip_cost (3000, 1, 12, "medium", 0.76)
@@ -456,6 +565,10 @@ def main():
     print ("Scenario 3:")
     trip_cost(2500, 1, 25, "low", 0.95)
     
+    print("Task 2 Results:")
+    print("The optimal jet-stream ranges from y={} to y={}".format(ymin, ymax))
+    
+    print("Task 3 Results:")
     optimal_cost()
 
 if __name__ == '__main__':

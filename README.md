@@ -181,7 +181,7 @@ Engine count: 2
 
 ### d. Member 4 - Samuel Yau
 
-### e. Member 5 - Aidan
+### e. Member 5 - Aidan (yhpAidan)
 
 ### f. Member 6 - Angela
 

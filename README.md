@@ -3,16 +3,16 @@
 <!-- Table of Content-->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <li><a href="# Background of Path Planning to Aviation Engineering ">Background of Path Planning to Aviation Engineering</a></li>
-  <li><a href="# Theory of Path Planning Algorithm ">Theory of Path Planning Algorithm</a></li>
-  <li><a href="# Introduction of the Engineering Tools ">Introduction of the Engineering Tools</a></li>
-  <li><a href="# Task 1 - Scenarios ">Task 1 - Scenarios</a></li>
-  <li><a href="# Task 2.1 - Designing New Cost Area ">Task 2.1 - Designing New Cost Area</a></li>
-  <li><a href="# Task 2.2 - Designing New Cost Area ">Task 2.2 - Designing New Cost Area</a></li>
-  <li><a href="# Task 3 - Designing an Aircraft">Task 3 - Designing an Aircraft</a></li>
-  <li><a href="# Task 4 - ">Task 4 - </a></li>
-  <li><a href="# Reflective Essay ">Reflective Essay</a></li>
-  <li><a href="# References ">References</a></li>
+  <li><a href="#Background-of-Path-Planning-to-Aviation-Engineering">Background of Path Planning to Aviation Engineering</a></li>
+  <li><a href="#Theory-of-Path-Planning-Algorithm">Theory of Path Planning Algorithm</a></li>
+  <li><a href="#Introduction-of-the-Engineering-Tools">Introduction of the Engineering Tools</a></li>
+  <li><a href="#Task-1 - Scenarios">Task 1 - Scenarios</a></li>
+  <li><a href="#Task-2.1 - Designing New Cost Area">Task 2.1 - Designing New Cost Area</a></li>
+  <li><a href="#Task-2.2 - Designing New Cost Area">Task 2.2 - Designing New Cost Area</a></li>
+  <li><a href="#Task-3 - Designing an Aircraft">Task 3 - Designing an Aircraft</a></li>
+  <li><a href="#Task-4 -">Task 4 - </a></li>
+  <li><a href="#Reflective-Essay">Reflective Essay</a></li>
+  <li><a href="#References">References</a></li>
  </details>
     
                

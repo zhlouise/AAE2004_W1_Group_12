@@ -173,19 +173,19 @@ Engine count: 2
 
 ## Reflective Essay
 
-### a. Member 1 - Louise Zhou
+### a. Member 1 - Louise Zhou (zhlouise)
 
-### b. Member 2 - Rainy Yuen
+### b. Member 2 - Rainy Yuen (itsssraining)
 
-### c. Member 3 - Anson Wong
+### c. Member 3 - Anson Wong (Ansonwong88)
 
 ### d. Member 4 - Samuel Yau
 
-### e. Member 5 - Aidan (yhpAidan)
+### e. Member 5 - Aidan Yau (yhpAidan)
 
-### f. Member 6 - Angela
+### f. Member 6 - Angela Xu
 
-### g. Member 7 - Mark
+### g. Member 7 - Mark Yao
 
 ### h. Member 8 - YU Haoyang (YU-Haoyang22101598d)
 

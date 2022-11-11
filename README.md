@@ -173,7 +173,7 @@ Engine count: 2
 
 ## Reflective Essay
 
-### a. Member 1 - Louise Zhou (zhlouise)
+### a. Member 1 - Louise Zhou (zhlouise 22099961d)
 
 ### b. Member 2 - Rainy Yuen (itsssraining)
 

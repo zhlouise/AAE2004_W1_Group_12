@@ -1,3 +1,7 @@
+# For the purpose of finding the run-time: 
+import time
+start_time = time.time()
+
 """
 
 A* grid planning
@@ -241,13 +245,13 @@ class AStarPlanner:
                     if self.calc_grid_position(node.y, self.min_y) in self.fc_y:
                         # print("cost intensive area!!")
                         node.cost = node.cost + self.Delta_C2 * self.motion[i][2]
-
+                '''
                 # reduce cost in jet stream area 2
                 if self.calc_grid_position(node.x, self.min_x) in self.jc_x:
                     if self.calc_grid_position(node.y, self.min_y) in self.jc_y:
                         node.cost = node.cost + self.Delta_C3 * self.motion[i][2]
                     # print()
-                
+                '''
                 n_id = self.calc_grid_index(node)
 
                 # If the node is not safe, do nothing
@@ -496,6 +500,25 @@ def jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, 
     
     return jc_x, jc_y, ymin, ymax
 
+# (Task 2) Optimized code for less run time
+def optimized_jet_stream(rx, ry):
+    comparasion_dict = {}
+    
+    for k in range (min(ry),max(ry)-4):
+        comparasion_dict[k] = sum(i>=k and i<= k+5 for i in ry)
+
+    ymin = max(comparasion_dict.keys(), key=(lambda k: comparasion_dict[k]))
+    ymax = ymin + 5
+
+    # set jet stream area 3 (fuel-conserving area)
+    jc_x, jc_y = [], []
+    for i in range(-10, 60):
+        for j in range(ymin, ymax):
+            jc_x.append(i)
+            jc_y.append(j)
+    
+    return jc_x, jc_y, ymin, ymax
+
 
 # (Task 3) Function that calculates and returns the cost per flight according to scenario 1 and the first line in the fuel cost table, given the aircraft's capacity
 def aircraft_cost(capacity):
@@ -525,10 +548,14 @@ def aircraft_cost(capacity):
 # (Task 3) Function for finding the minimum cost per flight; printing out the result for the optimal aircraft capacity and engine count
 def optimal_cost():
     
+    # The code before:
+    '''
     # The cost for having the maximum amount of capacity alotted on an aircraft (we stored it here so that the following calculation costs could have a starting value to compare with)
     cost = aircraft_cost(450) 
     
+    
     # Running every possible capacity and calculating its cost
+    
     for c in range (100, 451):
         # If the capacity does not meet the capacity reqirement, skip the calcuation for its cost
         if c*12<3000:
@@ -537,7 +564,22 @@ def optimal_cost():
         if aircraft_cost(c)<cost:
             capacity = c
             cost = aircraft_cost(c)
+    '''
+
+    # The code after (using python built-in functions is faster than looping though comparasions):
+    # Create an empty dictionary that will be used to store all the possible costs for each iteration runned.
+    comparasion_dict = {}
+    for c in range (100,451):
+        # If the capacity does not meet the capacity reqirement, skip the calcuation for its cost
+        if c*12<3000:
+            continue
+        else: 
+            # Storing the current cost for this iteration to the comparasion dictionary
+            comparasion_dict[c]=aircraft_cost(c)
     
+    capacity = min(comparasion_dict)
+    cost = comparasion_dict[capacity]
+
     # Finding the amount of engines needed for the optimal capacity
     if capacity >= 300:
         engine_count = 4
@@ -603,8 +645,12 @@ def main():
             fc_y.append(j)
 
     # Setting the most optimal jet stream area
-    jc_x, jc_y, ymin, ymax = jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy)
+    #jc_x, jc_y, ymin, ymax = jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy)
     
+    a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, 0, 0)
+    rx, ry = a_star.planning_no_animation(sx, sy, gx, gy)
+    jc_x, jc_y, ymin, ymax = optimized_jet_stream(rx, ry)
+
     # Plotting the opstacles, positions, areas, axes, and grids
     if show_animation:  # pragma: no cover
         plt.plot(ox, oy, ".k") # plot the obstacle
@@ -647,5 +693,10 @@ def main():
     print("Task 3 Results:")
     optimal_cost()
 
+
 if __name__ == '__main__':
     main()
+
+
+# For the purpose of finding the total run time: 
+print("Program execution time: " , time.time()-start_time)

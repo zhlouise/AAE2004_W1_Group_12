@@ -1,3 +1,8 @@
+# For the purpose of finding the run-time: 
+import time
+start_time = time.time()
+
+
 """
 
 A* grid planning
@@ -647,5 +652,10 @@ def main():
     print("Task 3 Results:")
     optimal_cost()
 
+
 if __name__ == '__main__':
     main()
+
+
+# For the purpose of finding the total run time: 
+print("Program execution time: " , time.time()-start_time)

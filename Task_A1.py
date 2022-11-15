@@ -1,14 +1,10 @@
 """
-A* grid planning
-author: Atsushi Sakai(@Atsushi_twi)
-        Nikos Kanargias (nkana@tee.gr)
-See Wikipedia article (https://en.wikipedia.org/wiki/A*_search_algorithm)
-"""
 
 
 
 import math
-
+import numpy as np
+from random import random
 import matplotlib.pyplot as plt
 
 show_animation = True
@@ -56,7 +52,7 @@ class AStarPlanner:
             return str(self.x) + "," + str(self.y) + "," + str(
                 self.cost) + "," + str(self.parent_index)
 
-    def planning(self, sx, sy, gx, gy):
+    def planning(self, sx, sy,c1x,c1y,c2x,c2y, gx, gy):
         """
         A star path search
         input:
@@ -71,6 +67,186 @@ class AStarPlanner:
 
         start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
                                self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
+        goal_node = self.Node(self.calc_xy_index(c1x, self.min_x), # calculate the index based on given position
+                              self.calc_xy_index(c2y, self.min_y), 0.0, -1)
+
+        open_set, closed_set = dict(), dict() # open_set: node not been tranversed yet. closed_set: node have been tranversed already
+        open_set[self.calc_grid_index(start_node)] = start_node # node index is the grid index
+
+        while 1:
+            if len(open_set) == 0:
+                print("Open set is empty..")
+                break
+
+            c_id = min(
+                open_set,
+                key=lambda o: open_set[o].cost + self.calc_heuristic(self, goal_node,
+                                                                     open_set[
+                                                                         o])) # g(n) and h(n): calculate the distance between the goal node and openset
+            current = open_set[c_id]
+
+            # show graph
+            if show_animation:  # pragma: no cover
+                plt.plot(self.calc_grid_position(current.x, self.min_x),
+                         self.calc_grid_position(current.y, self.min_y), "xc")
+                # for stopping simulation with the esc key.
+                plt.gcf().canvas.mpl_connect('key_release_event',
+                                             lambda event: [exit(
+                                                 0) if event.key == 'escape' else None])
+                if len(closed_set.keys()) % 10 == 0:
+                    plt.pause(0.001)
+
+            # reaching goal
+            if current.x == goal_node.x and current.y == goal_node.y:
+                print("Total Trip time required -> ",current.cost )
+                goal_node.parent_index = current.parent_index
+                goal_node.cost = current.cost
+                break
+                
+                # Remove the item from the open set
+            del open_set[c_id]
+
+            # Add it to the closed set
+            closed_set[c_id] = current
+
+            # print(len(closed_set))
+
+            # expand_grid search grid based on motion model
+            for i, _ in enumerate(self.motion): # tranverse the motion matrix
+                node = self.Node(current.x + self.motion[i][0],
+                                 current.y + self.motion[i][1],
+                                 current.cost + self.motion[i][2] * self.costPerGrid, c_id)
+                
+                ## add more cost in cost intensive area 1
+                if self.calc_grid_position(node.x, self.min_x) in self.tc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.tc_y:
+                        # print("cost intensive area!!")
+                        node.cost = node.cost + self.Delta_C1 * self.motion[i][2]
+                
+                # add more cost in cost intensive area 2
+                if self.calc_grid_position(node.x, self.min_x) in self.fc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.fc_y:
+                        # print("cost intensive area!!")
+                        node.cost = node.cost + self.Delta_C2 * self.motion[i][2]
+                    # print()
+                
+                n_id = self.calc_grid_index(node)
+
+                # If the node is not safe, do nothing
+                if not self.verify_node(node):
+                    continue
+
+                if n_id in closed_set:
+                    continue
+
+                if n_id not in open_set:
+                    open_set[n_id] = node  # discovered a new node
+                else:
+                    if open_set[n_id].cost > node.cost:
+                        # This path is the best until now. record it
+                        open_set[n_id] = node
+
+        rx, ry = self.calc_final_path(goal_node, closed_set)
+        # print(len(closed_set))
+        # print(len(open_set))
+        
+        
+
+    ############    
+        start_node = self.Node(self.calc_xy_index(c1x, self.min_x), # calculate the index based on given position
+                               self.calc_xy_index(c1y, self.min_y), 0.0, -1) # set cost zero, set parent index -1
+        goal_node = self.Node(self.calc_xy_index(c2x, self.min_x), # calculate the index based on given position
+                              self.calc_xy_index(c2y, self.min_y), 0.0, -1)
+
+        open_set, closed_set = dict(), dict() # open_set: node not been tranversed yet. closed_set: node have been tranversed already
+        open_set[self.calc_grid_index(start_node)] = start_node # node index is the grid index
+
+        while 1:
+            if len(open_set) == 0:
+                print("Open set is empty..")
+                break
+
+            c_id = min(
+                open_set,
+                key=lambda o: open_set[o].cost + self.calc_heuristic(self, goal_node,
+                                                                     open_set[
+                                                                         o])) # g(n) and h(n): calculate the distance between the goal node and openset
+            current = open_set[c_id]
+
+            # show graph
+            if show_animation:  # pragma: no cover
+                plt.plot(self.calc_grid_position(current.x, self.min_x),
+                         self.calc_grid_position(current.y, self.min_y), "xc")
+                # for stopping simulation with the esc key.
+                plt.gcf().canvas.mpl_connect('key_release_event',
+                                             lambda event: [exit(
+                                                 0) if event.key == 'escape' else None])
+                if len(closed_set.keys()) % 10 == 0:
+                    plt.pause(0.001)
+
+            # reaching goal
+            if current.x == goal_node.x and current.y == goal_node.y:
+                print("Total Trip time required -> ",current.cost )
+                goal_node.parent_index = current.parent_index
+                goal_node.cost = current.cost
+                break
+
+# Remove the item from the open set
+            del open_set[c_id]
+
+            # Add it to the closed set
+            closed_set[c_id] = current
+
+            # print(len(closed_set))
+
+            # expand_grid search grid based on motion model
+            for i, _ in enumerate(self.motion): # tranverse the motion matrix
+                node = self.Node(current.x + self.motion[i][0],
+                                 current.y + self.motion[i][1],
+                                 current.cost + self.motion[i][2] * self.costPerGrid, c_id)
+                
+                ## add more cost in cost intensive area 1
+                if self.calc_grid_position(node.x, self.min_x) in self.tc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.tc_y:
+                        # print("cost intensive area!!")
+                        node.cost = node.cost + self.Delta_C1 * self.motion[i][2]
+                
+                # add more cost in cost intensive area 2
+                if self.calc_grid_position(node.x, self.min_x) in self.fc_x:
+                    if self.calc_grid_position(node.y, self.min_y) in self.fc_y:
+                        # print("cost intensive area!!")
+                        node.cost = node.cost + self.Delta_C2 * self.motion[i][2]
+                    # print()
+                
+                n_id = self.calc_grid_index(node)
+
+                # If the node is not safe, do nothing
+                if not self.verify_node(node):
+                    continue
+
+                if n_id in closed_set:
+                    continue
+
+                if n_id not in open_set:
+                    open_set[n_id] = node  # discovered a new node
+                else:
+                    if open_set[n_id].cost > node.cost:
+                        # This path is the best until now. record it
+                        open_set[n_id] = node
+
+        rx, ry = self.calc_final_path(goal_node, closed_set)
+        # print(len(closed_set))
+        # print(len(open_set))
+        
+
+    
+   
+
+        
+
+        #########
+        start_node = self.Node(self.calc_xy_index(c2x, self.min_x), # calculate the index based on given position
+                               self.calc_xy_index(c2y, self.min_y), 0.0, -1) # set cost zero, set parent index -1
         goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
                               self.calc_xy_index(gy, self.min_y), 0.0, -1)
 
@@ -106,6 +282,9 @@ class AStarPlanner:
                 goal_node.parent_index = current.parent_index
                 goal_node.cost = current.cost
                 break
+
+
+
 
             # Remove the item from the open set
             del open_set[c_id]
@@ -153,6 +332,7 @@ class AStarPlanner:
         rx, ry = self.calc_final_path(goal_node, closed_set)
         # print(len(closed_set))
         # print(len(open_set))
+        
 
         return rx, ry
 
@@ -272,6 +452,16 @@ def main():
     grid_size = 1  # [m]
     robot_radius = 1.0  # [m]
 
+     ## Set the checking points
+    import random 
+    c2x = random.randint(10,30)
+    c2y = random.randint(50,59)
+    c1x = random.randint(20,30)
+    c1y = random.randint(30,40)
+    grid_size = 1  # [m]
+    robot_radius = 1.0  # [m]
+
+
     # Set Obstacle Positions for Group 12
     ox, oy = [], []
     for i in range(-10, 60): # draw the button border 
@@ -316,20 +506,24 @@ def main():
 
     if show_animation:  # pragma: no cover
         plt.plot(ox, oy, ".k") # plot the obstacle
-        plt.plot(sx, sy, "og") # plot the start position 
-        plt.plot(gx, gy, "xb") # plot the end position
-        
         plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
         plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
-
+        
+        plt.plot(c1x, c1y, "xb") # plot the checkpoint 1
+        plt.plot(c2x, c2y, "xb") # plot the checkpoint 2
+        plt.plot(sx, sy, "og") # plot the start position 
+        plt.plot(gx, gy, "xb") # plot the end position
+    
         plt.grid(True) # plot the grid to the plot panel
         plt.axis("equal") # set the same resolution for x and y axis 
 
     a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y)
-    rx, ry = a_star.planning(sx, sy, gx, gy)
+    r1x, r1y = a_star.planning(sx, sy, c1x, c1y, c2x, c2y, gx, gy)
+    
 
     if show_animation:  # pragma: no cover
-        plt.plot(rx, ry, "-r") # show the route 
+        plt.plot(r1x,r1y,"-r") # show the route 
+       
         plt.pause(0.001) # pause 0.001 seconds
         plt.show() # show the plot
 

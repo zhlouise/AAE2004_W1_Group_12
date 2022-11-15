@@ -64,7 +64,7 @@ class AStarPlanner:
             rx: x position list of the final path
             ry: y position list of the final path
         """
-
+        ####### first part
         start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
                                self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
         goal_node = self.Node(self.calc_xy_index(c1x, self.min_x), # calculate the index based on given position
@@ -152,7 +152,9 @@ class AStarPlanner:
         
         
 
-    ############    
+
+
+        ############ second part
         start_node = self.Node(self.calc_xy_index(c1x, self.min_x), # calculate the index based on given position
                                self.calc_xy_index(c1y, self.min_y), 0.0, -1) # set cost zero, set parent index -1
         goal_node = self.Node(self.calc_xy_index(c2x, self.min_x), # calculate the index based on given position
@@ -191,7 +193,7 @@ class AStarPlanner:
                 goal_node.cost = current.cost
                 break
 
-# Remove the item from the open set
+            # Remove the item from the open set
             del open_set[c_id]
 
             # Add it to the closed set
@@ -240,11 +242,9 @@ class AStarPlanner:
         
 
     
-   
+  
 
-        
-
-        #########
+        ######### third part
         start_node = self.Node(self.calc_xy_index(c2x, self.min_x), # calculate the index based on given position
                                self.calc_xy_index(c2y, self.min_y), 0.0, -1) # set cost zero, set parent index -1
         goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
@@ -282,9 +282,6 @@ class AStarPlanner:
                 goal_node.parent_index = current.parent_index
                 goal_node.cost = current.cost
                 break
-
-
-
 
             # Remove the item from the open set
             del open_set[c_id]

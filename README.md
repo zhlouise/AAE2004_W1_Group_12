@@ -142,12 +142,20 @@ Result shown in this format
 
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846326-57d94b51-5059-4ec5-9141-bbdd5c38dcd5.png">
 
-
-
 ### b. Results
+
+<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201847987-d9232159-e366-4174-8a56-2812dc983b81.png">
+
+<img width="344" alt="image" src="https://user-images.githubusercontent.com/116557675/201848029-bf6b65ca-305f-4b0b-91e1-1869be1796eb.png">
+
 
 ### c. Discussion
 
+**Comparison between two methods**
+
+For the trial calculation, the programmer needs to have each scenario tested, which the efficiency of completing the task is lower. However, the result of the task can be predicted based on the experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code prevent human error and improve the efficiency.
+
+For the program calculation, a higher level of code standard is required. The knowledge of iteration and comparison dictionary is used in the code. Nevertheless, it prevents the use of human calculation and hence reduce the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding. 
 
 
 

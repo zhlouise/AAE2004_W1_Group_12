@@ -1,0 +1,53 @@
+import numpy as np
+import pandas as pd 
+import math
+
+#Scenario 2
+CF = pd.Series([0.88,0.88,0.88])
+F = pd.Series([54,84,90])
+T = pd.Series ([124,124,124])
+C = pd.Series([20,27,34])
+CC = pd.Series ([1800,2000,2500])
+NUMBER = pd.Series([math.ceil(1250/200),math.ceil(1250/300),math.ceil(1250/350)])
+
+COST = (CF*F*T + C*T+CC)*NUMBER
+print(COST)
+#CF = cost of fuel per kg
+#CT = time related cost per minute of flight = 142
+#CC = fixed cost independent of time
+#F = trip fuel
+#T = trip time
+
+#Scenario 1
+CF = pd.Series([0,0.76,0.76])
+F = pd.Series([54,84,90])
+T = pd.Series ([124,124,124])
+C = pd.Series([0,21,27])
+CC = pd.Series ([0,2000,2500])
+NUMBER = pd.Series([math.ceil(3000/200),math.ceil(3000/300),math.ceil(3000/350)])
+
+COST = (CF*F*T + C*T+CC)*NUMBER
+print(COST)
+
+
+#Scenario 3
+CF = pd.Series([0.95,0.95,0.95])
+F = pd.Series([54,84,90])
+T = pd.Series ([124,124,124])
+C = pd.Series([10,15,20])
+CC = pd.Series ([1800,2000,2500])
+NUMBER = pd.Series([math.ceil(2500/200),math.ceil(2500/300),math.ceil(2500/350)])
+
+COST = (CF*F*T + C*T+CC)*NUMBER
+print(COST)
+
+CF = pd.Series([0,0.76,0.76])
+F = pd.Series([54,84,90])
+T = pd.Series ([122,122,122])
+C = pd.Series([0,21,27])
+CC = pd.Series ([0,2000,2500])
+NUMBER = pd.Series([math.ceil(3000/200),math.ceil(3000/300),math.ceil(3000/350)])
+
+COST = (CF*F*T + C*T+CC)*NUMBER
+print(COST)
+

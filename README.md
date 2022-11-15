@@ -108,6 +108,17 @@ The below image show the current scenario for our group.
 
 ### a. Methodology
 
+**The following work is divided into three main parts**
+
+**First part: Define cost reduction of the jet stream area**
+We have the Delta C1 and C2 preliminary for the cost intensive area 1 and 2 respectively. Copy and modify the value to -0.05 to reduce the cost of 5% along the jet stream.
+
+**Second part: Define color of the jet stream area**
+Appreciate the code “oy” and “or”. That is for the color of the cost intensive area or jet stream area. Modify the code to “ob” in which the area will become blue in color.
+
+**Third part: Define area of the jet stream area**
+Copy and modify the value from the cost intensive area 1 and 2. Modify it to the Delta_C3 that we have just defined which suits for the jet stream are cost reduction. Run the program by trial, record the total trip time required for every possible area position. Obtain the result by comparing the result and state the minimal total trip time.
+
 ### b. Results
 
 ### c. Discussion

@@ -139,6 +139,16 @@ class AStarPlanner:
                 if len(closed_set.keys()) % 10 == 0:
                     plt.pause(0.001)
 
+            # reaching check point 1
+            if current.x == check_point_1.x and current.y == check_point_1.y:
+                check_point_1.parent_index = current.parent_index
+                check_point_1.cost = current.cost
+            
+            # reaching check point 2 
+            if current.x == check_point_2.x and current.y == check_point_2.y:
+                check_point_2.parent_index = current.parent_index
+                check_point_2.cost = current.cost
+
             # reaching goal
             if current.x == goal_node.x and current.y == goal_node.y:
                 print("Total Trip time required -> ",current.cost )
@@ -195,6 +205,7 @@ class AStarPlanner:
                         open_set[n_id] = node
 
         rx, ry = self.calc_final_path(goal_node, closed_set)
+        rx1, ry1 = self.calc_final_path(check_point_1, closed_set)
         # print(len(closed_set))
         # print(len(open_set))
 
@@ -637,14 +648,14 @@ def main():
     if show_animation:  # pragma: no cover
         plt.plot(ox, oy, ".k") # plot the obstacle
         plt.plot(sx, sy, "og") # plot the start position 
-        plt.plot(gx, gy, "ob") # plot the end position
+        plt.plot(gx, gy, "xb") # plot the end position
         
-        plt.plot(c1x, c1y, "oo") # plot the check point 1
-        plt.plot(c2x, c2y, "oo") # plot the check point 2
-        
+        plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
         plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
         plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
-        plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
+        
+        plt.plot(c1x, c1y, "om") # plot the check point 1
+        plt.plot(c2x, c2y, "om") # plot the check point 2
 
         plt.grid(True) # plot the grid to the plot panel
         plt.axis("equal") # set the same resolution for x and y axis 

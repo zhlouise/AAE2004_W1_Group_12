@@ -104,7 +104,7 @@ The below image show the current scenario for our group.
 
 
 
-## Task 2.1 - Designing New Cost Area
+## Task 2 - Designing New Cost Area
 
 ### a1. Methodology for trial calculation
 
@@ -156,21 +156,6 @@ Result shown in this format
 For the trial calculation, the programmer needs to have each scenario tested, which the efficiency of completing the task is lower. However, the result of the task can be predicted based on the experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code prevent human error and improve the efficiency.
 
 For the program calculation, a higher level of code standard is required. The knowledge of iteration and comparison dictionary is used in the code. Nevertheless, it prevents the use of human calculation and hence reduce the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding. 
-
-
-
-
-
-## Task 2.2 - Designing New Cost Area
-
-### a. Methodology
-
-### b. Results
-
-### c. Discussion
-
-
-
 
 
 

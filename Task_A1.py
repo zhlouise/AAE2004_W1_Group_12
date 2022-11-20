@@ -115,14 +115,30 @@ class AStarPlanner:
         open_set, closed_set = dict(), dict() # open_set: node not been tranversed yet. closed_set: node have been tranversed already
         open_set[self.calc_grid_index(start_node)] = start_node # node index is the grid index
 
+        #open_set_1, closed_set_1 = dict(), dict()
+        #open_set_1[self.calc_grid_index(check_point_1)] = check_point_1
+
+        #open_set_2, closed_set_2 = dict(), dict()
+        #open_set_2[self.calc_grid_index(check_point_2)] = check_point_2
+
         while 1:
             if len(open_set) == 0:
                 print("Open set is empty..")
                 break
+            
+            #if len(open_set_1) == 0:
+                print("Open set is empty..")
+                break
+            
+            #if len(open_set_2) == 0:
+                print("Open set is empty..")
+                break
 
-            c_id = min(
-                open_set,
-                key=lambda o: open_set[o].cost + self.calc_heuristic(self, check_point_1, open_set[o]) + self.calc_heuristic(self, check_point_2, open_set[o]) + self.calc_heuristic(self, goal_node, open_set[o])) 
+            #c_id_1 = min(open_set_1, key=lambda o: open_set_1[o].cost + self.calc_heuristic(self, check_point_1, open_set_1[o]))
+            
+            #c_id_2 = min(open_set_2, key=lambda o: open_set_2[o].cost + self.calc_heuristic(self, check_point_2, open_set_2[o]))
+            
+            c_id = min(open_set, key=lambda o: open_set[o].cost + self.calc_heuristic(self, goal_node, open_set[o])) 
                 # g(n) and h(n): calculate the distance between the goal node and openset
 
             global current # Making current a global variable so we could use it in the trip_cost function. 
@@ -157,10 +173,10 @@ class AStarPlanner:
                 break
 
             # Remove the item from the open set
-            del open_set[c_id]
+            del open_set[c_id]#, open_set_1[c_id_1], open_set_2[c_id_2]
 
             # Add it to the closed set
-            closed_set[c_id] = current
+            closed_set[c_id]= current
 
             # print(len(closed_set))
 
@@ -204,12 +220,13 @@ class AStarPlanner:
                         # This path is the best until now. record it
                         open_set[n_id] = node
 
-        rx, ry = self.calc_final_path(goal_node, closed_set)
         rx1, ry1 = self.calc_final_path(check_point_1, closed_set)
+        rx2, ry2 = self.calc_final_path(check_point_2, closed_set)
+        rx, ry = self.calc_final_path(goal_node, closed_set)
         # print(len(closed_set))
         # print(len(open_set))
 
-        return rx, ry
+        return rx1, ry1, rx2, ry2, rx, ry
     
     
     # This is a copy of the previous planning function while deleting the part where the program plots all the possible nodes. 
@@ -646,13 +663,13 @@ def main():
     
     # Plotting the opstacles, positions, areas, axes, and grids
     if show_animation:  # pragma: no cover
-        plt.plot(ox, oy, ".k") # plot the obstacle
-        plt.plot(sx, sy, "og") # plot the start position 
-        plt.plot(gx, gy, "xb") # plot the end position
-        
         plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
         plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
         plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
+        
+        plt.plot(ox, oy, ".k") # plot the obstacle
+        plt.plot(sx, sy, "og") # plot the start position 
+        plt.plot(gx, gy, "xb") # plot the end position
         
         plt.plot(c1x, c1y, "om") # plot the check point 1
         plt.plot(c2x, c2y, "om") # plot the check point 2
@@ -662,10 +679,10 @@ def main():
     
     print("The results of the compulsory tasks start here:")
     a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
-    rx, ry = a_star.planning(sx, sy, gx, gy, c1x, c1y, c2x, c2y)
+    rx1, ry1, rx2, ry2, rx, ry= a_star.planning(sx, sy, gx, gy, c1x, c1y, c2x, c2y)
 
     if show_animation:  # pragma: no cover
-        plt.plot(rx, ry, "-r") # show the route 
+        plt.plot(rx, ry, rx1, ry1, rx2, ry2, "-r") # show the route 
         plt.pause(0.001) # pause 0.001 seconds
         plt.show() # show the plot
     

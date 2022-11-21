@@ -80,6 +80,7 @@ class AStarPlanner:
             return str(self.x) + "," + str(self.y) + "," + str(
                 self.cost) + "," + str(self.parent_index)
 
+
     """
     A star path search
 
@@ -94,6 +95,11 @@ class AStarPlanner:
         ry: y position list of the final path
     """
     def planning(self, sx, sy, gx, gy):
+
+        start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
+                               self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
+        goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
+                              self.calc_xy_index(gy, self.min_y), 0.0, -1)
 
         open_set, closed_set = dict(), dict() # open_set: node not been tranversed yet. closed_set: node have been tranversed already
         open_set[self.calc_grid_index(start_node)] = start_node # node index is the grid index
@@ -124,7 +130,7 @@ class AStarPlanner:
 
             # reaching goal
             if current.x == goal_node.x and current.y == goal_node.y:
-                print("Total Trip time required -> ",current.cost )
+                # print("Total Trip time required -> ",current.cost )
                 goal_node.parent_index = current.parent_index
                 goal_node.cost = current.cost
                 break
@@ -181,8 +187,14 @@ class AStarPlanner:
         # print(len(closed_set))
         # print(len(open_set))
 
-        return rx, ry
+        return rx, ry, current.cost
     
+    
+    # This is a copy of the previous planning function while deleting the part where the program plots all the possible nodes. 
+    def planning_no_animation(self, sx, sy, gx, gy):
+
+        start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
+                               self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
         goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
                               self.calc_xy_index(gy, self.min_y), 0.0, -1)
 
@@ -261,7 +273,7 @@ class AStarPlanner:
         # print(len(closed_set))
         # print(len(open_set))
 
-        return rx, ry
+        return rx, ry, current.cost
 
     # Generate final course
     def calc_final_path(self, goal_node, closed_set):
@@ -457,7 +469,7 @@ def trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost):
 
 
 # (Task 2) Function for finding the best jet stream area that yields in a minimal cost per flight (minimum flight duration)
-def jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy):
+def jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy, c1x, c1y, c2x, c2y):
     
     # Create an empty dictionary that will be used to store all the possible costs for each iteration runned.
     comparasion_dict = {}
@@ -472,9 +484,12 @@ def jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, 
                 jc_y.append(j)
         # Run the AStar algorithm without plotting the animations to determine the cost for the current iteration.
         a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
-        rx, ry = a_star.planning_no_animation(sx, sy, gx, gy)
+        r1x, r1y, cost1 = a_star.planning_no_animation(sx, sy, c1x, c1y)
+        r2x, r2y, cost2 = a_star.planning_no_animation(c1x, c1y, c2x, c2y)
+        r3x, r3y, cost3 = a_star.planning_no_animation(c2x, c2y, gx, gy)
+        total_cost = cost1 + cost2 + cost3
         # Storing the current cost for this iteration to the comparasion dictionary
-        comparasion_dict[k] = [current.cost]
+        comparasion_dict[k] = [total_cost]
     
     # Finding the key (ymin) for the minimum cost within the comparasion dictionary and turning its datatype from tuple into integer
     ymin = min(comparasion_dict.keys(), key=(lambda k: comparasion_dict[k]))
@@ -541,6 +556,16 @@ def optimal_cost():
     print("The optimal passenger capacity for scenario 1 is {}. There are {} engines on the aircraft. This yields in a minimal operating cost of ${:.2f} per flight.". format(capacity, engine_count, cost))
 
 
+# (Additional Task 1) Development of the check point coordinates
+def check_point(): 
+    import random
+    c1x = random.randint(20,30)
+    c1y = random.randint(30,40)
+    c2x = random.randint(10,30)
+    c2y = random.randint(50,60)
+    return c1x, c1y, c2x, c2y
+
+
 def main():
     
     print(__file__ + " start the A star algorithm demo !!") # print simple notes
@@ -595,8 +620,11 @@ def main():
             fc_x.append(i)
             fc_y.append(j)
 
+    # Retrieving the check point coordinates
+    c1x, c1y, c2x, c2y = check_point()
+    
     # Setting the most optimal jet stream area
-    jc_x, jc_y, ymin, ymax = jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy)
+    jc_x, jc_y, ymin, ymax = jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy, c1x, c1y, c2x, c2y)
     
     # Plotting the opstacles, positions, areas, axes, and grids
     if show_animation:  # pragma: no cover
@@ -608,20 +636,30 @@ def main():
         plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
         plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
 
+        plt.plot(c1x, c1y, "om") # plot check point 1
+        plt.plot(c2x, c2y, "om") # plot check point 2
+
         plt.grid(True) # plot the grid to the plot panel
         plt.axis("equal") # set the same resolution for x and y axis 
     
     print("The results of the compulsory tasks start here:")
     a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
-    rx, ry = a_star.planning(sx, sy, gx, gy)
+    r1x, r1y, cost1 = a_star.planning(sx, sy, c1x, c1y)
+    r2x, r2y, cost2 = a_star.planning(c1x, c1y, c2x, c2y)
+    r3x, r3y, cost3 = a_star.planning(c2x, c2y, gx, gy)
+    total_cost = cost1 + cost2 + cost3
+    print("Total Trip time required -> ", total_cost)
+    
 
     if show_animation:  # pragma: no cover
-        plt.plot(rx, ry, "-r") # show the route 
+        plt.plot(r1x,r1y,"-r") # show the route 
+        plt.plot(r2x,r2y,"-r")
+        plt.plot(r3x,r3y,"-r")
+
         plt.pause(0.001) # pause 0.001 seconds
         plt.show() # show the plot
     
     print("Task 1 Results:")
-    
     # Finding the optimal flight for scenario 1
     print ("Scenario 1:")
     trip_cost (3000, 1, 12, "medium", 0.76)

@@ -87,12 +87,6 @@ class AStarPlanner:
     input:
         s_x: start x position [m]
         s_y: start y position [m]
-        
-        c1x: check point 1 x position
-        c1y: check point 1 y position
-        c2x: check point 2 x position
-        c2y: check point 2 y position
-
         gx: goal x position [m]
         gy: goal y position [m]
 
@@ -100,47 +94,26 @@ class AStarPlanner:
         rx: x position list of the final path
         ry: y position list of the final path
     """
-    def planning(self, sx, sy, gx, gy, c1x, c1y, c2x, c2y):
+    def planning(self, sx, sy, gx, gy):
 
         start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
                                self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
         goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
                               self.calc_xy_index(gy, self.min_y), 0.0, -1)
-        
-        check_point_1 = self.Node(self.calc_xy_index(c1x, self.min_x), # calculate the index based on given position
-                              self.calc_xy_index(c1y, self.min_y), 0.0, -1)
-        check_point_2 = self.Node(self.calc_xy_index(c2x, self.min_x), # calculate the index based on given position
-                              self.calc_xy_index(c2y, self.min_y), 0.0, -1)
 
         open_set, closed_set = dict(), dict() # open_set: node not been tranversed yet. closed_set: node have been tranversed already
         open_set[self.calc_grid_index(start_node)] = start_node # node index is the grid index
-
-        #open_set_1, closed_set_1 = dict(), dict()
-        #open_set_1[self.calc_grid_index(check_point_1)] = check_point_1
-
-        #open_set_2, closed_set_2 = dict(), dict()
-        #open_set_2[self.calc_grid_index(check_point_2)] = check_point_2
 
         while 1:
             if len(open_set) == 0:
                 print("Open set is empty..")
                 break
-            
-            #if len(open_set_1) == 0:
-                print("Open set is empty..")
-                break
-            
-            #if len(open_set_2) == 0:
-                print("Open set is empty..")
-                break
 
-            #c_id_1 = min(open_set_1, key=lambda o: open_set_1[o].cost + self.calc_heuristic(self, check_point_1, open_set_1[o]))
-            
-            #c_id_2 = min(open_set_2, key=lambda o: open_set_2[o].cost + self.calc_heuristic(self, check_point_2, open_set_2[o]))
-            
-            c_id = min(open_set, key=lambda o: open_set[o].cost + self.calc_heuristic(self, goal_node, open_set[o])) 
-                # g(n) and h(n): calculate the distance between the goal node and openset
-
+            c_id = min(
+                open_set,
+                key=lambda o: open_set[o].cost + self.calc_heuristic(self, goal_node,
+                                                                     open_set[
+                                                                         o])) # g(n) and h(n): calculate the distance between the goal node and openset
             global current # Making current a global variable so we could use it in the trip_cost function. 
             current = open_set[c_id]
 
@@ -155,16 +128,6 @@ class AStarPlanner:
                 if len(closed_set.keys()) % 10 == 0:
                     plt.pause(0.001)
 
-            # reaching check point 1
-            if current.x == check_point_1.x and current.y == check_point_1.y:
-                check_point_1.parent_index = current.parent_index
-                check_point_1.cost = current.cost
-            
-            # reaching check point 2 
-            if current.x == check_point_2.x and current.y == check_point_2.y:
-                check_point_2.parent_index = current.parent_index
-                check_point_2.cost = current.cost
-
             # reaching goal
             if current.x == goal_node.x and current.y == goal_node.y:
                 print("Total Trip time required -> ",current.cost )
@@ -173,10 +136,10 @@ class AStarPlanner:
                 break
 
             # Remove the item from the open set
-            del open_set[c_id]#, open_set_1[c_id_1], open_set_2[c_id_2]
+            del open_set[c_id]
 
             # Add it to the closed set
-            closed_set[c_id]= current
+            closed_set[c_id] = current
 
             # print(len(closed_set))
 
@@ -220,13 +183,11 @@ class AStarPlanner:
                         # This path is the best until now. record it
                         open_set[n_id] = node
 
-        rx1, ry1 = self.calc_final_path(check_point_1, closed_set)
-        rx2, ry2 = self.calc_final_path(check_point_2, closed_set)
         rx, ry = self.calc_final_path(goal_node, closed_set)
         # print(len(closed_set))
         # print(len(open_set))
 
-        return rx1, ry1, rx2, ry2, rx, ry
+        return rx, ry
     
     
     # This is a copy of the previous planning function while deleting the part where the program plots all the possible nodes. 
@@ -592,16 +553,6 @@ def optimal_cost():
     print("The optimal passenger capacity for scenario 1 is {}. There are {} engines on the aircraft. This yields in a minimal operating cost of ${:.2f} per flight.". format(capacity, engine_count, cost))
 
 
-# (Additional Task 1) Development of the check point coordinates
-def check_point(): 
-    import random
-    c1x = random.randint(20,30)
-    c1y = random.randint(30,40)
-    c2x = random.randint(10,30)
-    c2y = random.randint(50,60)
-    return c1x, c1y, c2x, c2y
-
-
 def main():
     
     print(__file__ + " start the A star algorithm demo !!") # print simple notes
@@ -613,8 +564,6 @@ def main():
     gy = 40.0  # [m]
     grid_size = 1  # [m]
     robot_radius = 1.0  # [m]
-
-    c1x, c1y, c2x, c2y = check_point()
 
     # Set obstacle positions (graph's border)
     ox, oy = [], []
@@ -663,26 +612,23 @@ def main():
     
     # Plotting the opstacles, positions, areas, axes, and grids
     if show_animation:  # pragma: no cover
-        plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
-        plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
-        plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
-        
         plt.plot(ox, oy, ".k") # plot the obstacle
         plt.plot(sx, sy, "og") # plot the start position 
         plt.plot(gx, gy, "xb") # plot the end position
         
-        plt.plot(c1x, c1y, "om") # plot the check point 1
-        plt.plot(c2x, c2y, "om") # plot the check point 2
+        plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
+        plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
+        plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
 
         plt.grid(True) # plot the grid to the plot panel
         plt.axis("equal") # set the same resolution for x and y axis 
     
     print("The results of the compulsory tasks start here:")
     a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
-    rx1, ry1, rx2, ry2, rx, ry= a_star.planning(sx, sy, gx, gy, c1x, c1y, c2x, c2y)
+    rx, ry = a_star.planning(sx, sy, gx, gy)
 
     if show_animation:  # pragma: no cover
-        plt.plot(rx, ry, rx1, ry1, rx2, ry2, "-r") # show the route 
+        plt.plot(rx, ry, "-r") # show the route 
         plt.pause(0.001) # pause 0.001 seconds
         plt.show() # show the plot
     

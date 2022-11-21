@@ -80,7 +80,6 @@ class AStarPlanner:
             return str(self.x) + "," + str(self.y) + "," + str(
                 self.cost) + "," + str(self.parent_index)
 
-
     """
     A star path search
 
@@ -95,11 +94,6 @@ class AStarPlanner:
         ry: y position list of the final path
     """
     def planning(self, sx, sy, gx, gy):
-
-        start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
-                               self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
-        goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
-                              self.calc_xy_index(gy, self.min_y), 0.0, -1)
 
         open_set, closed_set = dict(), dict() # open_set: node not been tranversed yet. closed_set: node have been tranversed already
         open_set[self.calc_grid_index(start_node)] = start_node # node index is the grid index
@@ -189,12 +183,6 @@ class AStarPlanner:
 
         return rx, ry
     
-    
-    # This is a copy of the previous planning function while deleting the part where the program plots all the possible nodes. 
-    def planning_no_animation(self, sx, sy, gx, gy):
-
-        start_node = self.Node(self.calc_xy_index(sx, self.min_x), # calculate the index based on given position
-                               self.calc_xy_index(sy, self.min_y), 0.0, -1) # set cost zero, set parent index -1
         goal_node = self.Node(self.calc_xy_index(gx, self.min_x), # calculate the index based on given position
                               self.calc_xy_index(gy, self.min_y), 0.0, -1)
 

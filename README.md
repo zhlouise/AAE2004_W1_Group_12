@@ -15,7 +15,7 @@
   <li><a href="#Background-of-Path-Planning-to-Aviation-Engineering">Background of Path Planning to Aviation Engineering</a></li>
   <li><a href="#Theory-of-Path-Planning-Algorithm">Theory of Path Planning Algorithm</a></li>
   <li><a href="#Introduction-of-the-Engineering-Tools">Introduction of the Engineering Tools</a></li>
-  <li><a href="#Compulsory-Task-1 - Scenarios">Compulsory Task 1 - Scenarios</a></li>
+  <li><a href="#Compulsory-Task-1---Scenarios">Compulsory Task 1 - Scenarios</a></li>
   <li><a href="#Compulsory-Task-2 - Designing New Cost Area">Compulsory Task 2 - Designing New Cost Area</a></li>
   <li><a href="#Compulsory-Task-3 - Designing an Aircraft">Compulsory Task 3 - Designing an Aircraft</a></li>
   <li><a href="#Additional-Task-1 - Adding Check Points">Additional Task 1 - Adding Check Points</a></li>
@@ -28,25 +28,14 @@
 <img width="1006" alt="Screenshot 2022-11-15 at 2 19 44 PM" src="https://user-images.githubusercontent.com/116058486/201841746-86859c4e-b873-46a7-b711-25906b196144.png">
 
 
-
-
 <!--Background of Path Planning to Aviation Engineering-->
 
 ## Background of Path Planning to Aviation Engineering
 
 
-
-
-
-
-
-
 <!--Theory of Path Planning Algorithm-->
 
 ## Theory of Path Planning Algorithm
-
-
-
 
 
 <!--Introduction of the Engineering Tools-->
@@ -56,11 +45,6 @@
 ### a. Python
 
 ### b. Github
-
-
-
-
-
 
 
 <!--Compulsory Task 1 - Scenarios-->
@@ -88,8 +72,6 @@ The below image show the current scenario for our group.
 
 ### a. Methodology
 
-
-
 ### b. Results
 
 **The following show the result of different scenarios in Task1**
@@ -97,18 +79,10 @@ The below image show the current scenario for our group.
 <img width="471" alt="Screen Shot 2022-10-31 at 10 49 42 PM" src="https://user-images.githubusercontent.com/116058486/199039639-1bf8a4bb-46f9-4548-9d44-f178ade9a0cf.png">
 
 
-
-
 ### c. Discussion
 
 
-
-
-
-
 <!--Compulsory Task 2 - Designing New Cost Area-->
-
-
 
 ## Compulsory Task 2 - Designing New Cost Area
 
@@ -164,12 +138,7 @@ For the trial calculation, the programmer needs to have each scenario tested, wh
 For the program calculation, a higher level of code standard is required. The knowledge of iteration and comparison dictionary is used in the code. Nevertheless, it prevents the use of human calculation and hence reduce the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding. 
 
 
-
-
-
-
 <!--Compulsory Task3 - Designing an Aircraft-->
-
 
 ## Compulsory Task 3 - Designing an Aircraft
 
@@ -187,16 +156,7 @@ Engine count: 2
 ### c. Discussion
 
 
-
-
-
-
-
-
-
-
 <!--Additional Task 1 - Adding Check Points-->
-
 
 ## Additional Task 1 - Adding Check Points
 

@@ -527,15 +527,32 @@ def optimal_cost():
 
 
 # (Additional Task 2) Function for randomly generating obstacles according to a given relativistic density
-def random_obstacles (ox, oy, number_of_obstacles):
-    
+def random_obstacles (ox, oy, number_of_obstacles, sx, sy, gx, gy):
+
     for i in range(0, number_of_obstacles):
         x = random.randint(-10,60)
         y = random.randint(-10,60)
         ox.append(x)
         oy.append(y)
+        # We drop the value from the lists if the obstacles are near starting position or ending position:
+        if (x==sx and y==sy) or (x==gx and y==gy) or (x==sx+1 and y==sy) or (x==sx-1 and y==sy) or (x==sx and y==sy+1) or (x==sx and y==sy-1) or (x==sx+1 and y==sy+1) or (x==sx+1 and y==sy-1) or (x==sx-1 and y==sy+1) or (x==sx-1 and y==sy-1)or (x==gx+1 and y==gy) or (x==gx-1 and y==gy) or (x==gx and y==gy+1) or (x==gx and y==gy-1) or (x==gx+1 and y==gy+1) or (x==gx+1 and y==gy-1) or (x==gx-1 and y==gy+1) or (x==gx-1 and y==gy-1):
+            ox.remove(x)
+            oy.remove(y)
 
     return ox, oy
+
+# (Additional Task 2) Function for randomly generating starting positions and ending positions
+def random_start_end ():
+    
+    while 1: 
+        sx = random.randint(-9, 60)
+        sy = random.randint(-9, 60)
+        gx = random.randint(-9, 60)
+        gy = random.randint(-9, 60)
+        if ((sx-gx)**2+(sy-gy)**2)**0.5 >= 50:  # If the distance between the start node and the desination is greater than 50 units, we accept their coordinates and move on. 
+            break
+    
+    return sx, sy, gx, gy
 
 
 def main():
@@ -543,10 +560,8 @@ def main():
     print(__file__ + " start the A star algorithm demo !!") # print simple notes
 
     # Start and goal position
-    sx = 10.0  # [m]
-    sy = 0.0  # [m]
-    gx = 0.0  # [m]
-    gy = 40.0  # [m]
+    sx, sy, gx, gy = random_start_end()
+
     grid_size = 1  # [m]
     robot_radius = 1.0  # [m]
 
@@ -575,7 +590,7 @@ def main():
         oy.append(i)
 
     # Setting the randomly occuring obstacles
-    random_obstacles (ox, oy, 600)
+    random_obstacles (ox, oy, 500, sx, sy, gx, gy)
     
     # Plotting the opstacles, positions, areas, axes, and grids
     if show_animation:  # pragma: no cover

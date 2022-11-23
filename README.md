@@ -1,3 +1,8 @@
+<div id="header" align="left">
+  <img src="https://media0.giphy.com/media/pvm6Yx9GPCQhCqe1H3/giphy.gif?cid=790b7611436e48fe8f366fce650ced986baf1e39a3e642b9&rid=giphy.gif&ct=g" alt= "AAE 2004 Path Planning Project">
+</div>
+
+
 # AAE2004_W1_Group_12
 
 # Presentation Link

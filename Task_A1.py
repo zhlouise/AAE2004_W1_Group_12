@@ -659,24 +659,7 @@ def main():
         plt.pause(0.001) # pause 0.001 seconds
         plt.show() # show the plot
     
-    print("Task 1 Results:")
-    # Finding the optimal flight for scenario 1
-    print ("Scenario 1:")
-    trip_cost (3000, 1, 12, "medium", 0.76)
-
-    # Finding the optimal flight for scenario 2
-    print ("Scenario 2:")
-    trip_cost(1250, 4, 5, "high", 0.88)
-
-    # Finding the optimal flight for scenario 3
-    print ("Scenario 3:")
-    trip_cost(2500, 1, 25, "low", 0.95)
-    
-    print("Task 2 Results:")
     print("The optimal jet-stream ranges from y={} to y={}.".format(ymin, ymax))
-    
-    print("Task 3 Results:")
-    optimal_cost()
 
 
 if __name__ == '__main__':

@@ -61,8 +61,6 @@
 
 ## Task 1 - Scenarios
 
-### a. Methodology
-
 The below image show the current scenario for our group.
 
 <img width="1216" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
@@ -81,6 +79,8 @@ The below image show the current scenario for our group.
 1. 2500 Passengers need to travel within this week from the start to the destination
 2. 25 flights maximum for one week
 3. Time cost = low and Fuel cost = 0.95 $/kg
+
+### a. Methodology
 
 
 

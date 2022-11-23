@@ -12,15 +12,71 @@
 <!-- Table of Content-->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <li><a href="#Background-of-Path-Planning-to-Aviation-Engineering">Background of Path Planning to Aviation Engineering</a></li>
-  <li><a href="#Theory-of-Path-Planning-Algorithm">Theory of Path Planning Algorithm</a></li>
-  <li><a href="#Introduction-of-the-Engineering-Tools">Introduction of the Engineering Tools</a></li>
-  <li><a href="#Compulsory-Task-1---Scenarios">Compulsory Task 1 - Scenarios</a></li>
-  <li><a href="#Compulsory-Task-2---Designing New Cost Area">Compulsory Task 2 - Designing New Cost Area</a></li>
-  <li><a href="#Compulsory-Task-3---Designing an Aircraft">Compulsory Task 3 - Designing an Aircraft</a></li>
-  <li><a href="#Additional-Task-1---Adding Check Points">Additional Task 1 - Adding Check Points</a></li>
-  <li><a href="#Individual-Reflective-Essay">Individual Reflective Essays</a></li>
-  <li><a href="#References">References</a></li>
+  <ol>
+    <li><a href="#Background-of-Path-Planning-to-Aviation-Engineering">Background of Path Planning to Aviation Engineering</a></li>
+    <li><a href="#Theory-of-Path-Planning-Algorithm">Theory of Path Planning Algorithm</a></li>
+    <li>
+      <a href="#Introduction-of-the-Engineering-Tools">Introduction of the Engineering Tools</a>
+      <ol>
+        <li><a href="#a-Python">Python</a></li>
+        <li><a href="#b-GitHub">GitHub</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#Compulsory-Task-1---Best-Aircraft-for-the-Given-Scenarios">Compulsory Task 1 - Best Aircraft for the Given Scenarios</a>
+      <ol>
+        <li><a href="#a-Methodology">Methodology</a></li>
+        <li><a href="#b-Results">Results</a></li>
+        <li><a href="#c-Discussion">Discussion</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#Compulsory-Task-2---Designing-New-Cost-Area">Compulsory Task 2 - Designing New Cost Area</a>
+      <ol>
+        <li><a href="#a-Methodology">Methodology</a></li>
+        <li><a href="#b-Results">Results</a></li>
+        <li><a href="#c-Discussion">Discussion</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#Compulsory-Task-3---Designing-an-Aircraft">Compulsory Task 3 - Designing an Aircraft</a>
+      <ol>
+        <li><a href="#a-Methodology">Methodology</a></li>
+        <li><a href="#b-Results">Results</a></li>
+        <li><a href="#c-Discussion">Discussion</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#Additional-Task-1---Adding-Check-Points">Additional Task 1 - Adding Check Points</a>
+      <ol>
+        <li><a href="#a-Methodology">Methodology</a></li>
+        <li><a href="#b-Results">Results</a></li>
+        <li><a href="#c-Discussion">Discussion</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios"></a>
+      <ol>
+        <li><a href="#a-Methodology">Methodology</a></li>
+        <li><a href="#b-Results">Results</a></li>
+        <li><a href="#c-Discussion">Discussion</a></li>
+      </ol>
+    </li>
+    <li>
+      <a href="#Individual-Reflective-Essay">Individual Reflective Essays</a>
+      <ol>
+        <li><a href="#a-Member-1---Louise-Zhou-zhlouise">Louise Zhou</a></li>
+        <li><a href="#b-Member-2---Rainy-Yuen-itsssraining">Rainy Yue</a></li>
+        <li><a href="#c-Member-3---Anson-Wong-Ansonwong88">Anson Wong</a></li>
+        <li><a href="#d-Member-4---Samuel-Yau-SamuelYcy">Samuel Yau</a></li>
+        <li><a href="#e-Member-5---Aidan-Yau-yhpAidan">Aidan Yau</a></li>
+        <li><a href="#f-Member-6---Angela-Xu-Angelaxu2019">Angela Xu</a></li>
+        <li><a href="#g-Member-7---Mark-Yao-Markyaoxin">Mark Yao</a></li>
+        <li><a href="#h-Member-8---Haoyang-Yu-YU-Haoyang22101598d">Haoyang Yu</a></li>
+      </ol>
+    </li>
+    <li><a href="#References">References</a></li>
+  </ol>
  </details>
     
                
@@ -47,9 +103,9 @@
 ### b. Github
 
 
-<!--Compulsory Task 1 - Scenarios-->
+<!--Compulsory Task 1 - Best Aircraft for the Given Scenarios-->
 
-## Compulsory Task 1 - Scenarios
+## Compulsory Task 1 - Best Aircraft for the Given Scenarios
 
 The below image show the current scenario for our group.
 
@@ -187,7 +243,7 @@ I have learnt how to apply the program in aviation and the rationale behind. To 
 
 ### g. Member 7 - Mark Yao (Markyaoxin)
 
-### h. Member 8 - YU Haoyang (YU-Haoyang22101598d)
+### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
 
 
 

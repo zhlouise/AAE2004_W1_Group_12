@@ -65,14 +65,14 @@
     <li>
       <a href="#Individual-Reflective-Essay">Individual Reflective Essays</a>
       <ol>
-        <li><a href="#a-Member-1---Louise-Zhou-(zhlouise)">Louise Zhou</a></li>
-        <li><a href="#b-Member-2---Rainy-Yuen-(itsssraining)">Rainy Yue</a></li>
-        <li><a href="#c-Member-3---Anson-Wong-(Ansonwong88)">Anson Wong</a></li>
-        <li><a href="#d-Member-4---Samuel-Yau-(SamuelYcy)">Samuel Yau</a></li>
-        <li><a href="#e-Member-5---Aidan-Yau-(yhpAidan)">Aidan Yau</a></li>
-        <li><a href="#f-Member-6---Angela-Xu-(Angelaxu2019)">Angela Xu</a></li>
-        <li><a href="#g-Member-7---Mark-Yao-(Markyaoxin)">Mark Yao</a></li>
-        <li><a href="#h-Member-8---Haoyang-Yu-(YU-Haoyang22101598d)">Haoyang Yu</a></li>
+        <li><a href="#a-Member-1---Louise-Zhou-zhlouise">Louise Zhou</a></li>
+        <li><a href="#b-Member-2---Rainy-Yuen-itsssraining">Rainy Yue</a></li>
+        <li><a href="#c-Member-3---Anson-Wong-Ansonwong88">Anson Wong</a></li>
+        <li><a href="#d-Member-4---Samuel-Yau-SamuelYcy">Samuel Yau</a></li>
+        <li><a href="#e-Member-5---Aidan-Yau-yhpAidan">Aidan Yau</a></li>
+        <li><a href="#f-Member-6---Angela-Xu-Angelaxu2019">Angela Xu</a></li>
+        <li><a href="#g-Member-7---Mark-Yao-Markyaoxin">Mark Yao</a></li>
+        <li><a href="#h-Member-8---Haoyang-Yu-YU-Haoyang22101598d">Haoyang Yu</a></li>
       </ol>
     </li>
     <li><a href="#References">References</a></li>

@@ -18,8 +18,8 @@
     <li>
       <a href="#Introduction-of-the-Engineering-Tools">Introduction of the Engineering Tools</a>
       <ol>
-        <li><a href="#a.-Python">Python</a></li>
-        <li><a href="#b.-GitHub">GitHub</a></li>
+        <li><a href="#a-Python">Python</a></li>
+        <li><a href="#b-GitHub">GitHub</a></li>
       </ol>
     </li>
     <li>

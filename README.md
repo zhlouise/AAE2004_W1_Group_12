@@ -63,7 +63,7 @@
 
 
 
-<!--Task 1 - Scenarios-->
+<!--Compulsory Task 1 - Scenarios-->
 
 ## Compulsory Task 1 - Scenarios
 
@@ -106,7 +106,7 @@ The below image show the current scenario for our group.
 
 
 
-<!--Task 2 - Designing New Cost Area-->
+<!--Compulsory Task 2 - Designing New Cost Area-->
 
 
 
@@ -168,7 +168,7 @@ For the program calculation, a higher level of code standard is required. The kn
 
 
 
-<!--Task3 - Designing an Aircraft-->
+<!--Compulsory Task3 - Designing an Aircraft-->
 
 
 ## Compulsory Task 3 - Designing an Aircraft
@@ -195,7 +195,7 @@ Engine count: 2
 
 
 
-<!--Task 4 -->
+<!--Additional Task 1 - Adding Check Points-->
 
 
 ## Additional Task 1 - Adding Check Points

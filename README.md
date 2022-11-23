@@ -1,4 +1,11 @@
-# AAE2004_W1_Group_12
+<div id="banner" align="left">
+  <img src="https://im3.ezgif.com/tmp/ezgif-3-a060d74a4c.gif" width=100% height=auto object-fit=cover/>
+</div>
+
+<div id="header" align="center">
+  <h1>PROJECT REPORT - GROUP 12</h1>
+  <p>Members: Louise Zhou (zhlouise), Rainy Yuen (itsssraining), Anson Wong (Ansonwong88), Samuel Yau (SamuelYcy), Aidan Yau (yhpAidan), Angela Xu (Angelaxu2019), Mark Yao (Markyaoxin), Haoyang Yu (YU-Haoyang22101598d)<p>
+</div>
 
 # Presentation Link
 
@@ -61,8 +68,6 @@
 
 ## Task 1 - Scenarios
 
-### a. Methodology
-
 The below image show the current scenario for our group.
 
 <img width="1216" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
@@ -81,6 +86,8 @@ The below image show the current scenario for our group.
 1. 2500 Passengers need to travel within this week from the start to the destination
 2. 25 flights maximum for one week
 3. Time cost = low and Fuel cost = 0.95 $/kg
+
+### a. Methodology
 
 
 
@@ -203,7 +210,7 @@ Engine count: 2
 
 ## Reflective Essay
 
-### a. Member 1 - Louise Zhou (zhlouise 22099961d)
+### a. Member 1 - Louise Zhou (zhlouise)
 
 ### b. Member 2 - Rainy Yuen (itsssraining)
 
@@ -213,13 +220,13 @@ The python system and Githib is totally Greek to me as a student that is majorin
 
 I have learnt how to apply the program in aviation and the rationale behind. To integrate the knowledge that I have learnt in aviation study, I appreciate the decision-making process behind when the airline is designing airline route. For example, how the jet stream area will alter the cost and efficiency of that route. This is all based on the systematic protocol and calculation to obtain the conclusion. All in all, this project had broadened my horizon on the aviation industry and will be a remarkable point in my minor study. 
 
-### d. Member 4 - Samuel Yau
+### d. Member 4 - Samuel Yau (SamuelYcy)
 
 ### e. Member 5 - Aidan Yau (yhpAidan)
 
-### f. Member 6 - Angela Xu
+### f. Member 6 - Angela Xu (Angelaxu2019)
 
-### g. Member 7 - Mark Yao
+### g. Member 7 - Mark Yao (Markyaoxin)
 
 ### h. Member 8 - YU Haoyang (YU-Haoyang22101598d)
 

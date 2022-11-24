@@ -1,5 +1,5 @@
 <div id="banner" align="left">
-  <img src="https://im3.ezgif.com/tmp/ezgif-3-a060d74a4c.gif" width=100% height=auto object-fit=cover/>
+  <img src="https://user-images.githubusercontent.com/116058486/203708031-691173f6-6e02-424b-b602-3207e43d11ed.gif" width=100% height=auto object-fit=cover/>
 </div>
 
 <div id="header" align="center">

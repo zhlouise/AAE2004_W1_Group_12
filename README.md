@@ -117,6 +117,7 @@ The below table shows the 3 scenarios used for calculation:
 |Fuel Cost (in$/kg)     |0.76      |0.88      |0.95      |
 
 Lastly, the below image shows the cost specifications for A321neo, A330-900neo, and A350-900:
+<img width="591" alt="Screenshot 2022-11-26 at 6 31 19 PM" src="https://user-images.githubusercontent.com/116058486/204084260-55c49d91-66f4-43e5-9fef-d407889f5a3f.png">
 
 ### a. Methodology
 

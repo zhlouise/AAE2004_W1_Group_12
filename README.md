@@ -76,6 +76,7 @@
       </ol>
     </li>
     <li><a href="#References">References</a></li>
+    <li><a href="#Conclusion">Conclusion</a></li>
   </ol>
  </details>
 
@@ -124,8 +125,11 @@ Lastly, the below image shows the cost specifications for A321neo, A330-900neo, 
 We began our coding solution to this task by first setting up the obstacles and cost intensive areas assigned to our group. This could be easily done in ```main()``` though the ```append()``` function, which adds a continuous series of x or y coordinates into their respective list. We also modified the coordinates of the starting position and the ending position, sx, sy, gx, and gy, respectively. 
 
 We then proceeded to writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. This function would return out a printed statement specifiying which aircraft would yield the minimum cost, the minimum cost itself, as well as how many flights of that aircraft is needed. 
+
 The first thing we wanted to make sure in our function is that, out of the three aircrafts to choose from, we could only choose the ones that has the capacity to satisfy the amount of passengers specified in the scenario. This could be done though comparing the amount of flights we needed (to satisfy the passenger demands) with the actual amount of flights that we are allowed to have. Note that we used the ceiling division finding the amount of needed flights: ```math.ceil(passengers/capacity)```. This is because the ceiling function rounds the quotient to the larger interger, which makes sense because the 'remainder' of the passengers still needs another flight.
-After eliminating the aircraft that will not fulfill the specified capacity, we could calculate the trip cost for the entire scenario by multiplying the cost for each flight with the number of flights needed (which we just calculated in the previous step). The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>, where:
+
+After eliminating the aircraft that will not fulfill the specified capacity, we could calculate the trip cost for the entire scenario by multiplying the cost for each flight with the number of flights needed (which we just calculated in the previous step). 
+The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>, where:
 <ul>
   <li>C<sub>F</sub> is the cost of fuel per kilogram in $/kg</li>
   <li>ΔF is the fuel consumption rate in kg/min</li>
@@ -133,6 +137,22 @@ After eliminating the aircraft that will not fulfill the specified capacity, we 
   <li>C<sub>T</sub> is time related cost per minute of flight in $/kg</li>
   <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
 </ul>
+
+Lastly, we would like to compare, out of the aircrafts that could fulfill the specified capacity, which one of them would yield in the minimum cost. This is done though storing all the possible outcomes into the ```comparasion_array```, then by using the Python builtin function ```comparasion_array.min()```, we could find the minimum possible cost for this scenario, which would lead us to the type of aircraft that yields this minimum cost. 
+
+The final step involves using and calling this function in ```main()```so that it could be executed: 
+```# Finding the optimal flight for scenario 1
+    print ("Scenario 1:")
+    trip_cost (3000, 1, 12, "medium", 0.76)
+
+    # Finding the optimal flight for scenario 2
+    print ("Scenario 2:")
+    trip_cost(1250, 4, 5, "high", 0.88)
+
+    # Finding the optimal flight for scenario 3
+    print ("Scenario 3:")
+    trip_cost(2500, 1, 25, "low", 0.95)
+ ```
 
 ### b. Results
 
@@ -260,5 +280,6 @@ Although I have learnt the python coding in other subjects like the the Foundame
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
 
 
+## Conclusion
 
 ## References

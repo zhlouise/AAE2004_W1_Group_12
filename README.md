@@ -256,6 +256,8 @@ Although I have learnt the python coding in other subjects like the the Foundame
 
 ### f. Member 6 - Angela Xu (Angelaxu2019)
 
+As a person who is totally new to programming, I have never learn any coding befor entering the university. When I first know that we need to do this project, I thought it is nearly impossible for me, since I have only learnd basic Python programming in my IC training course, while the required tasks assigned in this project are much diificult than that. Due to limited capability, I did not do much coding in the project, but I have still learn a lot from the project. I have know the theory of path fligh path planing, which I thought it is designed only based on the time consumed. After start doing the project, I have a chance to know that to plan a path, there are depending facts to consider when desigh a flight, including cost intensify area, time slot of the flight, and even the type of aircraft used. By doing this project, although it is quite a challenge for me, it can still help me to become more familiar to coding, and how to coorporate with others to finish a project together, which is a great receipt for me.
+
 ### g. Member 7 - Mark Yao (Markyaoxin)
 
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)

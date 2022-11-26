@@ -27,11 +27,10 @@
       <ol>
         <li><a href="#a-Methodology">Methodology</a></li>
         <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
       </ol>
     </li>
     <li>
-      <a href="#Compulsory-Task-2---Designing-New-Cost-Area">Compulsory Task 2 - Designing New Cost Area</a>
+      <a href="#Compulsory-Task-2---Designing-Jet-Stream-Area">Compulsory Task 2 - Designing Jet Stream Area</a>
       <ol>
         <li><a href="#a-Methodology">Methodology</a></li>
         <li><a href="#b-Results">Results</a></li>
@@ -55,7 +54,7 @@
       </ol>
     </li>
     <li>
-      <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios"></a>
+      <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios">Additional Task 2 - Path Planning for Random Scenarios</a>
       <ol>
         <li><a href="#a-Methodology">Methodology</a></li>
         <li><a href="#b-Results">Results</a></li>
@@ -76,6 +75,7 @@
       </ol>
     </li>
     <li><a href="#References">References</a></li>
+    <li><a href="#Conclusion">Conclusion</a></li>
   </ol>
  </details>
 
@@ -83,6 +83,8 @@
 <!--Background of Path Planning to Aviation Engineering-->
 
 ## Background of Path Planning to Aviation Engineering
+
+Path planning is a computational problem to find the most suitable path that consider to move the object from the starting point to the destination to pass through all obstacles or some cost intensive area. Pilots should do the path planning before their flight to make sure the navigation aid is available. The correct fuel calculation can be calculated by the path-planning system and save the costs by calculating the msot suitable route and the best altitude to fly. In the aviation engineering, path planning can obtain the most suitable path in the flight and avoid the midair accident.
 
 
 <!--Theory of Path Planning Algorithm-->
@@ -103,12 +105,12 @@
 
 ## Compulsory Task 1 - Best Aircraft for the Given Scenarios
 
-In this task, we were given a unique set of obstacles, starting and goal points, and cost intensive areas. We were then asked to find the most optimal aircraft model among A321neo, A330-900neo, and A350-900 that would yield in the mimimum cost for each of the three given scenarios.
+In this task, we were given a unique set of obstacles, starting and goal points, and cost intensive areas. We were then asked to find the most optimal aircraft model among A321neo, A330-900neo, and A350-900 that would yield in the mimimum cost for each of the three given scenarios. A starting template for the A* algorithm was given. 
 
-The below image shows the obstacle and cost intensive areas' setup assigned to our group:
-<img width="700" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
+The below image illustrates the obstacles and cost intensive areas' setup assigned to our group:
+<img width="700" alt="Screenshot 2022-11-26 at 10 18 36 PM" src="https://user-images.githubusercontent.com/116058486/204093387-58818aaf-c20f-4fd5-a36e-056c5fd3d261.png">
 
-The below table shows the 3 scenarios used for calculation:
+The below table summarizes the 3 given scenarios studied in this task:
 |                       |Scenario 1|Scenario 2|Scenario 3|
 |-----------------------|----------|----------|----------|
 |Passenger per week     |3000      |1250/4    |2500      |
@@ -119,10 +121,15 @@ The below table shows the 3 scenarios used for calculation:
 Lastly, the below image shows the cost specifications for A321neo, A330-900neo, and A350-900:
 <img width="591" alt="Screenshot 2022-11-26 at 6 31 19 PM" src="https://user-images.githubusercontent.com/116058486/204084260-55c49d91-66f4-43e5-9fef-d407889f5a3f.png">
 
-
-
 ### a. Methodology
 
+We began our coding solution to this task by first setting up the obstacles and cost intensive areas assigned to our group. This could be easily done in ```main()``` though the ```append()``` function, which adds a continuous series of x or y coordinates into their respective list. We also modified the coordinates of the starting position and the ending position, sx, sy, gx, and gy, respectively. 
+
+We then proceeded to writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. This function would return out a printed statement specifiying which aircraft would yield the minimum cost, the minimum cost itself, as well as how many flights of that aircraft is needed. 
+
+The first thing we wanted to make sure in our function is that, out of the three aircrafts to choose from, we could only choose the ones that has the capacity to satisfy the amount of passengers specified in the scenario. This could be done though comparing the amount of flights we needed (to satisfy the passenger demands) with the actual amount of flights that we are allowed to have. Note that we used the ceiling division finding the amount of needed flights: ```math.ceil(passengers/capacity)```. This is because the ceiling function rounds the quotient to the larger interger, which makes sense because the 'remainder' of the passengers still needs another flight.
+
+After eliminating the aircraft that will not fulfill the specified capacity, we could calculate the trip cost for the entire scenario by multiplying the cost for each flight with the number of flights needed (which we just calculated in the previous step). 
 The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>, where:
 <ul>
   <li>C<sub>F</sub> is the cost of fuel per kilogram in $/kg</li>
@@ -132,82 +139,191 @@ The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF 
   <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
 </ul>
 
-We begin our coding solution to this task by first writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. 
+Lastly, we would like to compare, out of the aircrafts that could fulfill the specified capacity, which one of them would yield in the minimum cost. This is done though storing all the possible outcomes into the ```comparasion_array```, then by using the Python builtin function ```comparasion_array.min()```, we could find the minimum possible cost for this scenario, which would lead us to the type of aircraft that yields this minimum cost. 
 
+The final step involves using and calling this function in ```main()```so that it could be executed: 
+```
+# Finding the optimal flight for scenario 1
+print ("Scenario 1:")
+trip_cost (3000, 1, 12, "medium", 0.76)
+
+# Finding the optimal flight for scenario 2
+print ("Scenario 2:")
+trip_cost(1250, 4, 5, "high", 0.88)
+
+# Finding the optimal flight for scenario 3
+print ("Scenario 3:")
+trip_cost(2500, 1, 25, "low", 0.95)
+ ```
 
 ### b. Results
 
-**The following show the result of different scenarios in Task1**
+With the previous steps executed, we were able to yield the results of this task as the following:
+```
+Total Trip time required ->  59.89528855298852
+Task 1 Results:
+Scenario 1:
+The A321neo aircraft could not fulfill the specified capacity.
+The trip cost for using 10 flights of A330 is $70815.16
+The trip cost for using 9 flights of A350 is $73926.09
+10 flights of A330 will yield the lowest cost of $70815.16
+Scenario 2:
+The trip cost for using 7 flights of A321 is $40908.91
+The trip cost for using 5 flights of A330 is $40223.16
+The trip cost for using 4 flights of A350 is $37120.59
+4 flights of A350 will yield the lowest cost of $37120.59
+Scenario 3:
+The trip cost for using 13 flights of A321 is $71130.56
+The trip cost for using 9 flights of A330 is $69102.66
+The trip cost for using 8 flights of A350 is $70551.62
+9 flights of A330 will yield the lowest cost of $69102.66
+```
+Please note that the results above are copied from the results printed in the terminal after executing ```main.py```. 
 
-<img width="471" alt="Screen Shot 2022-10-31 at 10 49 42 PM" src="https://user-images.githubusercontent.com/116058486/199039639-1bf8a4bb-46f9-4548-9d44-f178ade9a0cf.png">
 
+<!--Compulsory Task 2 - Designing Jet Stream Area-->
 
-### c. Discussion
+## Compulsory Task 2 - Designing Jet Stream Area
 
+Jet streams are certain areas where aircrafts could consume less fuel, thus reducing the operational cost of that flight. In this task, we were asked to find the most optimal position of a jet steam using Scenario 1 from Task 1 as the background. The jet stream area spans across the map laterally and is 5 units in width (vertically). 
 
-<!--Compulsory Task 2 - Designing New Cost Area-->
+### a. Methodology
 
-## Compulsory Task 2 - Designing New Cost Area
+#### a1. Methodology for Trial Calculation
 
-### a1. Methodology for trial calculation
+The following work is divided into three main parts:
 
-**The following work is divided into three main parts**
-
-**First part: Define cost reduction of the jet stream area**
+<ins>First part: Define cost reduction of the jet stream area</ins>
 
 We have the Delta C1 and C2 preliminary for the cost intensive area 1 and 2 respectively. Copy and modify the value to -0.05 to reduce the cost of 5% along the jet stream.
 
-<img width="387" alt="image" src="https://user-images.githubusercontent.com/116557675/201845315-eb36dd45-50f0-41ab-a662-95bfc77997f2.png">
+```
+self.Delta_C1 = 0.2 # cost intensive area 1 modifier
+self.Delta_C2 = 0.4 # cost intensive area 2 modifier
+self.Delta_C3 = -0.05 # jet stream area 3 modifier
+```
 
-**Second part: Define color of the jet stream area**
+<ins>Second part: Define color of the jet stream area</ins>
 
 Appreciate the code “oy” and “or”. That is for the color of the cost intensive area or jet stream area. Modify the code to “ob” in which the area will become blue in color.
 
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201845375-f606be1c-a78d-4e5a-b026-3adbb6517652.png">
+```
+plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
+plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
+plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
+```
 
-**Third part: Define area of the jet stream area**
+<ins>Third part: Define area of the jet stream area</ins>
 
 Copy and modify the value from the cost intensive area 1 and 2. Modify it to the Delta_C3 that we have just defined which suits for the jet stream are cost reduction. Run the program by trial, record the total trip time required for every possible area position. Obtain the result by comparing the result and state the minimal total trip time.
 
-<img width="360" alt="image" src="https://user-images.githubusercontent.com/116557675/201845433-be4c61f9-fc67-437a-af46-155a68f4a580.png">
+```
+# Set cost intesive area 1 (time-consuming area)
+tc_x, tc_y = [], []
+for i in range(20, 30):
+    for j in range(30, 40):
+        tc_x.append(i)
+        tc_y.append(j)
+    
+# Set cost intesive area 2 (fuel-consuming area)
+fc_x, fc_y = [], []
+for i in range(10, 30):
+    for j in range(50, 60):
+        fc_x.append(i)
+        fc_y.append(j)
+        
+# Set jet stream area 3 (fuel-conserving area)
+jc_x, jc_y = [], []
+for i in range(-10, 60):
+    for j in range(26, 31):
+        jc_x.append(i)
+        jc_y.append(j)       
+```
 
-### a2. Methodology for program calculation
+#### a2. Methodology for Program Calculation
 
-Program calculation involve the use of the iteration calculation to obtain the minimal total trip time (minimal cost). First, create an empty dictionary that will be used to store all the possible costs for each iteration run. Run and repeat all the possible place of jet stream area inside the box by defining j in range from k to k+5, which +5 is defining the 5-unit length vertically. Run the A star algorithm without plotting the animations to preserve time. When one calculation for one position is done, store inside the comparison dictionary and loop for the second location of jet stream area.
+For this task, we wrote a function named ```jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy)```. This function involves calculating the total trip time ```current.cost``` for every single possible configurations of the jet steam area in the map. We could simply achieve that through using a for loop, setting the jet stream area to be a new one in each iteration: 
 
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846212-2da215ae-f6a9-44aa-afb1-8681bd6aec1f.png">
+```
+for k in range(-10, 56):
+    # Set the jet stream area in the current iteration
+    jc_x, jc_y = [], []
+    for i in range(-10, 60):
+        for j in range(k, k+5):
+            jc_x.append(i)
+            jc_y.append(j)
+    # Run the AStar algorithm without plotting the animations to determine the cost for the current iteration.
+    a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
+    rx, ry = a_star.planning_no_animation(sx, sy, gx, gy)
+```
+Note that we ran each iteration in an alternative function ```a_star.planning_no_animation(sx, sy, gx, gy)``` that does not plot animations to reduce the time it takes for the program to run.
 
-After running through all the possible location of the jet stream area, calculation is done. Extract the minimum total trip time from the comparison dictionary. Set it as the jet stream area and shown in the animation.
+Then, we are to compare all the different resulting costs. We created an empty dictionary that was used to store all the resulting ```current.cost``` values for each iteration. The keys of the dictionary are the lower bounds of the jet stream area while the values corresponding to each key is the cost that specific jet stream yields. Lastly, we use the Python built-in function ```min()``` to find the lower bound of the best jet stream ```ymin```and deduce the value of the upper bound ```ymax```as well. 
 
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846271-9b37bb08-4886-4765-ad36-10436fd59810.png">
-
-Result shown in this format 
-
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846326-57d94b51-5059-4ec5-9141-bbdd5c38dcd5.png">
+```
+# Create an empty dictionary that will be used to store all the possible costs for each iteration runned.
+comparasion_dict = {}
+......
+# Finding the key (ymin) for the minimum cost within the comparasion dictionary
+ymin = min(comparasion_dict.keys(), key=(lambda k: comparasion_dict[k]))
+ymax = ymin + 5
+```
+With the information we obtained about the most optimal jet stream position, we could finally set the actual jet stream of the program: 
+```
+jc_x, jc_y = [], []
+for i in range(-10, 60):
+    for j in range(ymin, ymax):
+        jc_x.append(i)
+        jc_y.append(j)
+```
 
 ### b. Results
 
+Both methods that we used indicated that the best jet stream area is between 27 and 32 on the vertical axis: 
+```
+Task 2 Results:
+The optimal jet-stream ranges from y=27 to y=32.
+```
+Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
+
+The plotted result that the program returns is as illustrated below, where the area shaded in blue is the most optimal jet stream area.
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201847987-d9232159-e366-4174-8a56-2812dc983b81.png">
-
-<img width="344" alt="image" src="https://user-images.githubusercontent.com/116557675/201848029-bf6b65ca-305f-4b0b-91e1-1869be1796eb.png">
-
 
 ### c. Discussion
 
-**Comparison between two methods**
+<ins>Comparison between two methods</ins>
 
-For the trial calculation, the programmer needs to have each scenario tested, which the efficiency of completing the task is lower. However, the result of the task can be predicted based on the experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code prevent human error and improve the efficiency.
+For the trial calculation, we need to have each scenario tested manually, which indicates that the efficiency of completing the task is lower. However, the result of the task can be predicted based on experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code can prevent human error and improve the efficiency.
 
-For the program calculation, a higher level of code standard is required. The knowledge of iteration and comparison dictionary is used in the code. Nevertheless, it prevents the use of human calculation and hence reduce the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding. 
+For the program calculation, some levels of coding knowledge is required. In addition, the method of running through every possible iteration means that the program would have a relatively longer execution time. In our case, the execution time is around 50 seconds. The run-time could be improved if we have some advanced knowledge of optimizing a programe. Nevertheless, it prevents the use of human calculation and hence minimizes the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding.
 
 
 <!--Compulsory Task3 - Designing an Aircraft-->
 
 ## Compulsory Task 3 - Designing an Aircraft
 
+In this task, we were asked to design an aircraft that is most suitable for the Scenario 1, provided in Task 1. Some factors to be considered are the passenger capacity of the aircraft, as well as the number of engines on the aircraft. 
+
+Restrictions are given that:
+<ul>
+  <li>The aircraft could have a minimum capacity of 100 passengers and a maximum capacity of 450 passengers. </li>
+  <li>The base time related cost per minute of flight is 12$/min. However, for every 50 passengers, the time related cost is increased by 2$/min.</li>
+  <li>The base design is a twin-engine aircraft. However, if the passenger capacity exceeds 300 (inclusive), we must switch to a 4-engined aircraft. </li>
+    <ul>
+      <li>The fixed cost for a twin-engine aircraft is $2000 while the fixed cost for a 4-engine aircraft is $2500.</li>
+      <li>Each engine consumes fuel at a rate of 20 kg/min. </li> 
+    </ul>
+  <li>The cost of fuel is $882.30 per metric tonnes.</li>
+</ul>
+
 ### a. Methodology
 
+To tackle this task, we first defined 2 helper functions in our code: ```aircraft_cost(capacity)``` and ```optimal_cost()```.
+
+
 ### b. Results
+
+
 
 **The following show the result of the most optimal aircraft in Task3**
 <img width="921" alt="Screen Shot 2022-11-01 at 3 04 15 PM" src="https://user-images.githubusercontent.com/116058486/199177844-6e93ad22-82c4-416b-975f-d372184bb5e5.png">
@@ -256,6 +372,8 @@ Although I have learnt the python coding in other subjects like the the Foundame
 
 ### f. Member 6 - Angela Xu (Angelaxu2019)
 
+As a person who is totally new to programming, I have never learn any coding befor entering the university. When I first know that we need to do this project, I thought it is nearly impossible for me, since I have only learnd basic Python programming in my IC training course, while the required tasks assigned in this project are much diificult than that. Due to limited capability, I did not do much coding in the project, but I have still learn a lot from the project. I have know the theory of path fligh path planing, which I thought it is designed only based on the time consumed. After start doing the project, I have a chance to know that to plan a path, there are depending facts to consider when desigh a flight, including cost intensify area, time slot of the flight, and even the type of aircraft used. By doing this project, although it is quite a challenge for me, it can still help me to become more familiar to coding, and how to coorporate with others to finish a project together, which is a great receipt for me.
+
 ### g. Member 7 - Mark Yao (Markyaoxin)
 
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
@@ -265,5 +383,6 @@ In the course, I also got familiar with tools for coding such as GitHub. GitHub 
 All in all, this course gives me insights into the path planning of fights and practice my skills of working as a team.
 
 
+## Conclusion
 
 ## References

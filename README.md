@@ -84,6 +84,8 @@
 
 ## Background of Path Planning to Aviation Engineering
 
+Path planning is a computational problem to find the most suitable path that consider to move the object from the starting point to the destination to pass through all obstacles or some cost intensive area. Pilots should do the path planning before their flight to make sure the navigation aid is available. The correct fuel calculation can be calculated by the path-planning system and save the costs by calculating the msot suitable route and the best altitude to fly. In the aviation engineering, path planning can obtain the most suitable path in the flight and avoid the midair accident.
+
 
 <!--Theory of Path Planning Algorithm-->
 
@@ -351,9 +353,15 @@ Although I have learnt the python coding in other subjects like the the Foundame
 
 ### f. Member 6 - Angela Xu (Angelaxu2019)
 
+As a person who is totally new to programming, I have never learn any coding befor entering the university. When I first know that we need to do this project, I thought it is nearly impossible for me, since I have only learnd basic Python programming in my IC training course, while the required tasks assigned in this project are much diificult than that. Due to limited capability, I did not do much coding in the project, but I have still learn a lot from the project. I have know the theory of path fligh path planing, which I thought it is designed only based on the time consumed. After start doing the project, I have a chance to know that to plan a path, there are depending facts to consider when desigh a flight, including cost intensify area, time slot of the flight, and even the type of aircraft used. By doing this project, although it is quite a challenge for me, it can still help me to become more familiar to coding, and how to coorporate with others to finish a project together, which is a great receipt for me.
+
 ### g. Member 7 - Mark Yao (Markyaoxin)
 
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
+
+In this course, we have learnt about the A star algorithm of path planning and done some tasks by using it. Since I have not done any coding projects, everything seems unfamiliar to me. After reading the explanation after some code, I began to understand that we should change some parameters and modify some parts of the original code while keeping the logic of the code to be clear instead of writing the whole code. During coding, I have encountered many errors and I don’t know how to solve them. Thanks to my groupmates and the teachers, I was able to figure them out in the end. This let me realize the importance of cooperation.
+In the course, I also got familiar with tools for coding such as GitHub. GitHub can not only be a resource library for programmers but also provide an online platform for programmers to cooperate. It can be a useful tool to do a coding project.
+All in all, this course gives me insights into the path planning of fights and practice my skills of working as a team.
 
 
 ## Conclusion

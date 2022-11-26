@@ -117,6 +117,9 @@ The below table shows the 3 scenarios used for calculation:
 |Fuel Cost (in$/kg)     |0.76      |0.88      |0.95      |
 
 Lastly, the below image shows the cost specifications for A321neo, A330-900neo, and A350-900:
+<img width="591" alt="Screenshot 2022-11-26 at 6 31 19 PM" src="https://user-images.githubusercontent.com/116058486/204084260-55c49d91-66f4-43e5-9fef-d407889f5a3f.png">
+
+
 
 ### a. Methodology
 
@@ -129,6 +132,7 @@ The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF 
   <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
 </ul>
 
+We begin our coding solution to this task by first writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. 
 
 
 ### b. Results
@@ -223,7 +227,11 @@ Engine count: 2
 
 ### b. Results
 
+## Additional Task-2 - Path Planning for Random Scenarios
 
+### a. Methodology
+
+## b. Results
 
 
 ## Individual Reflective Essay

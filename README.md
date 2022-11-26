@@ -293,18 +293,37 @@ The plotted result that the program returns is as illustrated below, where the a
 
 <ins>Comparison between two methods</ins>
 
-For the trial calculation, the programmer needs to have each scenario tested, which the efficiency of completing the task is lower. However, the result of the task can be predicted based on the experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code prevent human error and improve the efficiency.
+For the trial calculation, we need to have each scenario tested manually, which indicates that the efficiency of completing the task is lower. However, the result of the task can be predicted based on experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code can prevent human error and improve the efficiency.
 
-For the program calculation, a higher level of code standard is required. The knowledge of iteration and comparison dictionary is used in the code. Nevertheless, it prevents the use of human calculation and hence reduce the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding. 
+For the program calculation, some levels of coding knowledge is required. In addition, the method of running through every possible iteration means that the program would have a relatively longer execution time. In our case, the execution time is around 50 seconds. The run-time could be improved if we have some advanced knowledge of optimizing a programe. Nevertheless, it prevents the use of human calculation and hence minimizes the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding.
 
 
 <!--Compulsory Task3 - Designing an Aircraft-->
 
 ## Compulsory Task 3 - Designing an Aircraft
 
+In this task, we were asked to design an aircraft that is most suitable for the Scenario 1, provided in Task 1. Some factors to be considered are the passenger capacity of the aircraft, as well as the number of engines on the aircraft. 
+
+Restrictions are given that:
+<ul>
+  <li>The aircraft could have a minimum capacity of 100 passengers and a maximum capacity of 450 passengers. </li>
+  <li>The base time related cost per minute of flight is 12$/min. However, for every 50 passengers, the time related cost is increased by 2$/min.</li>
+  <li>The base design is a twin-engine aircraft. However, if the passenger capacity exceeds 300 (inclusive), we must switch to a 4-engined aircraft. </li>
+    <ul>
+      <li>The fixed cost for a twin-engine aircraft is $2000 while the fixed cost for a 4-engine aircraft is $2500.</li>
+      <li>Each engine consumes fuel at a rate of 20 kg/min. </li> 
+    </ul>
+  <li>The cost of fuel is $882.30 per metric tonnes.</li>
+</ul>
+
 ### a. Methodology
 
+To tackle this task, we first defined 2 helper functions in our code. 
+
+
 ### b. Results
+
+
 
 **The following show the result of the most optimal aircraft in Task3**
 <img width="921" alt="Screen Shot 2022-11-01 at 3 04 15 PM" src="https://user-images.githubusercontent.com/116058486/199177844-6e93ad22-82c4-416b-975f-d372184bb5e5.png">

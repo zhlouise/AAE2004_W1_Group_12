@@ -84,6 +84,8 @@
 
 ## Background of Path Planning to Aviation Engineering
 
+Path planning is a computational problem to find the most suitable path that consider to move the object from the starting point to the destination to pass through all obstacles or some cost intensive area. Pilots should do the path planning before their flight to make sure the navigation aid is available. The correct fuel calculation can be calculated by the path-planning system and save the costs by calculating the msot suitable route and the best altitude to fly. In the aviation engineering, path planning can obtain the most suitable path in the flight and avoid the midair accident.
+
 
 <!--Theory of Path Planning Algorithm-->
 

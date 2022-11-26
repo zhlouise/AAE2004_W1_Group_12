@@ -287,6 +287,7 @@ The optimal jet-stream ranges from y=27 to y=32.
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
 
 The plotted result that the program returns is as illustrated below, where the area shaded in blue is the most optimal jet stream area.
+
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201847987-d9232159-e366-4174-8a56-2812dc983b81.png">
 
 ### c. Discussion

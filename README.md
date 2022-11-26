@@ -240,6 +240,34 @@ for i in range(-10, 60):
 
 #### a2. Methodology for Program Calculation
 
+Using the computer program involves calculating the total trip time ```current.cost``` for every single possible configurations of the jet steam area in the map. We could simply achieve that through using a for loop, setting the jet stream area to be a new one in each iteration: 
+
+```
+for k in range(-10, 56):
+    # Set the jet stream area in the current iteration
+    jc_x, jc_y = [], []
+    for i in range(-10, 60):
+        for j in range(k, k+5):
+            jc_x.append(i)
+            jc_y.append(j)
+    # Run the AStar algorithm without plotting the animations to determine the cost for the current iteration.
+    a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
+    rx, ry = a_star.planning_no_animation(sx, sy, gx, gy)
+```
+Note that we ran each iteration in an alternative function ```a_star.planning_no_animation(sx, sy, gx, gy)``` that does not plot animations to reduce the time it takes for the program to run.
+
+Then, we are to compare all the different resulting costs. First, we created an empty dictionary that will be used to store all the resulting ```current.cost``` values for each iteration.
+
+```
+# Create an empty dictionary that will be used to store all the possible costs for each iteration runned.
+comparasion_dict = {}
+......
+# Finding the key (ymin) for the minimum cost within the comparasion dictionary and turning its datatype from tuple into integer
+ymin = min(comparasion_dict.keys(), key=(lambda k: comparasion_dict[k]))
+ymax = ymin + 5
+```
+
+
 Calculating using the program involves the calculation of many possible iterations to obtain the minimal total trip time (minimal cost). First, create an empty dictionary that will be used to store all the possible costs for each iteration run. Run and repeat all the possible place of jet stream area inside the box by defining j in range from k to k+5, which +5 is defining the 5-unit length vertically. Run the A star algorithm without plotting the animations to preserve time. When one calculation for one position is done, store inside the comparison dictionary and loop for the second location of jet stream area.
 
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846212-2da215ae-f6a9-44aa-afb1-8681bd6aec1f.png">

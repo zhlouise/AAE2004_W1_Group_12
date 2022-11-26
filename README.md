@@ -318,7 +318,7 @@ Restrictions are given that:
 
 ### a. Methodology
 
-To tackle this task, we first defined 2 helper functions in our code. 
+To tackle this task, we first defined 2 helper functions in our code: ```aircraft_cost(capacity)``` and ```optimal_cost()```.
 
 
 ### b. Results

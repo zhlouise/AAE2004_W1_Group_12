@@ -30,7 +30,7 @@
       </ol>
     </li>
     <li>
-      <a href="#Compulsory-Task-2---Designing-New-Cost-Area">Compulsory Task 2 - Designing New Cost Area</a>
+      <a href="#Compulsory-Task-2---Designing-Jet-Stream-Area">Compulsory Task 2 - Designing Jet Stream Area</a>
       <ol>
         <li><a href="#a-Methodology">Methodology</a></li>
         <li><a href="#b-Results">Results</a></li>
@@ -54,7 +54,7 @@
       </ol>
     </li>
     <li>
-      <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios"></a>
+      <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios">Additional Task 2 - Path Planning for Random Scenarios</a>
       <ol>
         <li><a href="#a-Methodology">Methodology</a></li>
         <li><a href="#b-Results">Results</a></li>
@@ -141,17 +141,17 @@ Lastly, we would like to compare, out of the aircrafts that could fulfill the sp
 
 The final step involves using and calling this function in ```main()```so that it could be executed: 
 ```
-    # Finding the optimal flight for scenario 1
-    print ("Scenario 1:")
-    trip_cost (3000, 1, 12, "medium", 0.76)
+# Finding the optimal flight for scenario 1
+print ("Scenario 1:")
+trip_cost (3000, 1, 12, "medium", 0.76)
 
-    # Finding the optimal flight for scenario 2
-    print ("Scenario 2:")
-    trip_cost(1250, 4, 5, "high", 0.88)
+# Finding the optimal flight for scenario 2
+print ("Scenario 2:")
+trip_cost(1250, 4, 5, "high", 0.88)
 
-    # Finding the optimal flight for scenario 3
-    print ("Scenario 3:")
-    trip_cost(2500, 1, 25, "low", 0.95)
+# Finding the optimal flight for scenario 3
+print ("Scenario 3:")
+trip_cost(2500, 1, 25, "low", 0.95)
  ```
 
 ### b. Results
@@ -179,35 +179,68 @@ The trip cost for using 8 flights of A350 is $70551.62
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```. 
 
 
-<!--Compulsory Task 2 - Designing New Cost Area-->
+<!--Compulsory Task 2 - Designing Jet Stream Area-->
 
-## Compulsory Task 2 - Designing New Cost Area
+## Compulsory Task 2 - Designing Jet Stream Area
 
-### a1. Methodology for trial calculation
+Jet streams are certain areas where aircrafts could consume less fuel, thus reducing the operational cost of that flight. In this task, we were asked to find the most optimal position of a jet steam using Scenario 1 from Task 1 as the background. The jet stream area spans across the map laterally and is 5 units in width (vertically). 
 
-**The following work is divided into three main parts**
+### a. Methodology
 
-**First part: Define cost reduction of the jet stream area**
+#### a1. Methodology for Trial Calculation
+
+The following work is divided into three main parts:
+
+<ins>First part: Define cost reduction of the jet stream area</ins>
 
 We have the Delta C1 and C2 preliminary for the cost intensive area 1 and 2 respectively. Copy and modify the value to -0.05 to reduce the cost of 5% along the jet stream.
 
-<img width="387" alt="image" src="https://user-images.githubusercontent.com/116557675/201845315-eb36dd45-50f0-41ab-a662-95bfc77997f2.png">
+```
+self.Delta_C1 = 0.2 # cost intensive area 1 modifier
+self.Delta_C2 = 0.4 # cost intensive area 2 modifier
+self.Delta_C3 = -0.05 # jet stream area 3 modifier
+```
 
-**Second part: Define color of the jet stream area**
+<ins>Second part: Define color of the jet stream area</ins>
 
 Appreciate the code “oy” and “or”. That is for the color of the cost intensive area or jet stream area. Modify the code to “ob” in which the area will become blue in color.
 
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201845375-f606be1c-a78d-4e5a-b026-3adbb6517652.png">
+```
+plt.plot(fc_x, fc_y, "oy") # plot the cost intensive area 1
+plt.plot(tc_x, tc_y, "or") # plot the cost intensive area 2
+plt.plot(jc_x, jc_y, "ob") # plot the jet stream area 3
+```
 
-**Third part: Define area of the jet stream area**
+<ins>Third part: Define area of the jet stream area</ins>
 
 Copy and modify the value from the cost intensive area 1 and 2. Modify it to the Delta_C3 that we have just defined which suits for the jet stream are cost reduction. Run the program by trial, record the total trip time required for every possible area position. Obtain the result by comparing the result and state the minimal total trip time.
 
-<img width="360" alt="image" src="https://user-images.githubusercontent.com/116557675/201845433-be4c61f9-fc67-437a-af46-155a68f4a580.png">
+```
+# Set cost intesive area 1 (time-consuming area)
+tc_x, tc_y = [], []
+for i in range(20, 30):
+    for j in range(30, 40):
+        tc_x.append(i)
+        tc_y.append(j)
+    
+# Set cost intesive area 2 (fuel-consuming area)
+fc_x, fc_y = [], []
+for i in range(10, 30):
+    for j in range(50, 60):
+        fc_x.append(i)
+        fc_y.append(j)
+        
+# Set jet stream area 3 (fuel-conserving area)
+jc_x, jc_y = [], []
+for i in range(-10, 60):
+    for j in range(26, 31):
+        jc_x.append(i)
+        jc_y.append(j)       
+```
 
-### a2. Methodology for program calculation
+#### a2. Methodology for Program Calculation
 
-Program calculation involve the use of the iteration calculation to obtain the minimal total trip time (minimal cost). First, create an empty dictionary that will be used to store all the possible costs for each iteration run. Run and repeat all the possible place of jet stream area inside the box by defining j in range from k to k+5, which +5 is defining the 5-unit length vertically. Run the A star algorithm without plotting the animations to preserve time. When one calculation for one position is done, store inside the comparison dictionary and loop for the second location of jet stream area.
+Calculating using the program involves the calculation of many possible iterations to obtain the minimal total trip time (minimal cost). First, create an empty dictionary that will be used to store all the possible costs for each iteration run. Run and repeat all the possible place of jet stream area inside the box by defining j in range from k to k+5, which +5 is defining the 5-unit length vertically. Run the A star algorithm without plotting the animations to preserve time. When one calculation for one position is done, store inside the comparison dictionary and loop for the second location of jet stream area.
 
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846212-2da215ae-f6a9-44aa-afb1-8681bd6aec1f.png">
 

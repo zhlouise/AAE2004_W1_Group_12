@@ -78,10 +78,6 @@
     <li><a href="#References">References</a></li>
   </ol>
  </details>
-    
-               
-
-<img width="1006" alt="Screenshot 2022-11-15 at 2 19 44 PM" src="https://user-images.githubusercontent.com/116058486/201841746-86859c4e-b873-46a7-b711-25906b196144.png">
 
 
 <!--Background of Path Planning to Aviation Engineering-->
@@ -107,26 +103,33 @@
 
 ## Compulsory Task 1 - Best Aircraft for the Given Scenarios
 
-The below image show the current scenario for our group.
+In this task, we were given a unique set of obstacles, starting and goal points, and cost intensive areas. We were then asked to find the most optimal aircraft model among A321neo, A330-900neo, and A350-900 that would yield in the mimimum cost for each of the three given scenarios.
 
-<img width="1216" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
+The below image shows the obstacle and cost intensive areas' setup assigned to our group:
+<img width="700" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
 
-**Scenario 1**
-1. 3000 Passengers need to travel within this week from the start to the destination
-2. 12 flights maximum for one week
-3. Time cost = medium and Fuel cost = 0.76 $/kg
+The below table shows the 3 scenarios used for calculation:
+|                       |Scenario 1|Scenario 2|Scenario 3|
+|-----------------------|----------|----------|----------|
+|Passenger per week     |3000      |1250/4    |2500      |
+|Maximum flight per week|12        |5         |25        |
+|Time cost              |medium    |high      |low       |
+|Fuel Cost (in$/kg)     |0.76      |0.88      |0.95      |
 
-**Scenario 2**
-1. 1250 Passengers need to travel within this month from the start to the destination
-2. 5 flights maximum for one week
-3. Time cost = high and Fuel cost = 0.88 $/kg
-
-**Scenario 3**
-1. 2500 Passengers need to travel within this week from the start to the destination
-2. 25 flights maximum for one week
-3. Time cost = low and Fuel cost = 0.95 $/kg
+Lastly, the below image shows the cost specifications for A321neo, A330-900neo, and A350-900:
 
 ### a. Methodology
+
+The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>, where:
+<ul>
+  <li>C<sub>F</sub> is the cost of fuel per kilogram in $/kg</li>
+  <li>ΔF is the fuel consumption rate in kg/min</li>
+  <li>T<sub>best</sub> is the shortest trip time calculated by the algorithm in min</li>
+  <li>C<sub>T</sub> is time related cost per minute of flight in $/kg</li>
+  <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
+</ul>
+
+
 
 ### b. Results
 

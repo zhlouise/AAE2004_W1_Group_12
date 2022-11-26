@@ -103,12 +103,12 @@
 
 ## Compulsory Task 1 - Best Aircraft for the Given Scenarios
 
-In this task, we were given a unique set of obstacles, starting and goal points, and cost intensive areas. We were then asked to find the most optimal aircraft model among A321neo, A330-900neo, and A350-900 that would yield in the mimimum cost for each of the three given scenarios.
+In this task, we were given a unique set of obstacles, starting and goal points, and cost intensive areas. We were then asked to find the most optimal aircraft model among A321neo, A330-900neo, and A350-900 that would yield in the mimimum cost for each of the three given scenarios. A starting template for the A* algorithm was given. 
 
-The below image shows the obstacle and cost intensive areas' setup assigned to our group:
-<img width="700" alt="Screen Shot 2022-10-25 at 1 34 14 PM" src="https://user-images.githubusercontent.com/116058486/197690898-449eb429-0daa-49f4-b658-54dab5e9a91e.png">
+The below image illustrates the obstacles and cost intensive areas' setup assigned to our group:
+<img width="700" alt="Screenshot 2022-11-26 at 10 18 36 PM" src="https://user-images.githubusercontent.com/116058486/204093387-58818aaf-c20f-4fd5-a36e-056c5fd3d261.png">
 
-The below table shows the 3 scenarios used for calculation:
+The below table summarizes the 3 given scenarios studied in this task:
 |                       |Scenario 1|Scenario 2|Scenario 3|
 |-----------------------|----------|----------|----------|
 |Passenger per week     |3000      |1250/4    |2500      |
@@ -118,8 +118,6 @@ The below table shows the 3 scenarios used for calculation:
 
 Lastly, the below image shows the cost specifications for A321neo, A330-900neo, and A350-900:
 <img width="591" alt="Screenshot 2022-11-26 at 6 31 19 PM" src="https://user-images.githubusercontent.com/116058486/204084260-55c49d91-66f4-43e5-9fef-d407889f5a3f.png">
-
-
 
 ### a. Methodology
 
@@ -132,8 +130,10 @@ The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF 
   <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
 </ul>
 
-We begin our coding solution to this task by first writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. 
+We began our coding solution to this task by first setting up the obstacles and cost intensive areas assigned to our group. This could be easily done in '''main()''' though the '''append()''' function, which adds a continuous series of x or y coordinates into their respective list. We also modified the coordinates of the starting position and the ending position, sx, sy, gx, and gy, respectively. 
 
+We then proceeded to writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. 
+The first thing we wanted to make sure in our function is that, out of the three aircrafts to choose from, we could only choose the ones that has the capacity to satisfy the amount of passengers specified in the scenario. 
 
 ### b. Results
 

@@ -239,6 +239,8 @@ I have learnt how to apply the program in aviation and the rationale behind. To 
 
 ### e. Member 5 - Aidan Yau (yhpAidan)
 
+Although I have learnt the python coding in other subjects like the the Foundamentals of AI and Data Analysis, but this coding part and A star algorithm in this course is totally new to me and also difficult to me. In this project, I have tried to do and successfully finished the compulsary task 1 but task 2 and 3 is really hard for me. Fortunately, my groupmates have a stronger coding skill and they have finished all the compulsary task so my job is to do the read.me section. This path planning course really built a foundation in my aviation knowledge. If I had a chance to do this project again, I would learn the coding part more deeply and try to understand all the function of the code like A star algorithm. In conclusion, this github course helps me a lot as a first project in my university life.
+
 ### f. Member 6 - Angela Xu (Angelaxu2019)
 
 ### g. Member 7 - Mark Yao (Markyaoxin)

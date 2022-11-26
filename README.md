@@ -98,7 +98,10 @@ Path planning is a computational problem to find the most suitable path that con
 
 ### a. Python
 
+Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is a multi-paradigm programming language. Object-oriented programming and structured programming are fully supported, and many of their features support functional programming and aspect-oriented programming. Python is intended to be an easy-to-read language. It is visually neatly formatted and often uses English keywords whereas other languages use punctuation. This can be beneficial for beginners like us. Python has several versions, and our group used Python 3 for coding.
+
 ### b. Github
+
 
 
 <!--Compulsory Task 1 - Best Aircraft for the Given Scenarios-->

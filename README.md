@@ -117,6 +117,9 @@ The below table shows the 3 scenarios used for calculation:
 |Fuel Cost (in$/kg)     |0.76      |0.88      |0.95      |
 
 Lastly, the below image shows the cost specifications for A321neo, A330-900neo, and A350-900:
+<img width="591" alt="Screenshot 2022-11-26 at 6 31 19 PM" src="https://user-images.githubusercontent.com/116058486/204084260-55c49d91-66f4-43e5-9fef-d407889f5a3f.png">
+
+
 
 ### a. Methodology
 
@@ -129,6 +132,7 @@ The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF 
   <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
 </ul>
 
+We begin our coding solution to this task by first writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. 
 
 
 ### b. Results
@@ -223,7 +227,11 @@ Engine count: 2
 
 ### b. Results
 
+## Additional Task-2 - Path Planning for Random Scenarios
 
+### a. Methodology
+
+## b. Results
 
 
 ## Individual Reflective Essay
@@ -251,6 +259,10 @@ Although I have learnt the python coding in other subjects like the the Foundame
 ### g. Member 7 - Mark Yao (Markyaoxin)
 
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
+
+In this course, we have learnt about the A star algorithm of path planning and done some tasks by using it. Since I have not done any coding projects, everything seems unfamiliar to me. After reading the explanation after some code, I began to understand that we should change some parameters and modify some parts of the original code while keeping the logic of the code to be clear instead of writing the whole code. During coding, I have encountered many errors and I don’t know how to solve them. Thanks to my groupmates and the teachers, I was able to figure them out in the end. This let me realize the importance of cooperation.
+In the course, I also got familiar with tools for coding such as GitHub. GitHub can not only be a resource library for programmers but also provide an online platform for programmers to cooperate. It can be a useful tool to do a coding project.
+All in all, this course gives me insights into the path planning of fights and practice my skills of working as a team.
 
 
 

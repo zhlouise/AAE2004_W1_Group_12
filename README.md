@@ -227,7 +227,11 @@ Engine count: 2
 
 ### b. Results
 
+## Additional Task-2 - Path Planning for Random Scenarios
 
+### a. Methodology
+
+## b. Results
 
 
 ## Individual Reflective Essay

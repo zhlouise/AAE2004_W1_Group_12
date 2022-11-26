@@ -256,7 +256,7 @@ for k in range(-10, 56):
 ```
 Note that we ran each iteration in an alternative function ```a_star.planning_no_animation(sx, sy, gx, gy)``` that does not plot animations to reduce the time it takes for the program to run.
 
-Then, we are to compare all the different resulting costs. First, we created an empty dictionary that will be used to store all the resulting ```current.cost``` values for each iteration.
+Then, we are to compare all the different resulting costs. First, we created an empty dictionary that will be used to store all the resulting ```current.cost``` values for each iteration. The keys of the dictionary are the lower bounds of the jet stream area while the values corresponding to each key is the cost that specific jet stream yields. Lastly, we use the Python built-in function ```min()``` to find the lower bound of the best jet stream and deduce the value of the upper bound as well. 
 
 ```
 # Create an empty dictionary that will be used to store all the possible costs for each iteration runned.

@@ -27,7 +27,6 @@
       <ol>
         <li><a href="#a-Methodology">Methodology</a></li>
         <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
       </ol>
     </li>
     <li>
@@ -157,12 +156,27 @@ The final step involves using and calling this function in ```main()```so that i
 
 ### b. Results
 
-**The following show the result of different scenarios in Task1**
-
-<img width="471" alt="Screen Shot 2022-10-31 at 10 49 42 PM" src="https://user-images.githubusercontent.com/116058486/199039639-1bf8a4bb-46f9-4548-9d44-f178ade9a0cf.png">
-
-
-### c. Discussion
+With the previous steps executed, we were able to yield the results of this task as the following:
+```
+Total Trip time required ->  59.89528855298852
+Task 1 Results:
+Scenario 1:
+The A321neo aircraft could not fulfill the specified capacity.
+The trip cost for using 10 flights of A330 is $70815.16
+The trip cost for using 9 flights of A350 is $73926.09
+10 flights of A330 will yield the lowest cost of $70815.16
+Scenario 2:
+The trip cost for using 7 flights of A321 is $40908.91
+The trip cost for using 5 flights of A330 is $40223.16
+The trip cost for using 4 flights of A350 is $37120.59
+4 flights of A350 will yield the lowest cost of $37120.59
+Scenario 3:
+The trip cost for using 13 flights of A321 is $71130.56
+The trip cost for using 9 flights of A330 is $69102.66
+The trip cost for using 8 flights of A350 is $70551.62
+9 flights of A330 will yield the lowest cost of $69102.66
+```
+Please note that the results above are copied from the results printed in the terminal after executing ```main.py```. 
 
 
 <!--Compulsory Task 2 - Designing New Cost Area-->

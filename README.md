@@ -141,7 +141,8 @@ The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF 
 Lastly, we would like to compare, out of the aircrafts that could fulfill the specified capacity, which one of them would yield in the minimum cost. This is done though storing all the possible outcomes into the ```comparasion_array```, then by using the Python builtin function ```comparasion_array.min()```, we could find the minimum possible cost for this scenario, which would lead us to the type of aircraft that yields this minimum cost. 
 
 The final step involves using and calling this function in ```main()```so that it could be executed: 
-```# Finding the optimal flight for scenario 1
+```
+    # Finding the optimal flight for scenario 1
     print ("Scenario 1:")
     trip_cost (3000, 1, 12, "medium", 0.76)
 

@@ -102,7 +102,7 @@ Python is a high-level, general-purpose programming language. Its design philoso
 
 ### b. Github
 
-
+GitHub is an Internet hosting service for software development and version control using Git which is a version control system. GitHub can be a platform that helps people solve problems by building software together. Projects on GitHub.com can be accessed and managed using the standard Git command-line interface; all standard Git commands work with it. In GitHub, the users can create their own branches and if they want to modify others’ code them can create a pull request for the others to view and to merge it into the main branch. Our team used GitHub for cooperation.
 
 <!--Compulsory Task 1 - Best Aircraft for the Given Scenarios-->
 

@@ -252,6 +252,10 @@ Although I have learnt the python coding in other subjects like the the Foundame
 
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
 
+In this course, we have learnt about the A star algorithm of path planning and done some tasks by using it. Since I have not done any coding projects, everything seems unfamiliar to me. After reading the explanation after some code, I began to understand that we should change some parameters and modify some parts of the original code while keeping the logic of the code to be clear instead of writing the whole code. During coding, I have encountered many errors and I don’t know how to solve them. Thanks to my groupmates and the teachers, I was able to figure them out in the end. This let me realize the importance of cooperation.
+In the course, I also got familiar with tools for coding such as GitHub. GitHub can not only be a resource library for programmers but also provide an online platform for programmers to cooperate. It can be a useful tool to do a coding project.
+All in all, this course gives me insights into the path planning of fights and practice my skills of working as a team.
+
 
 
 ## References

@@ -242,7 +242,7 @@ for i in range(-10, 60):
 
 #### a2. Methodology for Program Calculation
 
-Using the computer program involves calculating the total trip time ```current.cost``` for every single possible configurations of the jet steam area in the map. We could simply achieve that through using a for loop, setting the jet stream area to be a new one in each iteration: 
+For this task, we wrote a function named ```jet_stream(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, sx, sy, gx, gy)```. This function involves calculating the total trip time ```current.cost``` for every single possible configurations of the jet steam area in the map. We could simply achieve that through using a for loop, setting the jet stream area to be a new one in each iteration: 
 
 ```
 for k in range(-10, 56):
@@ -268,30 +268,30 @@ comparasion_dict = {}
 ymin = min(comparasion_dict.keys(), key=(lambda k: comparasion_dict[k]))
 ymax = ymin + 5
 ```
-
-
-Calculating using the program involves the calculation of many possible iterations to obtain the minimal total trip time (minimal cost). First, create an empty dictionary that will be used to store all the possible costs for each iteration run. Run and repeat all the possible place of jet stream area inside the box by defining j in range from k to k+5, which +5 is defining the 5-unit length vertically. Run the A star algorithm without plotting the animations to preserve time. When one calculation for one position is done, store inside the comparison dictionary and loop for the second location of jet stream area.
-
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846212-2da215ae-f6a9-44aa-afb1-8681bd6aec1f.png">
-
-After running through all the possible location of the jet stream area, calculation is done. Extract the minimum total trip time from the comparison dictionary. Set it as the jet stream area and shown in the animation.
-
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846271-9b37bb08-4886-4765-ad36-10436fd59810.png">
-
-Result shown in this format 
-
-<img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201846326-57d94b51-5059-4ec5-9141-bbdd5c38dcd5.png">
+With the information we obtained about the most optimal jet stream position, we could finally set the actual jet stream of the program: 
+```
+jc_x, jc_y = [], []
+for i in range(-10, 60):
+    for j in range(ymin, ymax):
+        jc_x.append(i)
+        jc_y.append(j)
+```
 
 ### b. Results
 
+Both methods that we used indicated that the best jet stream area is between 27 and 32 on the vertical axis: 
+```
+Task 2 Results:
+The optimal jet-stream ranges from y=27 to y=32.
+```
+Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
+
+The plotted result that the program returns is as illustrated below, where the area shaded in blue is the most optimal jet stream area.
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201847987-d9232159-e366-4174-8a56-2812dc983b81.png">
-
-<img width="344" alt="image" src="https://user-images.githubusercontent.com/116557675/201848029-bf6b65ca-305f-4b0b-91e1-1869be1796eb.png">
-
 
 ### c. Discussion
 
-**Comparison between two methods**
+<ins>Comparison between two methods</ins>
 
 For the trial calculation, the programmer needs to have each scenario tested, which the efficiency of completing the task is lower. However, the result of the task can be predicted based on the experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code prevent human error and improve the efficiency.
 

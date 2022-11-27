@@ -24,42 +24,19 @@
     </li>
     <li>
       <a href="#Compulsory-Task-1---Best-Aircraft-for-the-Given-Scenarios">Compulsory Task 1 - Best Aircraft for the Given Scenarios</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Compulsory-Task-2---Designing-Jet-Stream-Area">Compulsory Task 2 - Designing Jet Stream Area</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Compulsory-Task-3---Designing-an-Aircraft">Compulsory Task 3 - Designing an Aircraft</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
+    <li><a href="#Compusory-Task-Result_gif">Compulsory Task Result gif</a></li>
     <li>
       <a href="#Additional-Task-1---Adding-Check-Points">Additional Task 1 - Adding Check Points</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios">Additional Task 2 - Path Planning for Random Scenarios</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Individual-Reflective-Essay">Individual Reflective Essays</a>
@@ -183,7 +160,6 @@ The trip cost for using 8 flights of A350 is $70551.62
 ```
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```. 
 
-
 <!--Compulsory Task 2 - Designing Jet Stream Area-->
 
 ## Compulsory Task 2 - Designing Jet Stream Area
@@ -290,6 +266,7 @@ The optimal jet-stream ranges from y=27 to y=32.
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
 
 The plotted result that the program returns is as illustrated below, where the area shaded in blue is the most optimal jet stream area.
+
 <img width="415" alt="image" src="https://user-images.githubusercontent.com/116557675/201847987-d9232159-e366-4174-8a56-2812dc983b81.png">
 
 ### c. Discussion
@@ -323,34 +300,145 @@ Restrictions are given that:
 
 To tackle this task, we first defined 2 helper functions in our code: ```aircraft_cost(capacity)``` and ```optimal_cost()```.
 
+<ins>```aircraft_cost(capacity)```</ins>
+This function takes in the capacity of the aircraft as an input parameter and returns the cost per flight. 
+
+Before we start the calculation process for the cost, we first wanted to know how many engines the aircraft has. This could be done using a simple if-else statement; if the capacity is lower than 300, return the parameters (fixed cost and fuel consumption rate) for a twin-engine aircraft, else return those for a 4-engine aircraft:
+```
+ # To determine the fixed cost per flight and the total rate of fuel consumption of all engines (whether the plane has 2 engines or 4 engines), depending on the aircraft's capacity.
+if capacity >= 300:
+    Cc = 2500
+    delta_F = 20*4
+else:
+    Cc = 2000
+    delta_F = 20*2
+```
+Then we converted the cost of fuel into units of $ per kilogram through dividing 882.30 by 1000. 
+
+Next, based on the aircraft's passenger capacity, we could calculate the time related cost per minute of flight. Note that the ```math.floor()``` function is used here to round the numbers of groups of 50 passengers to the lower number (eg. if there are 70 passengers, we only increase CT by one $2, since we only increase CT for every 50 passengers).
+```
+CT = 12 + math.floor(capacity/50)*2  
+# CT is the time related cost per minute of flight (base CT = $12/min, for every 50 passengers increase CT by $2)
+```
+
+With all the parameters for calculating the cost obtained, we could finally calculate the trip cost by simply plugging all the parameters into the cost equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>. (Note that T<sub>best</sub> is ```current.cost```, the trip time calculated by the A* algorithm.)
+
+<ins>```optimal_cost()```</ins>
+This function runs through every possible capacity (100<=capacity<=450) and finds out the minimum cost, which in turn would lead us to the most optimal capacity.
+
+We first started off by setting a cost for the resulting calculated cost to compare with. Then, we proceeded to setting a for loop that runs through all the possible capacities. Inside the for loop, we first decided whether the specified aircraft capacity would fulfill the amount of passengers as required in Scenario 1. If not, we would skip the iteration for this specific capacity. However, if the capacity in this iteration meets the passenger requirement, we would proceed to calculate the flight cost and compare this newly obtained flight cost to the cost stored as the ```cost``` variable. If this new cost is lower than the stored cost, we would store this new cost as into the ```cost``` variable instead. If not, the for loop proceeds into the next iteration of calcuation for a new capacity.
+
+```
+cost = aircraft_cost(450)
+# Running every possible capacity and calculating its cost
+for c in range (100, 451):
+    # If the capacity does not meet the capacity reqirement, skip the calcuation for its cost
+    if c*12<3000:
+        continue
+    # If the new cost of the capacity running in this iteration is smaller than the previously stored cost, store this capacity and its cost for comparasion in the next iteration. 
+    if aircraft_cost(c)<cost:
+        capacity = c
+        cost = aircraft_cost(c)
+```
+
+As a result, the optimal capacity and the optimal cost is stored into the ```capacity``` and ```cost``` variables, respectively. 
 
 ### b. Results
+```
+Task 3 Results:
+The optimal passenger capacity for scenario 1 is 250. There are 2 engines on the aircraft. This yields in a minimal operating cost of $5431.52 per flight. 
+```
+Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
 
-
-
-**The following show the result of the most optimal aircraft in Task3**
-<img width="921" alt="Screen Shot 2022-11-01 at 3 04 15 PM" src="https://user-images.githubusercontent.com/116058486/199177844-6e93ad22-82c4-416b-975f-d372184bb5e5.png">
-
-Name for aircraft: 
-Passenger capacity: 250
-Engine count: 2
+To summarize our results:
+|Aircraft Name                |POLYU012|
+|-----------------------------|--------|
+|Passenger Capacity           |250     |
+|Engine Count                 |2       |
+|Cost per flight for Senario 1|$5431.52|
 
 ### c. Discussion
+
+<ins>Explanation of the Rules and Restrictions</ins>
+
+Recall the restrictions stated in the beginning of the task. Some restrictions are given that:
+<ul>
+  <li>The aircraft could have a minimum capacity of 100 passengers and a maximum capacity of 450 passengers. </li>
+  <li>The base time related cost per minute of flight is 12$/min. However, for every 50 passengers, the time related cost is increased by 2$/min.</li>
+  <li>The base design is a twin-engine aircraft. However, if the passenger capacity exceeds 300 (inclusive), we must switch to a 4-engined aircraft. </li>
+    <ul>
+      <li>The fixed cost for a twin-engine aircraft is $2000 while the fixed cost for a 4-engine aircraft is $2500.</li>
+      <li>Each engine consumes fuel at a rate of 20 kg/min. </li> 
+    </ul>
+</ul>
+
+The aircraft is given a capacity limit due to safety reasons. As passenger capacity is closely related to the weight that the aircraft carries as well as the aircraft's volume, compliance with the weight limits is crucial for maintaining the balance of the aircraft as well as flight safety. Operating an aircraft above the maximum weight limit is detrimental to the structural integrity of the aircraft. The weight capacity also affects the aircraft's performance. For example, a large weight means that the aircraft would have a larger inertia, thus it takes longer to take off and/or land, if it is able to take off/land at all.
+
+Time related cost for a flight contains the sum of several components including hourly maintenance cost, aircraft crew salary, as well as the overflight cost. These costs increase as the time of the flight increases. When there are more passengers on the flight, it makes sense intuitively that the flight would take a longer time to reach the destination, since the aircraft needs to do more work. An increase in passenger capacity thus causes the hourly maintenance cost and overflight cost to increase, as they are all costs directly related to the flight time. An increase in passenger capacity also means that there shall be more cabin crew hired to meet the service demands of the flight. The above reasons explains why we have to increase the time related cost by 2$/min for every 50 passengers.
+
+When the passenger capacity exceeds 300, we must switch from a 2-engined aircraft to a 4-engined aircraft, in order for the aircraft to power the increased weight load. This also means that the fixed cost for the flight would increase when we add 2 more engines to the aircraft, since the addition of the engines would make the aircraft more costly.
+
+# Compulsory Task Result gif
+
+The below gif shows the resulting plotting animation of the path planning program after we have completed all the previous 3 compulsory tasks.
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204118263-ad34b368-5b8b-4230-be83-b4f076eb1123.gif)
 
 
 <!--Additional Task 1 - Adding Check Points-->
 
 ## Additional Task 1 - Adding Check Points
 
+In this task, we were asked to randomly generate 2 checkpoints, one in each cost intesive areas. The flight is required to pass through the checkpoints before reaching the destination. This is an add-on to the code we wrote previously.
+
 ### a. Methodology
 
+The first step was to generate and to plot the additional checkpoints, which we wrote a helper function ```check_point()``` to complete. Through using the ```random.randint()``` method, we were able to obtain a random set of coordinates for each checkpoint that fits into its respective cost intensive areas each time we run the program. We then plotted the checkpoints in magenta color: 
+```
+plt.plot(c1x, c1y, "om") # plot check point 1
+plt.plot(c2x, c2y, "om") # plot check point 2
+```
+After we have obtained the coordinates of the checkpoints, we proceeded to calculating and plotting the flight path using the ```a_star.planning()``` function.
+
+Logically, we could separate the entire route of the flight into three parts:
+<ol>
+  <li>From starting point to the first checkpoint, the checkpoint that is the closest to the starting point. </li>
+  <li>From the first checkpoint to the next checkpoint. </li>
+  <li>From the last checkpoint to the destination. </li>
+</ol>
+
+Thus, we could simply plan and plot the path for each part individually, then add up the flight time for each part together to obtain the final flight time:
+
+```
+a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
+r1x, r1y, cost1 = a_star.planning(sx, sy, c1x, c1y)
+r2x, r2y, cost2 = a_star.planning(c1x, c1y, c2x, c2y)
+r3x, r3y, cost3 = a_star.planning(c2x, c2y, gx, gy)
+total_cost = cost1 + cost2 + cost3
+print("Total Trip time required -> ", total_cost)
+......
+plt.plot(r1x,r1y,"-r") # show the route 
+plt.plot(r2x,r2y,"-r")
+plt.plot(r3x,r3y,"-r")
+```
+
 ### b. Results
+
+The below result shows an example of the trip time and plotting animation after executing the code.
+```
+Total Trip time required -> 100.35138520739841
+# Note that the total trip time is significantly longer than the results show before since the flight needs to extend its path in order to reach the checkpoints.
+```
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204118996-174ec884-6f3f-4eae-83d7-c30432b5eaa6.gif)
+
 
 ## Additional Task-2 - Path Planning for Random Scenarios
 
 ### a. Methodology
 
 ## b. Results
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204119240-572613ae-b940-48dd-837d-01651ae872a2.gif)
 
 
 ## Individual Reflective Essay
@@ -389,3 +477,8 @@ All in all, this course gives me insights into the path planning of fights and p
 ## Conclusion
 
 ## References
+
+https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf
+
+https://mediawiki.ivao.aero/index.php?title=Cost_Index
+

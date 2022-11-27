@@ -463,6 +463,13 @@ If someone were to ask me about path planning in aviation before this course, I 
 
 ### b. Member 2 - Rainy Yuen (itsssraining)
 
+As this is my very first group project in my university life, Python and GitHub are new experiences for me. When the project is first announced, I knew it will be a tough and challenging project for all of us. For me, the issues were that I didn’t attend any Python classes since I have a different study pattern than other AE students, it’s hard for me to catch up and understanding all the coding skill. 
+
+I realized that communication and teamwork is very important and let us cooperate more effectively. I have a hard time when I’m trying to do coding and my coding skill is only limited to do modification from the sample code that given and finish the Task 1. Therefore, I have decided to leave the coding part to my groupmate, and instead I will be working on the README part. However, with some lectures and the provided example code, I was able to comprehend the basic ideas behind computer and path planning algorithms.
+
+Overall, this project gave me fresh perspectives on computer algorithms. Although completing this project is a challenge for me, this project has developed my teamwork skills. I will review what I have done and continue to improve in my future study.
+
+
 ### c. Member 3 - Anson Wong (Ansonwong88)
 
 The python system and Githib is totally Greek to me as a student that is majoring in radiotherapy. As such, this is a fresh and new task as an amateur to try the power of coding and the A star algorithm. When I first get touch with the python system, it is very difficult for me to learn the coding language as they share different language system among different programs. Therefore, I can only do modification from the sample code with the aids of those small explanation aside in the code. It is a new experience for me to understand the code, not to mention to create new codes. I had a hard time struggling with the coding part. However, after inspired by those lecture and introduction, I know that it is important for an engineering student to learn coding as this is highly related to their future career. 

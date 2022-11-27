@@ -7,7 +7,8 @@
   <p>Members: Louise Zhou (zhlouise), Rainy Yuen (itsssraining), Anson Wong (Ansonwong88), Samuel Yau (SamuelYcy), Aidan Yau (yhpAidan), Angela Xu (Angelaxu2019), Mark Yao (Markyaoxin), Haoyang Yu (YU-Haoyang22101598d)<p>
 </div>
 
-# Presentation Link
+# <a href="https://youtu.be/NGU3ni4i9JM">Video Presentation Link</a>
+
 
 <!-- Table of Content-->
 <details open="open">

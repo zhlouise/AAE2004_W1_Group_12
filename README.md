@@ -424,11 +424,12 @@ plt.plot(r3x,r3y,"-r")
 
 ### b. Results
 
-The below result shows an example of what to expect after executing the code.
+The below result shows an example of the trip time and plotting animation after executing the code.
 ```
 Total Trip time required -> 100.35138520739841
 # Note that the total trip time is significantly longer than the results show before since the flight needs to extend its path in order to reach the checkpoints.
 ```
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204118996-174ec884-6f3f-4eae-83d7-c30432b5eaa6.gif)
 
 
 ## Additional Task-2 - Path Planning for Random Scenarios
@@ -436,6 +437,8 @@ Total Trip time required -> 100.35138520739841
 ### a. Methodology
 
 ## b. Results
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204119240-572613ae-b940-48dd-837d-01651ae872a2.gif)
 
 
 ## Individual Reflective Essay

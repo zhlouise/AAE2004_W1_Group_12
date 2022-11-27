@@ -285,9 +285,9 @@ The plotted result that the program returns is as illustrated below, where the a
 
 <ins>Comparison between two methods</ins>
 
-For the trial calculation, we need to have each scenario tested manually, which indicates that the efficiency of completing the task is lower. However, the result of the task can be predicted based on experience. For example, there will be no difference of the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code can prevent human error and improve the efficiency.
+For the trial calculation, we need to have each scenario tested manually, which indicates that the efficiency of completing the task is lower. However, the result of the task can be predicted based on experience. For example, there will be no difference in the result when the jet stream area location is already exceeded j (40, 45). It is apparent that the result is not altered by the jet stream area because the shortest routes are not included in that area. This can improve the efficiency of using man calculation by trial. However, designing a code can prevent human error and improve the efficiency.
 
-For the program calculation, some levels of coding knowledge is required. In addition, the method of running through every possible iteration means that the program would have a relatively longer execution time. In our case, the execution time is around 50 seconds. The run-time could be improved if we have some advanced knowledge of optimizing a programe. Nevertheless, it prevents the use of human calculation and hence minimizes the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding.
+For the program calculation, some levels of coding knowledge is required. In addition, the method of running through every possible iteration means that the program would have a relatively longer execution time. In our case, the execution time is around 50 seconds. The run-time could be improved if we have some advanced knowledge of optimizing a program. Nevertheless, it prevents the use of human calculation and hence minimizes the risk of human error. All in all, program calculation is still preferable if there is a programmer who is confident in coding.
 
 
 <!--Compulsory Task3 - Designing an Aircraft-->
@@ -338,7 +338,7 @@ With all the parameters for calculating the cost obtained, we could finally calc
 <ins>```optimal_cost()```</ins>
 This function runs through every possible capacity (100<=capacity<=450) and finds out the minimum cost, which in turn would lead us to the most optimal capacity.
 
-We first started off by setting a cost for the resulting calculated cost to compare with. Then, we proceeded to setting a for loop that runs through all the possible capacities. Inside the for loop, we first decided whether the specified aircraft capacity would fulfill the amount of passengers as required in Scenario 1. If not, we would skip the iteration for this specific capacity. However, if the capacity in this iteration meets the passenger requirement, we would proceed to calculate the flight cost and compare this newly obtained flight cost to the cost stored as the ```cost``` variable. If this new cost is lower than the stored cost, we would store this new cost as into the ```cost``` variable instead. If not, the for loop proceeds into the next iteration of calcuation for a new capacity.
+We first started off by setting a cost for the resulting calculated cost to compare with. Then, we proceeded to set a for loop that runs through all the possible capacities. Inside the for loop, we first decided whether the specified aircraft capacity would fulfill the amount of passengers as required in Scenario 1. If not, we would skip the iteration for this specific capacity. However, if the capacity in this iteration meets the passenger requirement, we would proceed to calculate the flight cost and compare this newly obtained flight cost to the cost stored as the ```cost``` variable. If this new cost is lower than the stored cost, we would store this new cost into the ```cost``` variable instead. If not, the for loop proceeds into the next iteration of calcualtion for a new capacity.
 
 ```
 cost = aircraft_cost(450)
@@ -449,7 +449,7 @@ Total Trip time required -> 100.35138520739841
 
 ## Additional Task-2 - Path Planning for Random Scenarios
 
-In this task, we were asked to plan the path using the program with a random set of obstacles and starting/ending points. The starting and ending points must have a minimum of 50 units of separation distance. Moreover, the obstacles should be generated with resonable density and they could not be generated near the starting/ending points. In addition, there would also be a 30 by 30 units of fuel consuming area randomly generated in the map. Lastly, diagonal movement is disabled in this task.
+In this task, we were asked to plan the path using the program with a random set of obstacles and starting/ending points. The starting and ending points must have a minimum of 50 units of separation distance. Moreover, the obstacles should be generated with reasonable density and they could not be generated near the starting/ending points. In addition, there would also be a 30 by 30 units of fuel consuming area randomly generated on the map. Lastly, diagonal movement is disabled in this task.
 
 ### a. Methodology
 

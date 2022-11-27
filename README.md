@@ -431,9 +431,29 @@ Logically, we could separate the entire route of the flight into three parts:
   <li>From the last checkpoint to the destination. </li>
 </ol>
 
-Thus, we could simply plan and plot each part individually, then add up the flight time for each part together to obtain the final flight time. 
+Thus, we could simply plan and plot the path for each part individually, then add up the flight time for each part together to obtain the final flight time:
+
+```
+a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
+r1x, r1y, cost1 = a_star.planning(sx, sy, c1x, c1y)
+r2x, r2y, cost2 = a_star.planning(c1x, c1y, c2x, c2y)
+r3x, r3y, cost3 = a_star.planning(c2x, c2y, gx, gy)
+total_cost = cost1 + cost2 + cost3
+print("Total Trip time required -> ", total_cost)
+......
+plt.plot(r1x,r1y,"-r") # show the route 
+plt.plot(r2x,r2y,"-r")
+plt.plot(r3x,r3y,"-r")
+```
 
 ### b. Results
+
+The below result shows an example of what to expect after executing the code.
+```
+Total Trip time required -> 100.35138520739841
+# Note that the total trip time is significantly longer than the results show before since the flight needs to extend its path in order to reach the checkpoints.
+```
+
 
 ## Additional Task-2 - Path Planning for Random Scenarios
 

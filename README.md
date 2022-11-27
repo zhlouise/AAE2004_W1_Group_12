@@ -494,6 +494,8 @@ All in all, this course gives me insights into the path planning of fights and p
 
 ## Conclusion
 
+In conclusion, from this group project, we have learned a lot about aviation theory from, for example the A star algorithm of path planning, which we have used in the project. The most difficult part for us in the project would be the coding part, as most of our group mates are new to programming, which planning the flight path by using Python in limited time would be a big challenge. Fortunately with the help of group mates which are more familiar to coding, and by putting effort on studying the sample codes, this problem is finally being overcome. Another challenge of doing this project would be the time management, as the available time is not long for us to finish the whole project, so the importance of time management and coordinate with each other would be very important. All in all, although this project is quite a big challenge for us, we still learn a lot from this, which believed that would be helpful for our future study.
+
 ## References
 
 https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf

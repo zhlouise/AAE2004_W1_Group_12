@@ -114,13 +114,13 @@ Lastly, the below image shows the cost specifications for A321neo, A330-900neo, 
 
 ### a. Methodology
 
-We began our coding solution to this task by first setting up the obstacles and cost intensive areas assigned to our group. This could be easily done in ```main()``` though the ```append()``` function, which adds a continuous series of x or y coordinates into their respective list. We also modified the coordinates of the starting position and the ending position, sx, sy, gx, and gy, respectively. 
+We began our coding solution to this task by first setting up the obstacles and cost intensive areas assigned to our group. This could be easily done in ```main()``` through the ```append()``` function, which adds a continuous series of x or y coordinates into their respective list. We also modified the coordinates of the starting position and the ending position, sx, sy, gx, and gy, respectively. 
 
-We then proceeded to writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. This function would return out a printed statement specifiying which aircraft would yield the minimum cost, the minimum cost itself, as well as how many flights of that aircraft is needed. 
+We then proceeded to write the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the number of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. This function would return a printed statement specifying which aircraft would yield the minimum cost, the minimum cost itself, as well as how many flights of that aircraft are needed. 
 
-The first thing we wanted to make sure in our function is that, out of the three aircrafts to choose from, we could only choose the ones that has the capacity to satisfy the amount of passengers specified in the scenario. This could be done though comparing the amount of flights we needed (to satisfy the passenger demands) with the actual amount of flights that we are allowed to have. Note that we used the ceiling division finding the amount of needed flights: ```math.ceil(passengers/capacity)```. This is because the ceiling function rounds the quotient to the larger interger, which makes sense because the 'remainder' of the passengers still needs another flight.
+The first thing we wanted to make sure in our function is that, out of the three aircrafts to choose from, we could only choose the ones that has the capacity to satisfy the amount of passengers specified in the scenario. This could be done through comparing the number of flights we needed (to satisfy the passenger demands) with the actual number of flights that we are allowed to have. Note that we used the ceiling division to find the amount of needed flights: ```math.ceil(passengers/capacity)```. This is because the ceiling function rounds the quotient to the larger integer, which makes sense because the 'remainder' of the passengers still needs another flight.
 
-After eliminating the aircraft that will not fulfill the specified capacity, we could calculate the trip cost for the entire scenario by multiplying the cost for each flight with the number of flights needed (which we just calculated in the previous step). 
+After eliminating the aircraft that will not fulfill the specified capacity, we could calculate the trip cost for the entire scenario by multiplying the cost for each flight by the number of flights needed (which we just calculated in the previous step). 
 The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>, where:
 <ul>
   <li>C<sub>F</sub> is the cost of fuel per kilogram in $/kg</li>
@@ -130,7 +130,7 @@ The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF 
   <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
 </ul>
 
-Lastly, we would like to compare, out of the aircrafts that could fulfill the specified capacity, which one of them would yield in the minimum cost. This is done though storing all the possible outcomes into the ```comparasion_array```, then by using the Python builtin function ```comparasion_array.min()```, we could find the minimum possible cost for this scenario, which would lead us to the type of aircraft that yields this minimum cost. 
+Lastly, we would like to compare, out of the aircrafts that could fulfill the specified capacity, which one of them would yield in the minimum cost. This is done through storing all the possible outcomes into the ```comparasion_array```, then by using the Python built-in function ```comparasion_array.min()```, we could find the minimum possible cost for this scenario, which would lead us to the type of aircraft that yields this minimum cost. 
 
 The final step involves using and calling this function in ```main()```so that it could be executed: 
 ```

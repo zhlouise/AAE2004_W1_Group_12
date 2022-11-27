@@ -77,7 +77,7 @@ Path planning is a computational problem to find the most suitable path that con
 
 Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is a multi-paradigm programming language. Object-oriented programming and structured programming are fully supported, and many of their features support functional programming and aspect-oriented programming. Python is intended to be an easy-to-read language. It is visually neatly formatted and often uses English keywords whereas other languages use punctuation. This can be beneficial for beginners like us. Python has several versions, and our group used Python 3 for coding.
 
-### b. Github
+### b. GitHub
 
 GitHub is an Internet hosting service for software development and version control using Git which is a version control system. GitHub can be a platform that helps people solve problems by building software together. Projects on GitHub.com can be accessed and managed using the standard Git command-line interface; all standard Git commands work with it. In GitHub, the users can create their own branches and if they want to modify others’ code them can create a pull request for the others to view and to merge it into the main branch. Our team used GitHub for cooperation.
 

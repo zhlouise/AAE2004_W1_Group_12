@@ -67,6 +67,17 @@ Path planning is a computational problem to find the most suitable path that con
 <!--Theory of Path Planning Algorithm-->
 
 ## Theory of Path Planning Algorithm
+The path-planning technique relies on an effective algorithm for continuous collision detection and employs a novel multiobjective parallel evolutionary algorithm to build optimized paths.
+
+<ul>
+  <li>Provide feasible paths according to the task assigned with</li>
+  <li>Most obstacle-free path</li>
+  <li>Shortest and efficient path</li>
+</ul>
+
+### Grid-Based Planning
+
+By using the wave front expansion, what can be called flood fill, it uses a growing circle around the initial point. The nearest neighbours are analysed first and then the radius of the circle is extended to distant regions. It will generate the most efficient path of the given task when the calculation is finished.
 
 
 <!--Introduction of the Engineering Tools-->
@@ -79,7 +90,7 @@ Python is a high-level, general-purpose programming language. Its design philoso
 
 ### b. GitHub
 
-GitHub is an Internet hosting service for software development and version control using Git which is a version control system. GitHub can be a platform that helps people solve problems by building software together. Projects on GitHub.com can be accessed and managed using the standard Git command-line interface; all standard Git commands work with it. In GitHub, the users can create their own branches and if they want to modify others’ code them can create a pull request for the others to view and to merge it into the main branch. Our team used GitHub for cooperation.
+GitHub is an Internet hosting service for software development and version control using Git which is a version control system. GitHub can be a platform that helps people solve problems by building software together. Projects on GitHub.com can be accessed and managed using the standard Git command-line interface; all standard Git commands work with it. In GitHub, the users can create their own branches and if they want to modify others’ code, they can create a pull request for the others to view and to merge it into the main branch. Our team used GitHub for cooperation.
 
 <!--Compulsory Task 1 - Best Aircraft for the Given Scenarios-->
 
@@ -103,13 +114,13 @@ Lastly, the below image shows the cost specifications for A321neo, A330-900neo, 
 
 ### a. Methodology
 
-We began our coding solution to this task by first setting up the obstacles and cost intensive areas assigned to our group. This could be easily done in ```main()``` though the ```append()``` function, which adds a continuous series of x or y coordinates into their respective list. We also modified the coordinates of the starting position and the ending position, sx, sy, gx, and gy, respectively. 
+We began our coding solution to this task by first setting up the obstacles and cost intensive areas assigned to our group. This could be easily done in ```main()``` through the ```append()``` function, which adds a continuous series of x or y coordinates into their respective list. We also modified the coordinates of the starting position and the ending position, sx, sy, gx, and gy, respectively. 
 
-We then proceeded to writing the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the numbers of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. This function would return out a printed statement specifiying which aircraft would yield the minimum cost, the minimum cost itself, as well as how many flights of that aircraft is needed. 
+We then proceeded to write the helper function ```trip_cost(passengers, weeks, max_flight, time_cost, fuel_cost)```. This function takes the total amount of passengers, the number of weeks to complete carrying the passengers, the maximum number of flights allowed, the time related cost per minute, and the fuel consumption rate as the input parameters. This function would return a printed statement specifying which aircraft would yield the minimum cost, the minimum cost itself, as well as how many flights of that aircraft are needed. 
 
-The first thing we wanted to make sure in our function is that, out of the three aircrafts to choose from, we could only choose the ones that has the capacity to satisfy the amount of passengers specified in the scenario. This could be done though comparing the amount of flights we needed (to satisfy the passenger demands) with the actual amount of flights that we are allowed to have. Note that we used the ceiling division finding the amount of needed flights: ```math.ceil(passengers/capacity)```. This is because the ceiling function rounds the quotient to the larger interger, which makes sense because the 'remainder' of the passengers still needs another flight.
+The first thing we wanted to make sure in our function is that, out of the three aircrafts to choose from, we could only choose the ones that has the capacity to satisfy the amount of passengers specified in the scenario. This could be done through comparing the number of flights we needed (to satisfy the passenger demands) with the actual number of flights that we are allowed to have. Note that we used the ceiling division to find the amount of needed flights: ```math.ceil(passengers/capacity)```. This is because the ceiling function rounds the quotient to the larger integer, which makes sense because the 'remainder' of the passengers still needs another flight.
 
-After eliminating the aircraft that will not fulfill the specified capacity, we could calculate the trip cost for the entire scenario by multiplying the cost for each flight with the number of flights needed (which we just calculated in the previous step). 
+After eliminating the aircraft that will not fulfill the specified capacity, we could calculate the trip cost for the entire scenario by multiplying the cost for each flight by the number of flights needed (which we just calculated in the previous step). 
 The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>, where:
 <ul>
   <li>C<sub>F</sub> is the cost of fuel per kilogram in $/kg</li>
@@ -119,7 +130,7 @@ The cost for each flight could be found by the equation C = C<sub>F</sub> * ΔF 
   <li>C<sub>C</sub> is the fixed cost independent of time in $</li>
 </ul>
 
-Lastly, we would like to compare, out of the aircrafts that could fulfill the specified capacity, which one of them would yield in the minimum cost. This is done though storing all the possible outcomes into the ```comparasion_array```, then by using the Python builtin function ```comparasion_array.min()```, we could find the minimum possible cost for this scenario, which would lead us to the type of aircraft that yields this minimum cost. 
+Lastly, we would like to compare, out of the aircrafts that could fulfill the specified capacity, which one of them would yield in the minimum cost. This is done through storing all the possible outcomes into the ```comparasion_array```, then by using the Python built-in function ```comparasion_array.min()```, we could find the minimum possible cost for this scenario, which would lead us to the type of aircraft that yields this minimum cost. 
 
 The final step involves using and calling this function in ```main()```so that it could be executed: 
 ```
@@ -421,6 +432,9 @@ plt.plot(r1x,r1y,"-r") # show the route
 plt.plot(r2x,r2y,"-r")
 plt.plot(r3x,r3y,"-r")
 ```
+#### Additional task 1 version 2
+
+In additional task 1 version 2, we used similar methods that were used in version 1. The improvement is that in version 2, we modified the original code outside of the planning function, instead of using the repeated planning function to achieve it. Therefore, the code can be clearer, and the running speed of the code can be increased.
 
 ### b. Results
 
@@ -450,7 +464,7 @@ if (x==sx and y==sy) or (x==gx and y==gy) or (x==sx+1 and y==sy) or (x==sx-1 and
 ```
 Note: We have to admit that this if statement is not one of the best ways to eliminate the obstacles that are in conflict with the starting/ending points. If we had more time, we would have definitely looked into the program to find potential ways of optimizing it. 
 
-## b. Results
+### b. Results
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204119240-572613ae-b940-48dd-837d-01651ae872a2.gif)
 
@@ -462,6 +476,13 @@ Note: We have to admit that this if statement is not one of the best ways to eli
 If someone were to ask me about path planning in aviation before this course, I would possibly picture a sophisticated map and procedures too complicated to understand for someone who just graduated high school months ago. In fact, at the beginning of this project, I indeed saw it as a tremendous challenge, given the fact that I was brand new to both Python and coding algorithms. However, with the given example code and some introductory lectures, I was able to understand the fundamental concepts of computer algorithms. In short and simple language, an algorithm is equivalent to asking the program to do all the work too tedious for a human to complete. The program could run through all the possible paths given the object's position at the instant, which yields some kind of estimation on the time cost, which is then used to decide where the object would go next. (In my opinion, it is somewhat logically similar to the principle of least action in Lagrangian mechanics.) Calculating with computer programs is critical because it is the only efficient way to perform complex calculations quickly and accurately, especially given that our path planning scenarios are only overly simplified versions of real-life scenarios. Being able to use computer algorithms at our convenience also has implications beyond path planning. For example, we could utilize regression algorithms to find the most suitable curve for modeling the flow of a fluid or to predict stock market trends. In addition to learning about the importance of coding algorithms, we were also introduced to the collaborative programming platform, GitHub. We were able to learn how to collaborate efficiently with other programmers while taking advantage of the platform ourselves. I was amazed by the fact that there are many open-sourced codes for us to discover and modify to satisfy our own requirements. Moreover, writing some parts of the README file helped me revisit some basic HTML knowledge. All in all, this project provided me with new insights into computer algorithms as well as collaborative programming. They will undoubtedly be useful in the future not only for performing complex calculations but also for bringing potential ideas to life.
 
 ### b. Member 2 - Rainy Yuen (itsssraining)
+
+As this is my very first group project in my university life, Python and GitHub are new experiences for me. When the project is first announced, I knew it will be a tough and challenging project for all of us. For me, the issues were that I didn’t attend any Python classes since I have a different study pattern than other AE students, it’s hard for me to catch up and understanding all the coding skill. 
+
+I realized that communication and teamwork is very important and let us cooperate more effectively. I have a hard time when I’m trying to do coding and my coding skill is only limited to do modification from the sample code that given and finish the Task 1. Therefore, I have decided to leave the coding part to my groupmate, and instead I will be working on the README part. However, with some lectures and the provided example code, I was able to comprehend the basic ideas behind computer and path planning algorithms.
+
+Overall, this project gave me fresh perspectives on computer algorithms. Although completing this project is a challenge for me, this project has developed my teamwork skills. I will review what I have done and continue to improve in my future study.
+
 
 ### c. Member 3 - Anson Wong (Ansonwong88)
 
@@ -508,3 +529,7 @@ In conclusion, from this group project, we have learned a lot about aviation the
 https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf
 
 https://mediawiki.ivao.aero/index.php?title=Cost_Index
+
+https://en.wikipedia.org/wiki/Python_(programming_language)
+
+https://en.wikipedia.org/wiki/GitHub

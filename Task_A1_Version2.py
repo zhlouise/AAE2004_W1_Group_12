@@ -93,7 +93,7 @@ class AStarPlanner:
 
             # reaching goal
             if current.x == goal_node.x and current.y == goal_node.y:
-                print("Total Trip time required -> ",current.cost )
+                #print("Total Trip time required -> ",current.cost )
                 goal_node.parent_index = current.parent_index
                 goal_node.cost = current.cost
                 break
@@ -143,7 +143,7 @@ class AStarPlanner:
 
         rx, ry = self.calc_final_path(goal_node, closed_set)
        
-        return rx, ry
+        return rx, ry, current.cost
      
 
 
@@ -329,9 +329,11 @@ def main():
         plt.axis("equal") # set the same resolution for x and y axis 
 
     a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y)
-    r1x, r1y = a_star.planning(sx, sy, c1x, c1y)
-    r2x, r2y = a_star.planning(c1x, c1y, c2x, c2y)
-    r3x, r3y = a_star.planning(c2x, c2y, gx, gy)
+    r1x, r1y,cost1 = a_star.planning(sx, sy, c1x, c1y)
+    r2x, r2y,cost2 = a_star.planning(c1x, c1y, c2x, c2y)
+    r3x, r3y,cost3 = a_star.planning(c2x, c2y, gx, gy)
+    total_cost = cost1 + cost2 + cost3
+    print("Total Trip time required -> ", total_cost)
 
     if show_animation:  # pragma: no cover
         plt.plot(r1x,r1y,"-r") # show the route 

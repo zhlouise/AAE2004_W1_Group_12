@@ -471,6 +471,8 @@ I have learnt how to apply the program in aviation and the rationale behind. To 
 
 ### d. Member 4 - Samuel Yau (SamuelYcy)
 
+First of all, I have only a few ideas about the aviation system or how an airplane fly before this project start. After these few lessons, i have a deeper knowledge regarding the aviation industry, on how they prepare for an airplane. Speaking of the lessons, the python and Github is really a very difficult thing to learn, even i was tought coding in the other class but it is totally diverse. The coding here has to combined with lots of outside factors, like the environment or the maximum passengers number, which make us has more things to concern while making the code. I would like to appreaciate this course provided me knowledge reagrading the aviation field and what we might have to work on in the future, it makes me clean my mind and try to pursue more from it. At last, thank you my teammate that helped on the coding part which is the hardest in this project, and teammate that have sacrificed their time on doing this project. 
+
 ### e. Member 5 - Aidan Yau (yhpAidan)
 
 Although I have learnt the python coding in other subjects like the the Foundamentals of AI and Data Analysis, but this coding part and A star algorithm in this course is totally new to me and also difficult to me. In this project, I have tried to do and successfully finished the compulsary task 1 but task 2 and 3 is really hard for me. Fortunately, my groupmates have a stronger coding skill and they have finished all the compulsary task so my job is to do the read.me section. This path planning course really built a foundation in my aviation knowledge. If I had a chance to do this project again, I would learn the coding part more deeply and try to understand all the function of the code like A star algorithm. In conclusion, this github course helps me a lot as a first project in my university life.
@@ -480,6 +482,8 @@ Although I have learnt the python coding in other subjects like the the Foundame
 As a person who is totally new to programming, I have never learn any coding befor entering the university. When I first know that we need to do this project, I thought it is nearly impossible for me, since I have only learnd basic Python programming in my IC training course, while the required tasks assigned in this project are much diificult than that. Due to limited capability, I did not do much coding in the project, but I have still learn a lot from the project. I have know the theory of path fligh path planing, which I thought it is designed only based on the time consumed. After start doing the project, I have a chance to know that to plan a path, there are depending facts to consider when desigh a flight, including cost intensify area, time slot of the flight, and even the type of aircraft used. By doing this project, although it is quite a challenge for me, it can still help me to become more familiar to coding, and how to coorporate with others to finish a project together, which is a great receipt for me.
 
 ### g. Member 7 - Mark Yao (Markyaoxin)
+
+
 
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
 

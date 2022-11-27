@@ -184,7 +184,6 @@ The trip cost for using 8 flights of A350 is $70551.62
 ```
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```. 
 
-
 <!--Compulsory Task 2 - Designing Jet Stream Area-->
 
 ## Compulsory Task 2 - Designing Jet Stream Area
@@ -405,11 +404,13 @@ When the passenger capacity exceeds 300, we must switch from a 2-engined aircraf
 
 # Compulsory Task Result gif
 
+
+
 <!--Additional Task 1 - Adding Check Points-->
 
 ## Additional Task 1 - Adding Check Points
 
-
+In this task, we were asked to randomly generate 2 checkpoints, one in each cost intesive areas. The flight is required to pass through the checkpoints before reaching the destination. 
 
 ### a. Methodology
 

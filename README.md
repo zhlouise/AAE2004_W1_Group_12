@@ -32,7 +32,7 @@
     <li>
       <a href="#Compulsory-Task-3---Designing-an-Aircraft">Compulsory Task 3 - Designing an Aircraft</a>
     </li>
-    <li><a href="#Compusory-Task-Result_gif">Compulsory Task Result gif</a></li>
+    <li><a href="#Compusory-Task-Result-gif">Compulsory Task Result gif</a></li>
     <li>
       <a href="#Additional-Task-1---Adding-Check-Points">Additional Task 1 - Adding Check Points</a>
     </li>

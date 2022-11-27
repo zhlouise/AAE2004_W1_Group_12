@@ -434,7 +434,14 @@ Total Trip time required -> 100.35138520739841
 
 ## Additional Task-2 - Path Planning for Random Scenarios
 
+In this task, we were asked to plan the path using the program with a random set of obstacles and starting/ending points. The starting and ending points must have a minimum of 50 units of separation distance. Moreover, the obstacles should be generated with resonable density and they could not be generated near the starting/ending points. In addition, there would also be a 30 by 30 units of fuel consuming area randomly generated in the map. Lastly, diagonal movement is disabled in this task.
+
 ### a. Methodology
+
+We began our solution to this task by writing the helper function ```random_obstacles (ox, oy, number_of_obstacles, sx, sy, gx, gy)```, which would return a list of obstacle coordinates, ```ox``` and ```oy```. 
+
+This function operates though running a for loop that generates the 
+
 
 ## b. Results
 

@@ -75,6 +75,9 @@ The path-planning technique relies on an effective algorithm for continuous coll
   <li>Shortest and efficient path</li>
 </ul>
 
+## Grid-Based Planning
+By using the wave front expansion, what can be called flood fill, it uses a growing circle around the initial point. The nearest neighbours are analysed first and then the radius of the circle is extended to distant regions. It will generate the most efficient path of the given task when the calculation is finished.
+
 
 <!--Introduction of the Engineering Tools-->
 

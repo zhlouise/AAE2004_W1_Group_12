@@ -67,6 +67,17 @@ Path planning is a computational problem to find the most suitable path that con
 <!--Theory of Path Planning Algorithm-->
 
 ## Theory of Path Planning Algorithm
+The path-planning technique relies on an effective algorithm for continuous collision detection and employs a novel multiobjective parallel evolutionary algorithm to build optimized paths.
+
+<ul>
+  <li>Provide feasible paths according to the task assigned with</li>
+  <li>Most obstacle-free path</li>
+  <li>Shortest and efficient path</li>
+</ul>
+
+### Grid-Based Planning
+
+By using the wave front expansion, what can be called flood fill, it uses a growing circle around the initial point. The nearest neighbours are analysed first and then the radius of the circle is extended to distant regions. It will generate the most efficient path of the given task when the calculation is finished.
 
 
 <!--Introduction of the Engineering Tools-->
@@ -462,6 +473,13 @@ Note: We have to admit that this if statement is not one of the best ways to eli
 If someone were to ask me about path planning in aviation before this course, I would possibly picture a sophisticated map and procedures too complicated to understand for someone who just graduated high school months ago. In fact, at the beginning of this project, I indeed saw it as a tremendous challenge, given the fact that I was brand new to both Python and coding algorithms. However, with the given example code and some introductory lectures, I was able to understand the fundamental concepts of computer algorithms. In short and simple language, an algorithm is equivalent to asking the program to do all the work too tedious for a human to complete. The program could run through all the possible paths given the object's position at the instant, which yields some kind of estimation on the time cost, which is then used to decide where the object would go next. (In my opinion, it is somewhat logically similar to the principle of least action in Lagrangian mechanics.) Calculating with computer programs is critical because it is the only efficient way to perform complex calculations quickly and accurately, especially given that our path planning scenarios are only overly simplified versions of real-life scenarios. Being able to use computer algorithms at our convenience also has implications beyond path planning. For example, we could utilize regression algorithms to find the most suitable curve for modeling the flow of a fluid or to predict stock market trends. In addition to learning about the importance of coding algorithms, we were also introduced to the collaborative programming platform, GitHub. We were able to learn how to collaborate efficiently with other programmers while taking advantage of the platform ourselves. I was amazed by the fact that there are many open-sourced codes for us to discover and modify to satisfy our own requirements. Moreover, writing some parts of the README file helped me revisit some basic HTML knowledge. All in all, this project provided me with new insights into computer algorithms as well as collaborative programming. They will undoubtedly be useful in the future not only for performing complex calculations but also for bringing potential ideas to life.
 
 ### b. Member 2 - Rainy Yuen (itsssraining)
+
+As this is my very first group project in my university life, Python and GitHub are new experiences for me. When the project is first announced, I knew it will be a tough and challenging project for all of us. For me, the issues were that I didn’t attend any Python classes since I have a different study pattern than other AE students, it’s hard for me to catch up and understanding all the coding skill. 
+
+I realized that communication and teamwork is very important and let us cooperate more effectively. I have a hard time when I’m trying to do coding and my coding skill is only limited to do modification from the sample code that given and finish the Task 1. Therefore, I have decided to leave the coding part to my groupmate, and instead I will be working on the README part. However, with some lectures and the provided example code, I was able to comprehend the basic ideas behind computer and path planning algorithms.
+
+Overall, this project gave me fresh perspectives on computer algorithms. Although completing this project is a challenge for me, this project has developed my teamwork skills. I will review what I have done and continue to improve in my future study.
+
 
 ### c. Member 3 - Anson Wong (Ansonwong88)
 

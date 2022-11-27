@@ -24,43 +24,19 @@
     </li>
     <li>
       <a href="#Compulsory-Task-1---Best-Aircraft-for-the-Given-Scenarios">Compulsory Task 1 - Best Aircraft for the Given Scenarios</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Compulsory-Task-2---Designing-Jet-Stream-Area">Compulsory Task 2 - Designing Jet Stream Area</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Compulsory-Task-3---Designing-an-Aircraft">Compulsory Task 3 - Designing an Aircraft</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li><a href="#Compusory-Task-Result_gif">Compulsory Task Result gif</a></li>
     <li>
       <a href="#Additional-Task-1---Adding-Check-Points">Additional Task 1 - Adding Check Points</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios">Additional Task 2 - Path Planning for Random Scenarios</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Individual-Reflective-Essay">Individual Reflective Essays</a>

@@ -324,17 +324,56 @@ Restrictions are given that:
 
 To tackle this task, we first defined 2 helper functions in our code: ```aircraft_cost(capacity)``` and ```optimal_cost()```.
 
+<ins>```aircraft_cost(capacity)```</ins>
+This function takes in the capacity of the aircraft as an input parameter and returns the cost per flight. 
+
+Before we start the calculation process for the cost, we first wanted to know how many engines the aircraft has. This could be done using a simple if-else statement; if the capacity is lower than 300, return the parameters (fixed cost and fuel consumption rate) for a twin-engine aircraft, else return those for a 4-engine aircraft:
+```
+ # To determine the fixed cost per flight and the total rate of fuel consumption of all engines (whether the plane has 2 engines or 4 engines), depending on the aircraft's capacity.
+if capacity >= 300:
+    Cc = 2500
+    delta_F = 20*4
+else:
+    Cc = 2000
+    delta_F = 20*2
+```
+Then we converted the cost of fuel into units of $ per kilogram through dividing 882.30 by 1000. 
+
+Next, based on the aircraft's passenger capacity, we could calculate the time related cost per minute of flight. Note that the ```math.floor()``` function is used here to round the numbers of groups of 50 passengers to the lower number (eg. if there are 70 passengers, we only increase CT by one $2, since we only increase CT for every 50 passengers).
+```
+ CT = 12 + math.floor(capacity/50)*2  # CT is the time related cost per minute of flight (base CT = $12/min, for every 50 passengers increase CT by $2)
+```
+
+With all the parameters for calculating the cost obtained, we could finally calculate the trip cost by simply plugging all the parameters into the cost equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>. (Note that T<sub>best</sub> is ```current.cost```, the trip time calculated by the A* algorithm.)
+
+<ins>```optimal_cost()```</ins>
+This function runs through every possible capacity (100<=capacity<=450) and finds out the minimum cost, which in turn would lead us to the most optimal capacity.
+
+We first started off by setting a cost for the resulting calculated cost to compare with. Then, we proceeded to setting a for loop that runs through all the possible capacities. Inside the for loop, we first decided whether the specified aircraft capacity would fulfill the amount of passengers as required in Scenario 1. If not, we would skip the iteration for this specific capacity. However, if the capacity in this iteration meets the passenger requirement, we would proceed to calculate the flight cost and compare this newly obtained flight cost to the cost stored as the ```cost``` variable. If this new cost is lower than the stored cost, we would store this new cost as into the ```cost``` variable instead. If not, the for loop proceeds into the next iteration of calcuation for a new capacity.
+
+```
+cost = aircraft_cost(450)
+# Running every possible capacity and calculating its cost
+for c in range (100, 451):
+    # If the capacity does not meet the capacity reqirement, skip the calcuation for its cost
+    if c*12<3000:
+        continue
+    # If the new cost of the capacity running in this iteration is smaller than the previously stored cost, store this capacity and its cost for comparasion in the next iteration. 
+    if aircraft_cost(c)<cost:
+        capacity = c
+        cost = aircraft_cost(c)
+```
+
+As a result, the optimal capacity and the optimal cost is stored into the ```capacity``` and ```cost``` variables, respectively. 
 
 ### b. Results
+```
+Task 3 Results:
+The optimal passenger capacity for scenario 1 is 250. There are 2 engines on the aircraft. This yields in a minimal operating cost of $5431.52 per flight. 
+```
+Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
 
 
-
-**The following show the result of the most optimal aircraft in Task3**
-<img width="921" alt="Screen Shot 2022-11-01 at 3 04 15 PM" src="https://user-images.githubusercontent.com/116058486/199177844-6e93ad22-82c4-416b-975f-d372184bb5e5.png">
-
-Name for aircraft: 
-Passenger capacity: 250
-Engine count: 2
 
 ### c. Discussion
 

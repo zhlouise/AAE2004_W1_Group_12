@@ -438,6 +438,8 @@ Total Trip time required -> 100.35138520739841
 
 ## b. Results
 
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204119240-572613ae-b940-48dd-837d-01651ae872a2.gif)
+
 
 ## Individual Reflective Essay
 

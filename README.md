@@ -495,3 +495,7 @@ All in all, this course gives me insights into the path planning of fights and p
 https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf
 
 https://mediawiki.ivao.aero/index.php?title=Cost_Index
+
+https://en.wikipedia.org/wiki/Python_(programming_language)
+
+https://en.wikipedia.org/wiki/GitHub

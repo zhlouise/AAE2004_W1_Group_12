@@ -90,7 +90,7 @@ Python is a high-level, general-purpose programming language. Its design philoso
 
 ### b. GitHub
 
-GitHub is an Internet hosting service for software development and version control using Git which is a version control system. GitHub can be a platform that helps people solve problems by building software together. Projects on GitHub.com can be accessed and managed using the standard Git command-line interface; all standard Git commands work with it. In GitHub, the users can create their own branches and if they want to modify others’ code them can create a pull request for the others to view and to merge it into the main branch. Our team used GitHub for cooperation.
+GitHub is an Internet hosting service for software development and version control using Git which is a version control system. GitHub can be a platform that helps people solve problems by building software together. Projects on GitHub.com can be accessed and managed using the standard Git command-line interface; all standard Git commands work with it. In GitHub, the users can create their own branches and if they want to modify others’ code, they can create a pull request for the others to view and to merge it into the main branch. Our team used GitHub for cooperation.
 
 <!--Compulsory Task 1 - Best Aircraft for the Given Scenarios-->
 
@@ -432,6 +432,9 @@ plt.plot(r1x,r1y,"-r") # show the route
 plt.plot(r2x,r2y,"-r")
 plt.plot(r3x,r3y,"-r")
 ```
+#### Additional task 1 version 2
+
+In additional task 1 version 2, we used similar methods that were used in version 1. The improvement is that in version 2, we modified the original code outside of the planning function, instead of using the repeated planning function to achieve it. Therefore, the code can be clearer, and the running speed of the code can be increased.
 
 ### b. Results
 
@@ -461,7 +464,7 @@ if (x==sx and y==sy) or (x==gx and y==gy) or (x==sx+1 and y==sy) or (x==sx-1 and
 ```
 Note: We have to admit that this if statement is not one of the best ways to eliminate the obstacles that are in conflict with the starting/ending points. If we had more time, we would have definitely looked into the program to find potential ways of optimizing it. 
 
-## b. Results
+### b. Results
 
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204119240-572613ae-b940-48dd-837d-01651ae872a2.gif)
 

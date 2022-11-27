@@ -69,15 +69,11 @@ Path planning is a computational problem to find the most suitable path that con
 ## Theory of Path Planning Algorithm
 The path-planning technique relies on an effective algorithm for continuous collision detection and employs a novel multiobjective parallel evolutionary algorithm to build optimized paths.
 
-### Path planning techniques include two major types of algorithms
-
-**Grid-based search algorithms** 
-
-Locate a path in a grid-map using the least amount of travel time. They can be applied to projects like mobile robots operating in a two-dimensional space. However, when the number of dimensions increases, such as for a 6 DOF robot manipulator, so does the memory requirement to perform grid-based algorithms.
-
-**Sampling-based search algorithms**
-
-By randomly selecting fresh node configurations from a state space, sampling-based search algorithms build a searchable tree. Sampling-based algorithms can be used in search spaces with low or high dimensions.
+<ul>
+  <li>Provide feasible paths according to the task assigned with</li>
+  <li>Most obstacle-free path</li>
+  <li>Shortest and efficient path</li>
+</ul>
 
 
 <!--Introduction of the Engineering Tools-->

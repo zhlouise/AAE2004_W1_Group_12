@@ -346,8 +346,6 @@ Engine count: 2
 
 ### b. Results
 
-<img width="700" alt="Figure_Task A1(1)" src="C:\Users\y\Documents\GitHub\Figure_Task A1(1).png">
-
 ## Additional Task-2 - Path Planning for Random Scenarios
 
 ### a. Methodology

@@ -440,7 +440,16 @@ In this task, we were asked to plan the path using the program with a random set
 
 We began our solution to this task by writing the helper function ```random_obstacles (ox, oy, number_of_obstacles, sx, sy, gx, gy)```, which would return a list of obstacle coordinates, ```ox``` and ```oy```. 
 
-This function operates though running a for loop that generates the 
+This function operates though running a for loop that generates one coordinate for one obstacle for every iteration and appends the x and y coordinates into their respective lists. In addition, it also involves an if statement that judges whether the obstacle is generated near the starting/ending point. If an obstacle is generated near the starting/ending points, we will drop that obstacle from the lists.
+
+```
+# We drop the value from the lists if the obstacles are near starting position or ending position:
+if (x==sx and y==sy) or (x==gx and y==gy) or (x==sx+1 and y==sy) or (x==sx-1 and y==sy) or (x==sx and y==sy+1) or (x==sx and y==sy-1) or (x==sx+1 and y==sy+1) or (x==sx+1 and y==sy-1) or (x==sx-1 and y==sy+1) or (x==sx-1 and y==sy-1)or (x==gx+1 and y==gy) or (x==gx-1 and y==gy) or (x==gx and y==gy+1) or (x==gx and y==gy-1) or (x==gx+1 and y==gy+1) or (x==gx+1 and y==gy-1) or (x==gx-1 and y==gy+1) or (x==gx-1 and y==gy-1):
+    ox.remove(x)
+    oy.remove(y)
+
+```
+Note: We have to admit that this if statement is not one of the best ways to 
 
 
 ## b. Results

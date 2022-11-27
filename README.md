@@ -526,3 +526,7 @@ In conclusion, from this group project, we have learned a lot about aviation the
 https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf
 
 https://mediawiki.ivao.aero/index.php?title=Cost_Index
+
+https://en.wikipedia.org/wiki/Python_(programming_language)
+
+https://en.wikipedia.org/wiki/GitHub

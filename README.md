@@ -404,6 +404,8 @@ When the passenger capacity exceeds 300, we must switch from a 2-engined aircraf
 
 # Compulsory Task Result gif
 
+The below gif shows the resulting plotting animation of the path planning program after we have completed all the previous 3 compulsory tasks.
+
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204118263-ad34b368-5b8b-4230-be83-b4f076eb1123.gif)
 
 
@@ -411,9 +413,25 @@ When the passenger capacity exceeds 300, we must switch from a 2-engined aircraf
 
 ## Additional Task 1 - Adding Check Points
 
-In this task, we were asked to randomly generate 2 checkpoints, one in each cost intesive areas. The flight is required to pass through the checkpoints before reaching the destination. 
+In this task, we were asked to randomly generate 2 checkpoints, one in each cost intesive areas. The flight is required to pass through the checkpoints before reaching the destination. This is an add-on to the code we wrote previously.
 
 ### a. Methodology
+
+The first step was to generate and to plot the additional checkpoints, which we wrote a helper function ```check_point()``` to complete. Through using the ```random.randint()``` method, we were able to obtain a random set of coordinates for each checkpoint that fits into its respective cost intensive areas each time we run the program. We then plotted the checkpoints in magenta color: 
+```
+plt.plot(c1x, c1y, "om") # plot check point 1
+plt.plot(c2x, c2y, "om") # plot check point 2
+```
+After we have obtained the coordinates of the checkpoints, we proceeded to calculating and plotting the flight path using the ```a_star.planning()``` function.
+
+Logically, we could separate the entire route of the flight into three parts:
+<ol>
+  <li>From starting point to the first checkpoint, the checkpoint that is the closest to the starting point. </li>
+  <li>From the first checkpoint to the next checkpoint. </li>
+  <li>From the last checkpoint to the destination. </li>
+</ol>
+
+Thus, we could simply plan and plot each part individually, then add up the flight time for each part together to obtain the final flight time. 
 
 ### b. Results
 

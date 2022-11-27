@@ -374,10 +374,29 @@ The optimal passenger capacity for scenario 1 is 250. There are 2 engines on the
 ```
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
 
-
+To summarize our results:
+|Aircraft Name                |POLYU012|
+|-----------------------------|--------|
+|Passenger Capacity           |250     |
+|Engine Count                 |2       |
+|Cost per flight for Senario 1|$5431.52|
 
 ### c. Discussion
 
+<ins>Explanation of the Rules and Restrictions</ins>
+
+Recall the restrictions stated in the beginning of the task. Some restrictions are given that:
+<ul>
+  <li>The aircraft could have a minimum capacity of 100 passengers and a maximum capacity of 450 passengers. </li>
+  <li>The base time related cost per minute of flight is 12$/min. However, for every 50 passengers, the time related cost is increased by 2$/min.</li>
+  <li>The base design is a twin-engine aircraft. However, if the passenger capacity exceeds 300 (inclusive), we must switch to a 4-engined aircraft. </li>
+    <ul>
+      <li>The fixed cost for a twin-engine aircraft is $2000 while the fixed cost for a 4-engine aircraft is $2500.</li>
+      <li>Each engine consumes fuel at a rate of 20 kg/min. </li> 
+    </ul>
+</ul>
+
+The aircraft is given 
 
 <!--Additional Task 1 - Adding Check Points-->
 
@@ -430,3 +449,4 @@ All in all, this course gives me insights into the path planning of fights and p
 ## Conclusion
 
 ## References
+https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf

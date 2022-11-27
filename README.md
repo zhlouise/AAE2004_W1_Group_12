@@ -434,7 +434,23 @@ Total Trip time required -> 100.35138520739841
 
 ## Additional Task-2 - Path Planning for Random Scenarios
 
+In this task, we were asked to plan the path using the program with a random set of obstacles and starting/ending points. The starting and ending points must have a minimum of 50 units of separation distance. Moreover, the obstacles should be generated with resonable density and they could not be generated near the starting/ending points. In addition, there would also be a 30 by 30 units of fuel consuming area randomly generated in the map. Lastly, diagonal movement is disabled in this task.
+
 ### a. Methodology
+
+We began our solution to this task by writing the helper function ```random_obstacles (ox, oy, number_of_obstacles, sx, sy, gx, gy)```, which would return a list of obstacle coordinates, ```ox``` and ```oy```. 
+
+This function operates though running a for loop that generates one coordinate for one obstacle for every iteration and appends the x and y coordinates into their respective lists. In addition, it also involves an if statement that judges whether the obstacle is generated near the starting/ending point. If an obstacle is generated near the starting/ending points, we will drop that obstacle from the lists.
+
+```
+# We drop the value from the lists if the obstacles are near starting position or ending position:
+if (x==sx and y==sy) or (x==gx and y==gy) or (x==sx+1 and y==sy) or (x==sx-1 and y==sy) or (x==sx and y==sy+1) or (x==sx and y==sy-1) or (x==sx+1 and y==sy+1) or (x==sx+1 and y==sy-1) or (x==sx-1 and y==sy+1) or (x==sx-1 and y==sy-1)or (x==gx+1 and y==gy) or (x==gx-1 and y==gy) or (x==gx and y==gy+1) or (x==gx and y==gy-1) or (x==gx+1 and y==gy+1) or (x==gx+1 and y==gy-1) or (x==gx-1 and y==gy+1) or (x==gx-1 and y==gy-1):
+    ox.remove(x)
+    oy.remove(y)
+
+```
+Note: We have to admit that this if statement is not one of the best ways to 
+
 
 ## b. Results
 
@@ -481,4 +497,3 @@ All in all, this course gives me insights into the path planning of fights and p
 https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf
 
 https://mediawiki.ivao.aero/index.php?title=Cost_Index
-

@@ -341,7 +341,8 @@ Then we converted the cost of fuel into units of $ per kilogram through dividing
 
 Next, based on the aircraft's passenger capacity, we could calculate the time related cost per minute of flight. Note that the ```math.floor()``` function is used here to round the numbers of groups of 50 passengers to the lower number (eg. if there are 70 passengers, we only increase CT by one $2, since we only increase CT for every 50 passengers).
 ```
- CT = 12 + math.floor(capacity/50)*2  # CT is the time related cost per minute of flight (base CT = $12/min, for every 50 passengers increase CT by $2)
+CT = 12 + math.floor(capacity/50)*2  
+# CT is the time related cost per minute of flight (base CT = $12/min, for every 50 passengers increase CT by $2)
 ```
 
 With all the parameters for calculating the cost obtained, we could finally calculate the trip cost by simply plugging all the parameters into the cost equation C = C<sub>F</sub> * ΔF * T<sub>best</sub> +  C<sub>T</sub> * T<sub>best</sub> + C<sub>C</sub>. (Note that T<sub>best</sub> is ```current.cost```, the trip time calculated by the A* algorithm.)

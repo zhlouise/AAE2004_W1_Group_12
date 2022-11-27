@@ -24,43 +24,19 @@
     </li>
     <li>
       <a href="#Compulsory-Task-1---Best-Aircraft-for-the-Given-Scenarios">Compulsory Task 1 - Best Aircraft for the Given Scenarios</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Compulsory-Task-2---Designing-Jet-Stream-Area">Compulsory Task 2 - Designing Jet Stream Area</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Compulsory-Task-3---Designing-an-Aircraft">Compulsory Task 3 - Designing an Aircraft</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li><a href="#Compusory-Task-Result_gif">Compulsory Task Result gif</a></li>
     <li>
       <a href="#Additional-Task-1---Adding-Check-Points">Additional Task 1 - Adding Check Points</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Additional-Task-2---Path-Planning-for-Random-Scenarios">Additional Task 2 - Path Planning for Random Scenarios</a>
-      <ol>
-        <li><a href="#a-Methodology">Methodology</a></li>
-        <li><a href="#b-Results">Results</a></li>
-        <li><a href="#c-Discussion">Discussion</a></li>
-      </ol>
     </li>
     <li>
       <a href="#Individual-Reflective-Essay">Individual Reflective Essays</a>
@@ -183,7 +159,6 @@ The trip cost for using 8 flights of A350 is $70551.62
 9 flights of A330 will yield the lowest cost of $69102.66
 ```
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```. 
-
 
 <!--Compulsory Task 2 - Designing Jet Stream Area-->
 
@@ -405,15 +380,56 @@ When the passenger capacity exceeds 300, we must switch from a 2-engined aircraf
 
 # Compulsory Task Result gif
 
+The below gif shows the resulting plotting animation of the path planning program after we have completed all the previous 3 compulsory tasks.
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/116058486/204118263-ad34b368-5b8b-4230-be83-b4f076eb1123.gif)
+
+
 <!--Additional Task 1 - Adding Check Points-->
 
 ## Additional Task 1 - Adding Check Points
 
-
+In this task, we were asked to randomly generate 2 checkpoints, one in each cost intesive areas. The flight is required to pass through the checkpoints before reaching the destination. This is an add-on to the code we wrote previously.
 
 ### a. Methodology
 
+The first step was to generate and to plot the additional checkpoints, which we wrote a helper function ```check_point()``` to complete. Through using the ```random.randint()``` method, we were able to obtain a random set of coordinates for each checkpoint that fits into its respective cost intensive areas each time we run the program. We then plotted the checkpoints in magenta color: 
+```
+plt.plot(c1x, c1y, "om") # plot check point 1
+plt.plot(c2x, c2y, "om") # plot check point 2
+```
+After we have obtained the coordinates of the checkpoints, we proceeded to calculating and plotting the flight path using the ```a_star.planning()``` function.
+
+Logically, we could separate the entire route of the flight into three parts:
+<ol>
+  <li>From starting point to the first checkpoint, the checkpoint that is the closest to the starting point. </li>
+  <li>From the first checkpoint to the next checkpoint. </li>
+  <li>From the last checkpoint to the destination. </li>
+</ol>
+
+Thus, we could simply plan and plot the path for each part individually, then add up the flight time for each part together to obtain the final flight time:
+
+```
+a_star = AStarPlanner(ox, oy, grid_size, robot_radius, fc_x, fc_y, tc_x, tc_y, jc_x, jc_y)
+r1x, r1y, cost1 = a_star.planning(sx, sy, c1x, c1y)
+r2x, r2y, cost2 = a_star.planning(c1x, c1y, c2x, c2y)
+r3x, r3y, cost3 = a_star.planning(c2x, c2y, gx, gy)
+total_cost = cost1 + cost2 + cost3
+print("Total Trip time required -> ", total_cost)
+......
+plt.plot(r1x,r1y,"-r") # show the route 
+plt.plot(r2x,r2y,"-r")
+plt.plot(r3x,r3y,"-r")
+```
+
 ### b. Results
+
+The below result shows an example of what to expect after executing the code.
+```
+Total Trip time required -> 100.35138520739841
+# Note that the total trip time is significantly longer than the results show before since the flight needs to extend its path in order to reach the checkpoints.
+```
+
 
 ## Additional Task-2 - Path Planning for Random Scenarios
 

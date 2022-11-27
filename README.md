@@ -45,6 +45,7 @@
         <li><a href="#c-Discussion">Discussion</a></li>
       </ol>
     </li>
+    <li><a href="#Compusory-Task-Result_gif">Compulsory Task Result gif</a></li>
     <li>
       <a href="#Additional-Task-1---Adding-Check-Points">Additional Task 1 - Adding Check Points</a>
       <ol>
@@ -374,14 +375,41 @@ The optimal passenger capacity for scenario 1 is 250. There are 2 engines on the
 ```
 Please note that the results above are copied from the results printed in the terminal after executing ```main.py```.
 
-
+To summarize our results:
+|Aircraft Name                |POLYU012|
+|-----------------------------|--------|
+|Passenger Capacity           |250     |
+|Engine Count                 |2       |
+|Cost per flight for Senario 1|$5431.52|
 
 ### c. Discussion
 
+<ins>Explanation of the Rules and Restrictions</ins>
+
+Recall the restrictions stated in the beginning of the task. Some restrictions are given that:
+<ul>
+  <li>The aircraft could have a minimum capacity of 100 passengers and a maximum capacity of 450 passengers. </li>
+  <li>The base time related cost per minute of flight is 12$/min. However, for every 50 passengers, the time related cost is increased by 2$/min.</li>
+  <li>The base design is a twin-engine aircraft. However, if the passenger capacity exceeds 300 (inclusive), we must switch to a 4-engined aircraft. </li>
+    <ul>
+      <li>The fixed cost for a twin-engine aircraft is $2000 while the fixed cost for a 4-engine aircraft is $2500.</li>
+      <li>Each engine consumes fuel at a rate of 20 kg/min. </li> 
+    </ul>
+</ul>
+
+The aircraft is given a capacity limit due to safety reasons. As passenger capacity is closely related to the weight that the aircraft carries as well as the aircraft's volume, compliance with the weight limits is crucial for maintaining the balance of the aircraft as well as flight safety. Operating an aircraft above the maximum weight limit is detrimental to the structural integrity of the aircraft. The weight capacity also affects the aircraft's performance. For example, a large weight means that the aircraft would have a larger inertia, thus it takes longer to take off and/or land, if it is able to take off/land at all.
+
+Time related cost for a flight contains the sum of several components including hourly maintenance cost, aircraft crew salary, as well as the overflight cost. These costs increase as the time of the flight increases. When there are more passengers on the flight, it makes sense intuitively that the flight would take a longer time to reach the destination, since the aircraft needs to do more work. An increase in passenger capacity thus causes the hourly maintenance cost and overflight cost to increase, as they are all costs directly related to the flight time. An increase in passenger capacity also means that there shall be more cabin crew hired to meet the service demands of the flight. The above reasons explains why we have to increase the time related cost by 2$/min for every 50 passengers.
+
+When the passenger capacity exceeds 300, we must switch from a 2-engined aircraft to a 4-engined aircraft, in order for the aircraft to power the increased weight load. This also means that the fixed cost for the flight would increase when we add 2 more engines to the aircraft, since the addition of the engines would make the aircraft more costly.
+
+# Compulsory Task Result gif
 
 <!--Additional Task 1 - Adding Check Points-->
 
 ## Additional Task 1 - Adding Check Points
+
+
 
 ### a. Methodology
 
@@ -430,3 +458,8 @@ All in all, this course gives me insights into the path planning of fights and p
 ## Conclusion
 
 ## References
+
+https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/phak/media/12_phak_ch10.pdf
+
+https://mediawiki.ivao.aero/index.php?title=Cost_Index
+

@@ -77,7 +77,7 @@ Path planning is a computational problem to find the most suitable path that con
 
 Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is a multi-paradigm programming language. Object-oriented programming and structured programming are fully supported, and many of their features support functional programming and aspect-oriented programming. Python is intended to be an easy-to-read language. It is visually neatly formatted and often uses English keywords whereas other languages use punctuation. This can be beneficial for beginners like us. Python has several versions, and our group used Python 3 for coding.
 
-### b. Github
+### b. GitHub
 
 GitHub is an Internet hosting service for software development and version control using Git which is a version control system. GitHub can be a platform that helps people solve problems by building software together. Projects on GitHub.com can be accessed and managed using the standard Git command-line interface; all standard Git commands work with it. In GitHub, the users can create their own branches and if they want to modify others’ code them can create a pull request for the others to view and to merge it into the main branch. Our team used GitHub for cooperation.
 
@@ -471,6 +471,8 @@ I have learnt how to apply the program in aviation and the rationale behind. To 
 
 ### d. Member 4 - Samuel Yau (SamuelYcy)
 
+First of all, I have only a few ideas about the aviation system or how an airplane fly before this project start. After these few lessons, i have a deeper knowledge regarding the aviation industry, on how they prepare for an airplane. Speaking of the lessons, the python and Github is really a very difficult thing to learn, even i was tought coding in the other class but it is totally diverse. The coding here has to combined with lots of outside factors, like the environment or the maximum passengers number, which make us has more things to concern while making the code. I would like to appreaciate this course provided me knowledge reagrading the aviation field and what we might have to work on in the future, it makes me clean my mind and try to pursue more from it. At last, thank you my teammate that helped on the coding part which is the hardest in this project, and teammate that have sacrificed their time on doing this project. 
+
 ### e. Member 5 - Aidan Yau (yhpAidan)
 
 Although I have learnt the python coding in other subjects like the the Foundamentals of AI and Data Analysis, but this coding part and A star algorithm in this course is totally new to me and also difficult to me. In this project, I have tried to do and successfully finished the compulsary task 1 but task 2 and 3 is really hard for me. Fortunately, my groupmates have a stronger coding skill and they have finished all the compulsary task so my job is to do the read.me section. This path planning course really built a foundation in my aviation knowledge. If I had a chance to do this project again, I would learn the coding part more deeply and try to understand all the function of the code like A star algorithm. In conclusion, this github course helps me a lot as a first project in my university life.
@@ -481,14 +483,25 @@ As a person who is totally new to programming, I have never learn any coding bef
 
 ### g. Member 7 - Mark Yao (Markyaoxin)
 
+This is the first time for me to complete a project as a group in university. It was a new and meaningful experience for me personally. Since I haven't done too much research and in-depth understanding of the code before, I didn't play a big role in this group project. By the way, I would like to thank my team members, especially the group leader, for helping me when I had problems, which was really helpful to me. Even so, I actually learned a lot during this project.
+
+First of all, team spirit. A successful project can not be completed by a single person, it is by a group of division of labor cooperation, each can do their own job. Honestly, I was not good at communicating with my team members in the early stage of the project, but when I realized the importance of teamwork, I began to take the initiative to take on responsibilities, such as video editing.
+
+Second, I realized the importance of coding. In daily life, social software, navigation, data analysis, and so on all require coding. Originally, I did not pay much attention to these in daily life, only know that these programming is convenient for human life. But it wasn't until I really got into coding that I realized how widespread it was. It can be used in all aspects of life, not just strings of code. Automatic cruise systems, for example, use code to quickly work out which routes are most efficient. When applied to real life, we often see navigation or airplane routes and so on. At first, I thought the flight route of the plane was just about to fly to the destination, but I did not think it has a very perfect system behind it, the plane's route planning clearly. That’s why I recognized the coding is important.
+
+That's what I got out of this project.
+
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
 
 In this course, we have learnt about the A star algorithm of path planning and done some tasks by using it. Since I have not done any coding projects, everything seems unfamiliar to me. After reading the explanation after some code, I began to understand that we should change some parameters and modify some parts of the original code while keeping the logic of the code to be clear instead of writing the whole code. During coding, I have encountered many errors and I don’t know how to solve them. Thanks to my groupmates and the teachers, I was able to figure them out in the end. This let me realize the importance of cooperation.
+
 In the course, I also got familiar with tools for coding such as GitHub. GitHub can not only be a resource library for programmers but also provide an online platform for programmers to cooperate. It can be a useful tool to do a coding project.
 All in all, this course gives me insights into the path planning of fights and practice my skills of working as a team.
 
 
 ## Conclusion
+
+In conclusion, from this group project, we have learned a lot about aviation theory from, for example the A star algorithm of path planning, which we have used in the project. The most difficult part for us in the project would be the coding part, as most of our group mates are new to programming, which planning the flight path by using Python in limited time would be a big challenge. Fortunately with the help of group mates which are more familiar to coding, and by putting effort on studying the sample codes, this problem is finally being overcome. Another challenge of doing this project would be the time management, as the available time is not long for us to finish the whole project, so the importance of time management and coordinate with each other would be very important. All in all, although this project is quite a big challenge for us, we still learn a lot from this, which believed that would be helpful for our future study.
 
 ## References
 

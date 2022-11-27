@@ -447,10 +447,8 @@ This function operates though running a for loop that generates one coordinate f
 if (x==sx and y==sy) or (x==gx and y==gy) or (x==sx+1 and y==sy) or (x==sx-1 and y==sy) or (x==sx and y==sy+1) or (x==sx and y==sy-1) or (x==sx+1 and y==sy+1) or (x==sx+1 and y==sy-1) or (x==sx-1 and y==sy+1) or (x==sx-1 and y==sy-1)or (x==gx+1 and y==gy) or (x==gx-1 and y==gy) or (x==gx and y==gy+1) or (x==gx and y==gy-1) or (x==gx+1 and y==gy+1) or (x==gx+1 and y==gy-1) or (x==gx-1 and y==gy+1) or (x==gx-1 and y==gy-1):
     ox.remove(x)
     oy.remove(y)
-
 ```
-Note: We have to admit that this if statement is not one of the best ways to 
-
+Note: We have to admit that this if statement is not one of the best ways to eliminate the obstacles that are in conflict with the starting/ending points. If we had more time, we would have definitely looked into the program to find potential ways of optimizing it. 
 
 ## b. Results
 

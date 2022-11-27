@@ -483,11 +483,18 @@ As a person who is totally new to programming, I have never learn any coding bef
 
 ### g. Member 7 - Mark Yao (Markyaoxin)
 
+This is the first time for me to complete a project as a group in university. It was a new and meaningful experience for me personally. Since I haven't done too much research and in-depth understanding of the code before, I didn't play a big role in this group project. By the way, I would like to thank my team members, especially the group leader, for helping me when I had problems, which was really helpful to me. Even so, I actually learned a lot during this project.
 
+First of all, team spirit. A successful project can not be completed by a single person, it is by a group of division of labor cooperation, each can do their own job. Honestly, I was not good at communicating with my team members in the early stage of the project, but when I realized the importance of teamwork, I began to take the initiative to take on responsibilities, such as video editing.
+
+Second, I realized the importance of coding. In daily life, social software, navigation, data analysis, and so on all require coding. Originally, I did not pay much attention to these in daily life, only know that these programming is convenient for human life. But it wasn't until I really got into coding that I realized how widespread it was. It can be used in all aspects of life, not just strings of code. Automatic cruise systems, for example, use code to quickly work out which routes are most efficient. When applied to real life, we often see navigation or airplane routes and so on. At first, I thought the flight route of the plane was just about to fly to the destination, but I did not think it has a very perfect system behind it, the plane's route planning clearly. That’s why I recognized the coding is important.
+
+That's what I got out of this project.
 
 ### h. Member 8 - Haoyang Yu (YU-Haoyang22101598d)
 
 In this course, we have learnt about the A star algorithm of path planning and done some tasks by using it. Since I have not done any coding projects, everything seems unfamiliar to me. After reading the explanation after some code, I began to understand that we should change some parameters and modify some parts of the original code while keeping the logic of the code to be clear instead of writing the whole code. During coding, I have encountered many errors and I don’t know how to solve them. Thanks to my groupmates and the teachers, I was able to figure them out in the end. This let me realize the importance of cooperation.
+
 In the course, I also got familiar with tools for coding such as GitHub. GitHub can not only be a resource library for programmers but also provide an online platform for programmers to cooperate. It can be a useful tool to do a coding project.
 All in all, this course gives me insights into the path planning of fights and practice my skills of working as a team.
 
